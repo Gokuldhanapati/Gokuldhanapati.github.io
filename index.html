@@ -1,16 +1,189 @@
-<section style="text-align:center; padding:100px 20px; background-color:#f5f5f5;">
-  <h1 style="font-size:48px; margin-bottom:20px;">Gokul Dhanapati</h1>
-  <p style="font-size:20px; color:#555; margin-bottom:40px;">
-    Learning, creating, exploring, and sharing bits of my journey with the world
-  </p>
-  <a href="#projects" style="
-    background-color:#4CAF50; 
-    color:white; 
-    padding:15px 30px; 
-    font-size:18px; 
-    text-decoration:none; 
-    border-radius:8px;
-    transition:0.3s;">
-    Explore My World
-  </a>
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gokul Dhanapati</title>
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body, html {
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+
+        /* Landing page */
+        .landing {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e, #162447);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {background-position:0% 50%;}
+            50% {background-position:100% 50%;}
+            100% {background-position:0% 50%;}
+        }
+
+        .landing h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .landing p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            max-width: 700px;
+            line-height: 1.5;
+        }
+
+        .enter-btn {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border: 2px solid #ffffff;
+            background: transparent;
+            color: #ffffff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .enter-btn:hover {
+            background: #ffffff;
+            color: #162447;
+        }
+
+        .landing .subtext {
+            margin-top: 15px;
+            color: #ccc;
+            font-size: 1rem;
+        }
+
+        /* Main content */
+        .main {
+            padding: 60px 20px;
+            background: #f5f5f5;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .grid-box {
+            background: #ffffff;
+            padding: 40px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .grid-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        }
+
+        .grid-box h2 {
+            margin-bottom: 15px;
+            color: #162447;
+        }
+
+        .grid-box p {
+            color: #555555;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #162447;
+            color: #ffffff;
+        }
+
+        /* Responsive for mobile */
+        @media (max-width: 600px) {
+            .landing h1 {
+                font-size: 3rem;
+            }
+
+            .landing p {
+                font-size: 1rem;
+            }
+
+            .grid-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Landing page -->
+    <section class="landing" id="landing">
+        <h1>GOKUL DHANAPATI</h1>
+        <p>Learning, creating, exploring, and sharing experiences, projects, and moments from my journey.</p>
+        <button class="enter-btn" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">
+            Explore My World
+        </button>
+        <p class="subtext">Click below to explore my projects, skills, and journey.</p>
+    </section>
+
+    <!-- Main content -->
+    <section class="main" id="main">
+        <div class="grid-container">
+            <a href="about.html" class="grid-box">
+                <h2>About Me</h2>
+                <p>Discover my background, passions, and experiences that shape my journey.</p>
+            </a>
+            <a href="projects.html" class="grid-box">
+                <h2>Projects</h2>
+                <p>A showcase of the work, experiments, and projects I’ve built over time.</p>
+            </a>
+            <a href="skills.html" class="grid-box">
+                <h2>Skills</h2>
+                <p>The tools, technologies, and skills I’ve learned and mastered along the way.</p>
+            </a>
+            <a href="journey.html" class="grid-box">
+                <h2>Journey</h2>
+                <p>Snapshots from my learning, adventures, and milestones throughout my journey.</p>
+            </a>
+            <a href="gallery.html" class="grid-box">
+                <h2>Gallery / Extras</h2>
+                <p>Photos, inspirations, and memorable moments from my experiences and travels.</p>
+            </a>
+            <a href="contact.html" class="grid-box">
+                <h2>Contact</h2>
+                <p>Get in touch or collaborate on projects — I’d love to connect!</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2026 Gokul Dhanapati. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

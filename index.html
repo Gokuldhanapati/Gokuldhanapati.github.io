@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Website</title>
+    <title>Gokul Dhanapati</title>
     <style>
-        /* Reset */
         * {
             margin: 0;
             padding: 0;
@@ -13,21 +12,31 @@
             font-family: 'Arial', sans-serif;
         }
 
-        /* Landing page */
         body, html {
             height: 100%;
             scroll-behavior: smooth;
         }
 
+        /* Landing page */
         .landing {
+            position: relative;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #1a1a2e, #162447);
-            color: #ffffff;
             text-align: center;
+            color: #ffffff;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1a1a2e, #162447);
+            background-size: 400% 400%;
+            animation: gradientMove 15s ease infinite;
+        }
+
+        @keyframes gradientMove {
+            0% {background-position:0% 50%;}
+            50% {background-position:100% 50%;}
+            100% {background-position:0% 50%;}
         }
 
         .landing h1 {
@@ -37,8 +46,9 @@
 
         .landing p {
             font-size: 1.2rem;
-            margin-bottom: 40px;
-            max-width: 600px;
+            margin-bottom: 20px;
+            max-width: 700px;
+            line-height: 1.5;
         }
 
         .enter-btn {
@@ -49,6 +59,7 @@
             color: #ffffff;
             cursor: pointer;
             transition: all 0.3s ease;
+            border-radius: 8px;
         }
 
         .enter-btn:hover {
@@ -56,44 +67,78 @@
             color: #162447;
         }
 
-        /* Main content */
+        /* Main Full Page */
         .main {
-            padding: 60px 20px;
+            min-height: 100vh;
             background: #f5f5f5;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .grid-box {
-            background: #ffffff;
             padding: 40px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            align-items: start;
+        }
+
+        /* Left Profile Box */
+        .profile-box {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .profile-box img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .profile-box a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: #162447;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .profile-box a:hover {
+            background: #1a1a2e;
+        }
+
+        /* Right Side Menu */
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-box {
+            background: #ffffff;
+            padding: 30px;
             text-align: center;
             border-radius: 15px;
+            text-decoration: none;
+            color: black;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: 0.3s;
         }
 
-        .grid-box:hover {
+        .menu-box:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 25px rgba(0,0,0,0.2);
         }
 
-        .grid-box h2 {
-            margin-bottom: 15px;
+        .menu-box h3 {
+            margin-bottom: 10px;
             color: #162447;
+            font-size: 1.3rem;
         }
 
-        .grid-box p {
-            color: #555555;
-        }
-
-        /* Footer */
         footer {
             text-align: center;
             padding: 20px;
@@ -106,46 +151,58 @@
 
     <!-- Landing page -->
     <section class="landing" id="landing">
-        <h1>Your Name</h1>
-        <p>"Curiosity over comfort." – Welcome to my personal website</p>
-        <button class="enter-btn" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">Enter →</button>
+        <h1>GOKUL DHANAPATI</h1>
+        <p>LEARNING, CREATING, EXPLORING</p>
+        <button class="enter-btn" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">WELCOME</button>
     </section>
 
-    <!-- Main content -->
+
+    <!-- Main Full Page -->
     <section class="main" id="main">
-        <div class="grid-container">
-            <!-- Upper row -->
-            <div class="grid-box">
-                <h2>About Me</h2>
-                <p>Short bio and background information.</p>
-            </div>
-            <div class="grid-box">
-                <h2>Projects</h2>
-                <p>Showcase of my work and portfolio items.</p>
-            </div>
-            <div class="grid-box">
-                <h2>Skills</h2>
-                <p>Programming, design, tools, and other skills.</p>
-            </div>
-            <!-- Lower row -->
-            <div class="grid-box">
-                <h2>Blog / Notes</h2>
-                <p>My personal thoughts, quotes, or writings.</p>
-            </div>
-            <div class="grid-box">
-                <h2>Contact</h2>
-                <p>Email, social media links, or a contact form.</p>
-            </div>
-            <div class="grid-box">
-                <h2>Gallery / Extras</h2>
-                <p>Images, hobbies, or additional content.</p>
-            </div>
+
+        <!-- LEFT SIDE PROFILE BOX -->
+        <div class="profile-box">
+            <img src="your-photo.jpg" alt="Profile Photo">
+            <h2>Gokul Dhanapati</h2>
+            <a href="about.html">ABOUT ME</a>
         </div>
+
+        <!-- RIGHT SIDE MENU GRID -->
+        <div class="menu">
+            <a href="education.html" class="menu-box">
+                <h3>Education</h3>
+            </a>
+            <a href="research.html" class="menu-box">
+                <h3>Research</h3>
+            </a>
+            <a href="publications.html" class="menu-box">
+                <h3>Publications</h3>
+            </a>
+            <a href="conferences.html" class="menu-box">
+                <h3>Conferences</h3>
+            </a>
+            <a href="skills.html" class="menu-box">
+                <h3>Skills & Certifications</h3>
+            </a>
+            <a href="extension.html" class="menu-box">
+                <h3>Extension Activities</h3>
+            </a>
+            <a href="gallery.html" class="menu-box">
+                <h3>Gallery</h3>
+            </a>
+            <a href="updates.html" class="menu-box">
+                <h3>Updates / Blog</h3>
+            </a>
+            <a href="contact.html" class="menu-box">
+                <h3>Contact</h3>
+            </a>
+        </div>
+
     </section>
 
-    <!-- Footer -->
+
     <footer>
-        © 2025 Your Name. All Rights Reserved.
+        © 2026 Gokul Dhanapati. All Rights Reserved.
     </footer>
 
 </body>

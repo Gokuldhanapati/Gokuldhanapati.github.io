@@ -200,12 +200,9 @@
         .profile-image {
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, #ff4757, #ff6b81);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 120px;
+            object-fit: cover; /* Image covers the circle */
+            border-radius: 50%;
+            display: block;
         }
         
         /* Social links */
@@ -255,119 +252,38 @@
         
         /* Responsive design */
         @media (max-width: 1200px) {
-            .container {
-                padding: 60px 30px;
-            }
-            
-            .name {
-                font-size: 50px;
-            }
-            
-            .tagline {
-                font-size: 24px;
-            }
-            
-            .profile-image-container {
-                width: 400px;
-                height: 400px;
-            }
+            .container { padding: 60px 30px; }
+            .name { font-size: 50px; }
+            .tagline { font-size: 24px; }
+            .profile-image-container { width: 400px; height: 400px; }
         }
         
         @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 40px;
-            }
-            
-            .text-content {
-                padding-right: 0;
-                margin-bottom: 60px;
-            }
-            
-            .description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .social-links {
-                position: static;
-                flex-direction: row;
-                justify-content: center;
-                margin-top: 40px;
-                padding-bottom: 40px;
-            }
-            
-            .circle-1, .circle-2 {
-                display: none;
-            }
+            .container { flex-direction: column; text-align: center; padding-top: 40px; }
+            .text-content { padding-right: 0; margin-bottom: 60px; }
+            .description { margin-left: auto; margin-right: auto; }
+            .social-links { position: static; flex-direction: row; justify-content: center; margin-top: 40px; padding-bottom: 40px; }
+            .circle-1, .circle-2 { display: none; }
         }
         
         @media (max-width: 768px) {
-            header {
-                padding: 20px 30px;
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            nav ul {
-                gap: 20px;
-            }
-            
-            .name {
-                font-size: 42px;
-            }
-            
-            .tagline {
-                font-size: 22px;
-            }
-            
-            .profile-image-container {
-                width: 320px;
-                height: 320px;
-            }
-            
-            .btn {
-                padding: 12px 25px;
-                font-size: 15px;
-            }
+            header { padding: 20px 30px; flex-direction: column; gap: 20px; }
+            nav ul { gap: 20px; }
+            .name { font-size: 42px; }
+            .tagline { font-size: 22px; }
+            .profile-image-container { width: 320px; height: 320px; }
+            .btn { padding: 12px 25px; font-size: 15px; }
         }
         
         @media (max-width: 576px) {
-            .container {
-                padding: 40px 20px;
-            }
-            
-            .name {
-                font-size: 36px;
-            }
-            
-            .tagline {
-                font-size: 20px;
-            }
-            
-            .description {
-                font-size: 16px;
-            }
-            
-            .buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 220px;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .profile-image-container {
-                width: 280px;
-                height: 280px;
-            }
+            .container { padding: 40px 20px; }
+            .name { font-size: 36px; }
+            .tagline { font-size: 20px; }
+            .description { font-size: 16px; }
+            .buttons { flex-direction: column; align-items: center; }
+            .btn { width: 220px; }
+            nav ul { flex-wrap: wrap; justify-content: center; }
+            .profile-image-container { width: 280px; height: 280px; }
         }
     </style>
 </head>
@@ -395,7 +311,7 @@
             <h1 class="name">I Am <span>Gokul Dhanapati</span></h1>
             <p class="tagline">PhD Research Scholar</p>
             <p class="description">
-                
+                Learning, exploring, and growing through science.
             </p>
             <div class="buttons">
                 <a href="#portfolio" class="btn btn-primary">View My Work</a>
@@ -406,8 +322,6 @@
         <div class="image-content">
             <div class="profile-image-container">
                 <img src="krishna.jpg" alt="Gokul Dhanapati" class="profile-image">
-
-                </div>
             </div>
         </div>
     </main>
@@ -424,7 +338,6 @@
     <script>
         // Add interactive effects to the page
         document.addEventListener('DOMContentLoaded', function() {
-            // Animate elements on scroll
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -439,7 +352,6 @@
                 });
             }, observerOptions);
             
-            // Observe elements for animation
             const animatedElements = document.querySelectorAll('.text-content, .image-content');
             animatedElements.forEach(el => {
                 el.style.opacity = '0';
@@ -447,40 +359,6 @@
                 el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 observer.observe(el);
             });
-            
-            // Button hover effect enhancement
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('mouseenter', function() {
-                    this.style.transition = 'all 0.3s ease';
-                });
-            });
-            
-            // Navigation active state
-            const navLinks = document.querySelectorAll('nav ul li a');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-            
-            // Typewriter effect for the tagline (optional)
-            const tagline = document.querySelector('.tagline');
-            const originalText = tagline.textContent;
-            tagline.textContent = '';
-            
-            let i = 0;
-            const typeWriter = () => {
-                if (i < originalText.length) {
-                    tagline.textContent += originalText.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 50);
-                }
-            };
-            
-            // Start typewriter effect after a short delay
-            setTimeout(typeWriter, 800);
         });
     </script>
 </body>

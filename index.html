@@ -126,6 +126,7 @@
             color: #ddd;
             margin-bottom: 40px;
             line-height: 1.3;
+            min-height: 35px; /* prevents layout jump while typing */
         }
         
         .description {
@@ -200,7 +201,7 @@
         .profile-image {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Image covers the circle */
+            object-fit: cover;
             border-radius: 50%;
             display: block;
         }
@@ -309,7 +310,7 @@
     <main class="container" id="home">
         <div class="text-content">
             <h1 class="name">I Am <span>Gokul Dhanapati</span></h1>
-            <p class="tagline">PhD Research Scholar</p>
+            <p class="tagline" id="tagline">PhD Research Scholar</p>
             <p class="description">
                 Learning, exploring, and growing through science.
             </p>
@@ -359,6 +360,22 @@
                 el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
                 observer.observe(el);
             });
+
+            // Typing animation for tagline
+            const tagline = document.getElementById('tagline');
+            const text = tagline.textContent;
+            tagline.textContent = '';
+            let index = 0;
+
+            function typeLetter() {
+                if (index < text.length) {
+                    tagline.textContent += text[index];
+                    index++;
+                    setTimeout(typeLetter, 100); // adjust speed here
+                }
+            }
+
+            typeLetter();
         });
     </script>
 </body>

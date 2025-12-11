@@ -118,14 +118,13 @@
         
         .name span {
             color: #ff4757;
-        }
-
-        /* Hello! above name */
-        .hello-text {
-            font-size: 30px; /* smaller than name */
+            .hello-text {
+            font-size: 40px; /* slightly smaller than name, but bigger than before */
             color: #f5f5f5; /* same as .name color */
-            display: block;
-            margin-bottom: 5px;
+            display: inline-block; /* keeps it close to the name */
+            margin-bottom: 5px; /* small spacing from the name */
+            line-height: 1; /* makes it closer to the name */
+
         }
         
         .tagline {

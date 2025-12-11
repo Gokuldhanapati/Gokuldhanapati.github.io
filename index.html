@@ -120,15 +120,27 @@
             color: #ff4757;
         }
         
+        /* Smooth letter reveal for tagline */
         .tagline {
             font-size: 28px;
             font-weight: 500;
             color: #ddd;
             margin-bottom: 40px;
             line-height: 1.3;
-            min-height: 35px; /* prevents layout jump while typing */
+            min-height: 35px;
+            overflow: hidden;
+            display: inline-block;
         }
-        
+        .tagline span {
+            opacity: 0;
+            display: inline-block;
+            animation: fadeInLetter 0.05s forwards;
+        }
+        @keyframes fadeInLetter {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .description {
             font-size: 18px;
             color: #aaa;
@@ -258,34 +270,6 @@
             .tagline { font-size: 24px; }
             .profile-image-container { width: 400px; height: 400px; }
         }
-        
-        @media (max-width: 992px) {
-            .container { flex-direction: column; text-align: center; padding-top: 40px; }
-            .text-content { padding-right: 0; margin-bottom: 60px; }
-            .description { margin-left: auto; margin-right: auto; }
-            .social-links { position: static; flex-direction: row; justify-content: center; margin-top: 40px; padding-bottom: 40px; }
-            .circle-1, .circle-2 { display: none; }
-        }
-        
-        @media (max-width: 768px) {
-            header { padding: 20px 30px; flex-direction: column; gap: 20px; }
-            nav ul { gap: 20px; }
-            .name { font-size: 42px; }
-            .tagline { font-size: 22px; }
-            .profile-image-container { width: 320px; height: 320px; }
-            .btn { padding: 12px 25px; font-size: 15px; }
-        }
-        
-        @media (max-width: 576px) {
-            .container { padding: 40px 20px; }
-            .name { font-size: 36px; }
-            .tagline { font-size: 20px; }
-            .description { font-size: 16px; }
-            .buttons { flex-direction: column; align-items: center; }
-            .btn { width: 220px; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-            .profile-image-container { width: 280px; height: 280px; }
-        }
     </style>
 </head>
 <body>
@@ -337,7 +321,7 @@
     </div>
 
     <script>
-        // Add interactive effects to the page
+        // Fade-in animations for main content
         document.addEventListener('DOMContentLoaded', function() {
             const observerOptions = {
                 threshold: 0.1,
@@ -361,21 +345,16 @@
                 observer.observe(el);
             });
 
-            // Typing animation for tagline
+            // Smooth letter-reveal animation for tagline
             const tagline = document.getElementById('tagline');
             const text = tagline.textContent;
             tagline.textContent = '';
-            let index = 0;
-
-            function typeLetter() {
-                if (index < text.length) {
-                    tagline.textContent += text[index];
-                    index++;
-                    setTimeout(typeLetter, 100); // adjust speed here
-                }
-            }
-
-            typeLetter();
+            text.split('').forEach((char, i) => {
+                const span = document.createElement('span');
+                span.textContent = char;
+                span.style.animationDelay = `${i * 0.05}s`;
+                tagline.appendChild(span);
+            });
         });
     </script>
 </body>

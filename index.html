@@ -3,209 +3,465 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gokul Dhanapati</title>
+    <title>John Doe, PhD - Scholar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
-        body, html {
-            height: 100%;
-            scroll-behavior: smooth;
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
         }
-
-        /* Landing page */
-        .landing {
-            position: relative;
-            height: 100vh;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
-            color: #ffffff;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1a1a2e, #162447);
-            background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
         }
-
-        @keyframes gradientMove {
-            0% {background-position:0% 50%;}
-            50% {background-position:100% 50%;}
-            100% {background-position:0% 50%;}
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ecf0f1;
         }
-
-        .landing h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
         }
-
-        .landing p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            max-width: 700px;
-            line-height: 1.5;
+        
+        .nav-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
         }
-
-        .enter-btn {
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            border: 2px solid #ffffff;
-            background: transparent;
-            color: #ffffff;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 8px;
+        
+        .nav-links a:hover {
+            color: #3498db;
         }
-
-        .enter-btn:hover {
-            background: #ffffff;
-            color: #162447;
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s;
         }
-
-        /* Main Full Page */
-        .main {
-            min-height: 100vh;
-            background: #f5f5f5;
-            padding: 40px;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 30px;
-            align-items: start;
+        
+        .nav-links a:hover::after {
+            width: 100%;
         }
-
-        /* Left Profile Box */
-        .profile-box {
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        
+        /* Main Content */
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            margin-bottom: 3rem;
         }
-
-        .profile-box img {
-            width: 140px;
-            height: 140px;
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        
+        .profile-section {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .profile-photo {
+            width: 280px;
+            height: 280px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
+            border: 8px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0 auto;
         }
-
-        .profile-box a {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
+        
+        .name-title {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .name-title h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .name-title h2 {
+            font-size: 1.8rem;
+            color: #3498db;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .welcome-section {
+            background-color: white;
+            padding: 2.5rem;
             border-radius: 10px;
-            background: #162447;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .welcome-section h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .welcome-section h3 i {
+            color: #3498db;
+        }
+        
+        .welcome-text {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .welcome-btn {
+            display: inline-block;
+            background-color: #3498db;
             color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
             text-decoration: none;
-            transition: 0.3s;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
         }
-
-        .profile-box a:hover {
-            background: #1a1a2e;
+        
+        .welcome-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
         }
-
-        /* Right Side Menu */
-        .menu {
+        
+        /* Sections */
+        .section-title {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            padding-bottom: 0.7rem;
+            border-bottom: 3px solid #3498db;
+            display: inline-block;
+        }
+        
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
-
-        .menu-box {
-            background: #ffffff;
-            padding: 30px;
-            text-align: center;
-            border-radius: 15px;
-            text-decoration: none;
-            color: black;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: 0.3s;
+        
+        .card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
         }
-
-        .menu-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+        
+        .card:hover {
+            transform: translateY(-5px);
         }
-
-        .menu-box h3 {
-            margin-bottom: 10px;
-            color: #162447;
-            font-size: 1.3rem;
+        
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-
+        
+        .card h3 i {
+            color: #3498db;
+        }
+        
+        .card ul {
+            list-style-position: inside;
+            color: #555;
+        }
+        
+        .card li {
+            margin-bottom: 0.7rem;
+        }
+        
+        /* Footer */
         footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 2.5rem 0;
             text-align: center;
-            padding: 20px;
-            background: #162447;
-            color: #ffffff;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            margin-top: 1.5rem;
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .name-title h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-end;
+            }
+            
+            .profile-photo {
+                width: 220px;
+                height: 220px;
+            }
+            
+            .name-title h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Landing page -->
-    <section class="landing" id="landing">
-        <h1>GOKUL DHANAPATI</h1>
-        <p>LEARNING, CREATING, EXPLORING</p>
-        <button class="enter-btn" onclick="document.getElementById('main').scrollIntoView({behavior:'smooth'})">WELCOME</button>
-    </section>
-
-
-    <!-- Main Full Page -->
-    <section class="main" id="main">
-
-        <!-- LEFT SIDE PROFILE BOX -->
-        <div class="profile-box">
-            <img src="gokul1.png" alt="Profile Photo">
-            <h2>Gokul Dhanapati</h2>
-            <a href="about.html">ABOUT ME</a>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">JOHN DOE</div>
+                <ul class="nav-links">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#blog">BLOG</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
 
-        <!-- RIGHT SIDE MENU GRID -->
-        <div class="menu">
-            <a href="education.html" class="menu-box">
-                <h3>Education</h3>
-            </a>
-            <a href="research.html" class="menu-box">
-                <h3>Research</h3>
-            </a>
-            <a href="publications.html" class="menu-box">
-                <h3>Publications</h3>
-            </a>
-            <a href="conferences.html" class="menu-box">
-                <h3>Conferences</h3>
-            </a>
-            <a href="skills.html" class="menu-box">
-                <h3>Skills & Certifications</h3>
-            </a>
-            <a href="extension.html" class="menu-box">
-                <h3>Extension Activities</h3>
-            </a>
-            <a href="gallery.html" class="menu-box">
-                <h3>Gallery</h3> 
-				
-				
-            </a>
-            <a href="updates.html" class="menu-box">
-                <h3>Updates / Blog</h3>
-            </a>
-            <a href="contact.html" class="menu-box">
-                <h3>Contact</h3>
-            </a>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="profile-section">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
+                         alt="John Doe, PhD" class="profile-photo">
+                </div>
+                <div class="name-title">
+                    <h1>JOHN DOE, PhD</h1>
+                    <h2>SCHOLAR & RESEARCHER</h2>
+                    <div class="welcome-section">
+                        <h3><i class="fas fa-hand-wave"></i> WELCOME</h3>
+                        <p class="welcome-text">
+                            I'm a dedicated scholar with a passion for research and education. 
+                            My work focuses on interdisciplinary approaches to solving complex 
+                            problems in modern academia. I believe in the power of knowledge 
+                            to transform lives and societies.
+                        </p>
+                        <button class="welcome-btn" id="welcomeClick">CLICK TO WELCOME</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> EDUCATION</h2>
+            <div class="content-grid">
+                <div class="card">
+                    <h3><i class="fas fa-university"></i> PhD in Research Studies</h3>
+                    <p>University of Oxford, 2015-2020</p>
+                    <p>Specialization: Interdisciplinary Research Methods</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-university"></i> Master of Science</h3>
+                    <p>Harvard University, 2012-2014</p>
+                    <p>Major: Advanced Research Methodology</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-university"></i> Bachelor of Arts</h3>
+                    <p>Stanford University, 2008-2012</p>
+                    <p>Major: Philosophy of Science</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills & Certifications -->
+        <section id="skills">
+            <div class="content-grid">
+                <div class="card">
+                    <h3><i class="fas fa-tools"></i> SKILLS</h3>
+                    <ul>
+                        <li>Academic Research & Writing</li>
+                        <li>Statistical Analysis</li>
+                        <li>Qualitative Research Methods</li>
+                        <li>Grant Proposal Writing</li>
+                        <li>Public Speaking & Presentation</li>
+                        <li>Peer Review Process</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-certificate"></i> CERTIFICATIONS</h3>
+                    <ul>
+                        <li>Advanced Research Ethics</li>
+                        <li>Data Analysis & Visualization</li>
+                        <li>Academic Publishing Process</li>
+                        <li>University Teaching Certification</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-user"></i> ABOUT ME</h3>
+                    <p>Passionate scholar with over 10 years of experience in academic research. Published more than 30 papers in peer-reviewed journals. Committed to advancing knowledge and mentoring the next generation of researchers.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">JOHN DOE, PhD</div>
+                <ul class="footer-links">
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#blog">BLOG</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </div>
+            <p class="copyright">© 2023 John Doe, PhD. All rights reserved.</p>
         </div>
-
-    </section>
-
-
-    <footer>
-        © 2026 Gokul Dhanapati. All Rights Reserved.
     </footer>
 
+    <script>
+        // Welcome button interaction
+        document.getElementById('welcomeClick').addEventListener('click', function() {
+            // Change button text temporarily
+            const originalText = this.textContent;
+            this.textContent = "WELCOME TO MY PORTFOLIO!";
+            this.style.backgroundColor = "#2ecc71";
+            
+            // Create a welcome message
+            const welcomeMessage = document.createElement('div');
+            welcomeMessage.innerHTML = `
+                <div style="position: fixed; top: 20px; right: 20px; background: #2ecc71; color: white; padding: 15px; border-radius: 5px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                    <strong>Thank you for visiting!</strong><br>
+                    I'm glad to have you here.
+                </div>
+            `;
+            document.body.appendChild(welcomeMessage);
+            
+            // Remove message after 3 seconds
+            setTimeout(() => {
+                welcomeMessage.remove();
+                this.textContent = originalText;
+                this.style.backgroundColor = "#3498db";
+            }, 3000);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

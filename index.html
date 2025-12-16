@@ -1,311 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gokul Dhanapati - PhD Research Scholar</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gokul Dhanapati - PhD Research Scholar</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
+body {
+    background-color: #121212;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+/* Background overlay */
+body::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.95)),
+        radial-gradient(circle at 25% 25%, rgba(64,64,64,0.1), transparent 55%),
+        radial-gradient(circle at 75% 75%, rgba(64,64,64,0.1), transparent 55%);
+    z-index: -1;
+}
 
-        body {
-            background-color: #121212;
-            color: #fff;
-            min-height: 100vh;
-            position: relative;
-            overflow-x: hidden;
-        }
+/* Header */
+header {
+    padding: 25px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
 
-        body::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image:
-                linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.95)),
-                radial-gradient(circle at 25% 25%, rgba(64,64,64,0.1), transparent 55%),
-                radial-gradient(circle at 75% 75%, rgba(64,64,64,0.1), transparent 55%);
-            z-index: -1;
-        }
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f5f5f5;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
-        /* ================= HEADER ================= */
-        header {
-            padding: 25px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
-        }
+.logo span { color: #ff4757; }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+}
 
-        .logo span {
-            color: #ff4757;
-        }
+nav ul li a {
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+    padding: 5px 0;
+}
 
-        /* ================= NAV ================= */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
+nav ul li a:hover { color: #ff4757; }
 
-        nav ul li {
-            position: relative;
-        }
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #ff4757;
+    transition: width 0.3s;
+}
 
-        nav ul li a {
-            color: #f5f5f5;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 8px 0;
-            position: relative;
-            transition: color 0.3s;
-        }
+nav ul li a:hover::after { width: 100%; }
 
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ff4757;
-            transition: width 0.3s;
-        }
+/* Main container */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
-        nav ul li a:hover {
-            color: #ff4757;
-        }
+.text-content { flex: 1; padding-right: 50px; }
 
-        nav ul li a:hover::after {
-            width: 100%;
-        }
+.name {
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #f5f5f5;
+}
 
-        /* ===== DROPDOWN ===== */
-        .dropdown-menu {
-            position: absolute;
-            top: 120%;
-            left: 0;
-            background: #1c1c1c;
-            border-radius: 10px;
-            min-width: 200px;
-            display: none;
-            flex-direction: column;
-            padding: 10px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            z-index: 1000;
-        }
+.name span { color: #ff4757; }
 
-        .dropdown-menu li a {
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: none;
-            color: #ddd;
-        }
+.hello-text { font-size: 35px; color: #f5f5f5; display: inline-block; margin-bottom: 5px; line-height: 1; }
 
-        .dropdown-menu li a:hover {
-            background-color: #ff4757;
-            color: #fff;
-        }
+.tagline { font-size: 28px; font-weight: 500; color: #ddd; margin-bottom: 40px; line-height: 1.3; }
 
-        .dropdown:hover .dropdown-menu {
-            display: flex;
-        }
+.description { font-size: 18px; color: #aaa; line-height: 1.6; max-width: 600px; margin-bottom: 50px; }
 
-        /* ================= MAIN ================= */
-        .container {
-            max-width: 1400px;
-            margin: auto;
-            padding: 80px 50px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+/* Buttons */
+.buttons { display: flex; gap: 20px; }
 
-        .text-content {
-            flex: 1;
-        }
+.btn {
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+}
 
-        .hello-text {
-            font-size: 35px;
-        }
+.btn-primary {
+    background-color: #ff4757;
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+}
 
-        .name {
-            font-size: 60px;
-            font-weight: 700;
-            line-height: 1.1;
-        }
+.btn-primary:hover {
+    background-color: #ff3742;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+}
 
-        .name span {
-            color: #ff4757;
-        }
+.btn-secondary {
+    background-color: transparent;
+    color: #f5f5f5;
+    border: 2px solid #444;
+}
 
-        .tagline {
-            font-size: 28px;
-            color: #ddd;
-            margin: 30px 0;
-        }
+.btn-secondary:hover {
+    border-color: #ff4757;
+    color: #ff4757;
+}
 
-        .description {
-            font-size: 18px;
-            color: #aaa;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
+/* Image */
+.image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-        .buttons {
-            display: flex;
-            gap: 20px;
-        }
+.profile-image-container {
+    width: 450px;
+    height: 450px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 10px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
 
-        .btn {
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+.profile-image { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
 
-        .btn-primary {
-            background: #ff4757;
-            color: #fff;
-        }
+/* Social links */
+.social-links {
+    position: fixed;
+    left: 50px;
+    bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 10;
+}
 
-        .btn-primary:hover {
-            background: #ff3742;
-            transform: translateY(-3px);
-        }
+.social-links a {
+    color: #aaa;
+    font-size: 20px;
+    transition: color 0.3s, transform 0.3s;
+}
 
-        .btn-secondary {
-            border: 2px solid #444;
-            color: #fff;
-        }
+.social-links a:hover { transform: translateY(-5px); }
 
-        .btn-secondary:hover {
-            border-color: #ff4757;
-            color: #ff4757;
-        }
+/* Hover colors for specific icons */
+.social-links a:hover .fa-graduation-cap { color: #4285F4; } /* Google Scholar */
+.social-links a:hover .fa-linkedin-in { color: #0A66C2; } /* LinkedIn */
+.social-links a:hover .fa-researchgate { color: #00CCBB; } /* ResearchGate */
+.social-links a:hover .fa-orcid { color: #A6CE39; } /* ORCID */
 
-        /* ================= IMAGE ================= */
-        .image-content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
-        .profile-image-container {
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 10px solid rgba(255,255,255,0.05);
-        }
-
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* ================= SOCIAL LINKS ================= */
-        .social-links {
-            position: fixed;
-            left: 50px;
-            bottom: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .social-links a {
-            color: #aaa;
-            font-size: 20px;
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            transform: translateY(-5px);
-        }
-
-        .social-links a:hover .fa-graduation-cap { color: #4285F4; }
-        .social-links a:hover .fa-linkedin-in { color: #0A66C2; }
-        .social-links a:hover .fa-researchgate { color: #00CCBB; }
-        .social-links a:hover .fa-orcid { color: #A6CE39; }
-        .social-links a:hover .fa-facebook-f { color: #1877F2; }
-        .social-links a:hover .fa-instagram { color: #E4405F; }
-
-        /* ================= RESPONSIVE ================= */
-        @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .social-links {
-                position: static;
-                flex-direction: row;
-                justify-content: center;
-                margin-top: 40px;
-            }
-        }
-    </style>
+/* Responsive */
+@media (max-width: 992px) {
+    .container { flex-direction: column; text-align: center; padding-top: 40px; }
+    .text-content { padding-right: 0; margin-bottom: 60px; }
+    .social-links { position: static; flex-direction: row; justify-content: center; margin-top: 40px; padding-bottom: 40px; }
+}
+</style>
 </head>
-
 <body>
 
 <header>
     <div class="logo">Gokul<span>.</span></div>
-
     <nav>
         <ul>
-            <li class="dropdown">
-                <a href="#education">Education</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#phd">PhD</a></li>
-                    <li><a href="#masters">Masters</a></li>
-                    <li><a href="#bachelors">Bachelors</a></li>
-                </ul>
-            </li>
-            <li><a href="#publications">Publications</a></li>
+            <li><a href="#home">Education</a></li>
+            <li><a href="#about">Publications</a></li>
             <li><a href="#service">Extension</a></li>
-            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#portfolio">Gallery</a></li>
         </ul>
     </nav>
 </header>
 
-<main class="container">
+<main class="container" id="home">
     <div class="text-content">
-        <h1 class="name">
-            <span class="hello-text">Hello!</span><br>
-            I Am <span>Gokul Dhanapati</span>
-        </h1>
+        <h1 class="name"><span class="hello-text">Hello!</span><br>I Am <span>Gokul Dhanapati</span></h1>
         <p class="tagline">PhD Research Scholar</p>
-        <p class="description">
-            Learning, exploring, and growing through science.
-        </p>
+        <p class="description">Learning, exploring, and growing through science.</p>
         <div class="buttons">
-            <a href="#gallery" class="btn btn-primary">View My Work</a>
+            <a href="#portfolio" class="btn btn-primary">View My Work</a>
             <a href="#contact" class="btn btn-secondary">Contact Me</a>
         </div>
     </div>
@@ -317,43 +238,19 @@
     </div>
 </main>
 
-<!-- SOCIAL ICONS -->
-<<!-- SOCIAL ICONS -->
+<!-- Updated Social media links -->
 <div class="social-links">
-    <!-- Google Scholar -->
-    <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID"
-       target="_blank" rel="noopener noreferrer" title="Google Scholar">
+    <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank" title="Google Scholar">
         <i class="fas fa-graduation-cap"></i>
     </a>
-
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/YOUR_LINKEDIN_USERNAME"
-       target="_blank" rel="noopener noreferrer" title="LinkedIn">
+    <a href="https://www.linkedin.com/in/YOUR_USERNAME" target="_blank" title="LinkedIn">
         <i class="fab fa-linkedin-in"></i>
     </a>
-
-    <!-- ResearchGate -->
-    <a href="https://www.researchgate.net/profile/YOUR_RESEARCHGATE_NAME"
-       target="_blank" rel="noopener noreferrer" title="ResearchGate">
+    <a href="https://www.researchgate.net/profile/YOUR_NAME" target="_blank" title="ResearchGate">
         <i class="fab fa-researchgate"></i>
     </a>
-
-    <!-- ORCID -->
-    <a href="https://orcid.org/YOUR-ORCID-ID"
-       target="_blank" rel="noopener noreferrer" title="ORCID">
+    <a href="https://orcid.org/YOUR_ORCID_ID" target="_blank" title="ORCID">
         <i class="fab fa-orcid"></i>
-    </a>
-
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/YOUR_FACEBOOK_USERNAME"
-       target="_blank" rel="noopener noreferrer" title="Facebook">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/YOUR_INSTAGRAM_USERNAME"
-       target="_blank" rel="noopener noreferrer" title="Instagram">
-        <i class="fab fa-instagram"></i>
     </a>
 </div>
 

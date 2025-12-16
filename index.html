@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gokul Dhanapati - PhD Research Scholar</title>
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         * {
             margin: 0;
@@ -12,7 +15,11 @@
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
         }
-        
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: #121212;
             color: #fff;
@@ -20,201 +27,208 @@
             position: relative;
             overflow-x: hidden;
         }
-        
-        /* Background pattern overlay */
+
         body::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.95)),
-                radial-gradient(circle at 25% 25%, rgba(64, 64, 64, 0.1) 0%, transparent 55%),
-                radial-gradient(circle at 75% 75%, rgba(64, 64, 64, 0.1) 0%, transparent 55%);
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.95)),
+                radial-gradient(circle at 25% 25%, rgba(64,64,64,0.1), transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(64,64,64,0.1), transparent 55%);
             z-index: -1;
         }
-        
-        /* Header/Navigation */
+
+        /* ================= HEADER ================= */
         header {
             padding: 25px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
             z-index: 10;
         }
-        
+
         .logo {
             font-size: 28px;
             font-weight: 700;
-            color: #f5f5f5;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        
+
         .logo span {
             color: #ff4757;
         }
-        
+
+        /* ================= NAV ================= */
         nav ul {
             display: flex;
             list-style: none;
             gap: 40px;
         }
-        
+
+        nav ul li {
+            position: relative;
+        }
+
         nav ul li a {
             color: #f5f5f5;
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-            transition: color 0.3s;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 8px 0;
             position: relative;
-            padding: 5px 0;
+            transition: color 0.3s;
         }
-        
-        nav ul li a:hover {
-            color: #ff4757;
-        }
-        
+
         nav ul li a::after {
             content: '';
             position: absolute;
+            left: 0;
+            bottom: 0;
             width: 0;
             height: 2px;
-            bottom: 0;
-            left: 0;
             background-color: #ff4757;
             transition: width 0.3s;
         }
-        
+
+        nav ul li a:hover {
+            color: #ff4757;
+        }
+
         nav ul li a:hover::after {
             width: 100%;
         }
-        
-        /* Main content */
+
+        /* ===== DROPDOWN ===== */
+        .dropdown-menu {
+            position: absolute;
+            top: 120%;
+            left: 0;
+            background: #1c1c1c;
+            border-radius: 10px;
+            min-width: 200px;
+            display: none;
+            flex-direction: column;
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            z-index: 1000;
+        }
+
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: none;
+            color: #ddd;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #ff4757;
+            color: #fff;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: flex;
+        }
+
+        /* ================= MAIN ================= */
         .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 80px 50px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 80px 50px;
-            max-width: 1400px;
-            margin: 0 auto;
         }
-        
+
         .text-content {
             flex: 1;
-            padding-right: 50px;
         }
-        
+
+        .hello-text {
+            font-size: 35px;
+        }
+
         .name {
             font-size: 60px;
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 20px;
-            color: #f5f5f5;
         }
-        
+
         .name span {
             color: #ff4757;
         }
 
-        /* Hello! above name */
-        .hello-text {
-            font-size: 35px; /* slightly smaller than name but bigger than before */
-            color: #f5f5f5; /* same as .name color */
-            display: inline-block; /* keeps it close to the name */
-            margin-bottom: 5px; /* small spacing from the name */
-            line-height: 1; /* keeps Hello! close to the name */
-        }
-        
         .tagline {
             font-size: 28px;
-            font-weight: 500;
             color: #ddd;
-            margin-bottom: 40px;
-            line-height: 1.3;
+            margin: 30px 0;
         }
-        
+
         .description {
             font-size: 18px;
             color: #aaa;
-            line-height: 1.6;
             max-width: 600px;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
-        
-        /* Buttons */
+
         .buttons {
             display: flex;
             gap: 20px;
         }
-        
+
         .btn {
             padding: 15px 35px;
             border-radius: 30px;
-            font-size: 16px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: none;
+            transition: 0.3s;
         }
-        
+
         .btn-primary {
-            background-color: #ff4757;
-            color: white;
-            box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
+            background: #ff4757;
+            color: #fff;
         }
-        
+
         .btn-primary:hover {
-            background-color: #ff3742;
+            background: #ff3742;
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
         }
-        
+
         .btn-secondary {
-            background-color: transparent;
-            color: #f5f5f5;
             border: 2px solid #444;
+            color: #fff;
         }
-        
+
         .btn-secondary:hover {
             border-color: #ff4757;
             color: #ff4757;
         }
-        
-        /* Image/content area */
+
+        /* ================= IMAGE ================= */
         .image-content {
             flex: 1;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
-        
+
         .profile-image-container {
-            width: 450px;
-            height: 450px;
-            position: relative;
+            width: 420px;
+            height: 420px;
             border-radius: 50%;
             overflow: hidden;
-            border: 10px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+            border: 10px solid rgba(255,255,255,0.05);
         }
-        
+
         .profile-image {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Image covers the circle */
-            border-radius: 50%;
-            display: block;
+            object-fit: cover;
         }
-        
-        /* Social links */
+
+        /* ================= SOCIAL LINKS ================= */
         .social-links {
             position: fixed;
             left: 50px;
@@ -222,179 +236,96 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
-            z-index: 10;
         }
-        
+
         .social-links a {
             color: #aaa;
             font-size: 20px;
-            transition: color 0.3s, transform 0.3s;
+            transition: 0.3s;
         }
-        
+
         .social-links a:hover {
-            color: #ff4757;
             transform: translateY(-5px);
         }
-        
-        /* Decorative elements */
-        .circle {
-            position: absolute;
-            border-radius: 50%;
-            z-index: -1;
-        }
-        
-        .circle-1 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(255, 71, 87, 0.1) 0%, transparent 70%);
-            top: 10%;
-            right: 15%;
-        }
-        
-        .circle-2 {
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-            bottom: 20%;
-            left: 10%;
-        }
-        
-        /* Responsive design */
-        @media (max-width: 1200px) {
-            .container { padding: 60px 30px; }
-            .name { font-size: 50px; }
-            .tagline { font-size: 24px; }
-            .profile-image-container { width: 400px; height: 400px; }
-        }
-        
+
+        .social-links a:hover .fa-graduation-cap { color: #4285F4; }
+        .social-links a:hover .fa-linkedin-in { color: #0A66C2; }
+        .social-links a:hover .fa-researchgate { color: #00CCBB; }
+        .social-links a:hover .fa-orcid { color: #A6CE39; }
+        .social-links a:hover .fa-facebook-f { color: #1877F2; }
+        .social-links a:hover .fa-instagram { color: #E4405F; }
+
+        /* ================= RESPONSIVE ================= */
         @media (max-width: 992px) {
-            .container { flex-direction: column; text-align: center; padding-top: 40px; }
-            .text-content { padding-right: 0; margin-bottom: 60px; }
-            .description { margin-left: auto; margin-right: auto; }
-            .social-links { position: static; flex-direction: row; justify-content: center; margin-top: 40px; padding-bottom: 40px; }
-            .circle-1, .circle-2 { display: none; }
-        }
-        
-        @media (max-width: 768px) {
-            header { padding: 20px 30px; flex-direction: column; gap: 20px; }
-            nav ul { gap: 20px; }
-            .name { font-size: 42px; }
-            .tagline { font-size: 22px; }
-            .profile-image-container { width: 320px; height: 320px; }
-            .btn { padding: 12px 25px; font-size: 15px; }
-        }
-        
-        @media (max-width: 576px) {
-            .container { padding: 40px 20px; }
-            .name { font-size: 36px; }
-            .tagline { font-size: 20px; }
-            .description { font-size: 16px; }
-            .buttons { flex-direction: column; align-items: center; }
-            .btn { width: 220px; }
-            nav ul { flex-wrap: wrap; justify-content: center; }
-            .profile-image-container { width: 280px; height: 280px; }
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-links {
+                position: static;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 40px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Decorative background circles -->
-    <div class="circle circle-1"></div>
-    <div class="circle circle-2"></div>
-    
-    <!-- Header with navigation -->
-    <header>
-        <div class="logo">Gokul<span>.</span></div>
-        <nav>
-            <ul>
-                <li><a href="#home">Education</a></li>
-                <li><a href="#about">Publications</a></li>
-                <li><a href="#service">Extension</a></li>
-                <li><a href="#portfolio">Galary</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <!-- Main content section -->
-    <main class="container" id="home">
-        <div class="text-content">
-            <h1 class="name"><span class="hello-text">Hello!</span><br>I Am <span>Gokul Dhanapati</span></h1>
-            <p class="tagline">PhD Research Scholar</p>
-            <p class="description">
-                Learning, exploring, and growing through science.
-            </p>
-            <div class="buttons">
-                <a href="#portfolio" class="btn btn-primary">View My Work</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
-            </div>
+
+<header>
+    <div class="logo">Gokul<span>.</span></div>
+
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#education">Education</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#phd">PhD</a></li>
+                    <li><a href="#masters">Masters</a></li>
+                    <li><a href="#bachelors">Bachelors</a></li>
+                </ul>
+            </li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#service">Extension</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="container">
+    <div class="text-content">
+        <h1 class="name">
+            <span class="hello-text">Hello!</span><br>
+            I Am <span>Gokul Dhanapati</span>
+        </h1>
+        <p class="tagline">PhD Research Scholar</p>
+        <p class="description">
+            Learning, exploring, and growing through science.
+        </p>
+        <div class="buttons">
+            <a href="#gallery" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
         </div>
-        
-        <div class="image-content">
-            <div class="profile-image-container">
-                <img src="krishna.JPG" alt="Gokul Dhanapati" class="profile-image">
-            </div>
+    </div>
+
+    <div class="image-content">
+        <div class="profile-image-container">
+            <img src="krishna.JPG" alt="Gokul Dhanapati" class="profile-image">
         </div>
-    </main>
-    
-    <!-- Social media links -->
-    <!-- Social media links -->
-<!-- Social media links -->
+    </div>
+</main>
+
+<!-- SOCIAL ICONS -->
 <div class="social-links">
-    <!-- Google Scholar -->
-    <a href="https://scholar.google.com/citations?user=lM6eYLYAAAAJ&hl=en" target="_blank" title="Google Scholar">
-        <i class="fas fa-graduation-cap"></i>
-    </a>
-
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/gokuldhanapati/" target="_blank" title="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-
-    <!-- ResearchGate -->
-    <a href="https://www.researchgate.net/profile/Gokul-Dhanapati?ev=hdr_xprf" target="_blank" title="ResearchGate">
-        <i class="fab fa-researchgate"></i>
-    </a>
-
-    <!-- ORCID -->
-    <a href="https://orcid.org/my-orcid" target="_blank" title="ORCID">
-        <i class="fab fa-orcid"></i>
-    </a>
-
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/gokul.danapati" target="_blank" title="Facebook">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/gokuldhanapati/" target="_blank" title="Instagram">
-        <i class="fab fa-instagram"></i>
-    </a>
+    <a href="#"><i class="fas fa-graduation-cap"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-researchgate"></i></a>
+    <a href="#"><i class="fab fa-orcid"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
 </div>
 
-    <script>
-        // Add interactive effects to the page
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-            
-            const animatedElements = document.querySelectorAll('.text-content, .image-content');
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(el);
-            });
-        });
-    </script>
 </body>
 </html>

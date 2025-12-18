@@ -1,192 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Education | Gokul Dhanapati</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gokul Dhanapati - PhD Research Scholar</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
 
-body {
-    background-color: #121212;
-    color: #fff;
-    min-height: 100vh;
-    overflow-x: hidden;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* Header (same feel as landing page) */
-header {
-    padding: 25px 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+        body {
+            background-color: #121212;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-.logo {
-    font-size: 28px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
+        body::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.95)),
+                radial-gradient(circle at 25% 25%, rgba(64,64,64,0.1), transparent 55%),
+                radial-gradient(circle at 75% 75%, rgba(64,64,64,0.1), transparent 55%);
+            z-index: -1;
+        }
 
-.logo span { color: #ff4757; }
+        /* ================= HEADER ================= */
+        header {
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+        }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-}
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-nav ul li a {
-    color: #f5f5f5;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-}
+        .logo span {
+            color: #ff4757;
+        }
 
-nav ul li a:hover { color: #ff4757; }
+        /* ================= NAV ================= */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
 
-/* Education Page */
-.education-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 50px;
-}
+        nav ul li {
+            position: relative;
+        }
 
-.education-title {
-    text-align: center;
-    font-size: 42px;
-    margin-bottom: 80px;
-}
+        nav ul li a {
+            color: #f5f5f5;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 8px 0;
+            position: relative;
+            transition: color 0.3s;
+        }
 
-.education-title span { color: #ff4757; }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #ff4757;
+            transition: width 0.3s;
+        }
 
-.education-card {
-    background: rgba(255,255,255,0.03);
-    border-left: 5px solid #ff4757;
-    padding: 40px;
-    margin-bottom: 45px;
-    border-radius: 12px;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
+        nav ul li a:hover {
+            color: #ff4757;
+        }
 
-.badge {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background: #ff4757;
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-}
+        nav ul li a:hover::after {
+            width: 100%;
+        }
 
-.degree {
-    font-size: 26px;
-    margin-bottom: 8px;
-}
+        /* ===== DROPDOWN ===== */
+        .dropdown-menu {
+            position: absolute;
+            top: 120%;
+            left: 0;
+            background: #1c1c1c;
+            border-radius: 10px;
+            min-width: 200px;
+            display: none;
+            flex-direction: column;
+            padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            z-index: 1000;
+        }
 
-.university {
-    color: #bbb;
-    margin-bottom: 18px;
-    font-size: 17px;
-}
+        .dropdown-menu li a {
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: none;
+            color: #ddd;
+        }
 
-.education-card ul {
-    padding-left: 20px;
-}
+        .dropdown-menu li a:hover {
+            background-color: #ff4757;
+            color: #fff;
+        }
 
-.education-card ul li {
-    color: #ccc;
-    line-height: 1.8;
-    font-size: 16px;
-}
+        .dropdown:hover .dropdown-menu {
+            display: flex;
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .education-wrapper {
-        padding: 80px 25px;
-    }
+        /* ================= MAIN ================= */
+        .container {
+            max-width: 1400px;
+            margin: auto;
+            padding: 80px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    .badge {
-        position: static;
-        display: inline-block;
-        margin-bottom: 15px;
-    }
-}
-</style>
+        .text-content {
+            flex: 1;
+        }
+
+        .hello-text {
+            font-size: 35px;
+        }
+
+        .name {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .name span {
+            color: #ff4757;
+        }
+
+        .tagline {
+            font-size: 28px;
+            color: #ddd;
+            margin: 30px 0;
+        }
+
+        .description {
+            font-size: 18px;
+            color: #aaa;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #ff4757;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: #ff3742;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 2px solid #444;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ff4757;
+            color: #ff4757;
+        }
+
+        /* ================= IMAGE ================= */
+        .image-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image-container {
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 10px solid rgba(255,255,255,0.05);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ================= SOCIAL LINKS ================= */
+        .social-links {
+            position: fixed;
+            left: 50px;
+            bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: #aaa;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-links a:hover .fa-graduation-cap { color: #4285F4; }
+        .social-links a:hover .fa-linkedin-in { color: #0A66C2; }
+        .social-links a:hover .fa-researchgate { color: #00CCBB; }
+        .social-links a:hover .fa-orcid { color: #A6CE39; }
+        .social-links a:hover .fa-facebook-f { color: #1877F2; }
+        .social-links a:hover .fa-instagram { color: #E4405F; }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 992px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .social-links {
+                position: static;
+                flex-direction: row;
+                justify-content: center;
+                margin-top: 40px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
     <div class="logo">Gokul<span>.</span></div>
+
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="education.html">Education</a></li>
+            <li class="dropdown">
+                <a href="#education">Education</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#phd">PhD</a></li>
+                    <li><a href="#masters">Masters</a></li>
+                    <li><a href="#bachelors">Bachelors</a></li>
+                </ul>
+            </li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#service">Extension</a></li>
+            <li><a href="#gallery">Gallery</a></li>
         </ul>
     </nav>
 </header>
 
-<section class="education-wrapper">
-
-    <h1 class="education-title">
-        Education & <span>Qualifications</span>
-    </h1>
-
-    <!-- PhD -->
-    <div class="education-card">
-        <span class="badge">In Progress</span>
-        <h2 class="degree">Ph.D. in Entomology</h2>
-        <p class="university">
-            Mississippi State University, USA (2025 – Present)
+<main class="container">
+    <div class="text-content">
+        <h1 class="name">
+            <span class="hello-text">Hello!</span><br>
+            I Am <span>Gokul Dhanapati</span>
+        </h1>
+        <p class="tagline">PhD Research Scholar</p>
+        <p class="description">
+            Learning, exploring, and growing through science.
         </p>
-        <ul>
-            <li>Honey bee viral dynamics & resistance breeding</li>
-            <li>qPCR, NanoLuc luciferase assays, virus cloning</li>
-            <li>Host genetics × virus strain interactions</li>
-            <li>Advisor: Dr. Esmaeil Amiri</li>
-        </ul>
+        <div class="buttons">
+            <a href="#gallery" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        </div>
     </div>
 
-    <!-- MSc -->
-    <div class="education-card">
-        <span class="badge">Completed</span>
-        <h2 class="degree">M.Sc. (Ag) in Entomology</h2>
-        <p class="university">
-            Uttar Banga Krishi Vishwavidyalaya, India (2020 – 2022) | CGPA: 8.36/10
-        </p>
-        <ul>
-            <li>Thesis: Morpho-taxonomy & bioecology of <i>Micraspis</i> spp.</li>
-            <li>Insect taxonomy, ecology, IPM, biostatistics</li>
-            <li>Field ecology & biodiversity studies</li>
-        </ul>
+    <div class="image-content">
+        <div class="profile-image-container">
+            <img src="krishna.JPG" alt="Gokul Dhanapati" class="profile-image">
+        </div>
     </div>
+</main>
 
-    <!-- BSc -->
-    <div class="education-card">
-        <span class="badge">Completed</span>
-        <h2 class="degree">B.Sc. in Agriculture</h2>
-        <p class="university">
-            Centurion University of Technology & Management, India (2016 – 2020) | CGPA: 8.91
-        </p>
-        <ul>
-            <li>Entomology & crop protection</li>
-            <li>Agronomy, plant pathology, extension education</li>
-            <li>Beekeeping (AELP)</li>
-        </ul>
-    </div>
-
-</section>
+<!-- SOCIAL ICONS -->
+<div class="social-links">
+    <a href="#"><i class="fas fa-graduation-cap"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-researchgate"></i></a>
+    <a href="#"><i class="fab fa-orcid"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+</div>
 
 </body>
 </html>

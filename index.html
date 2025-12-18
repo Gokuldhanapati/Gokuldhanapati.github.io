@@ -22,7 +22,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Header */
+/* Header (same feel as landing page) */
 header {
     padding: 25px 50px;
     display: flex;
@@ -48,12 +48,13 @@ nav ul li a {
     color: #f5f5f5;
     text-decoration: none;
     font-size: 16px;
+    font-weight: 500;
 }
 
 nav ul li a:hover { color: #ff4757; }
 
-/* Education Section */
-.education-page {
+/* Education Page */
+.education-wrapper {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 50px;
@@ -95,7 +96,7 @@ nav ul li a:hover { color: #ff4757; }
 
 .university {
     color: #bbb;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     font-size: 17px;
 }
 
@@ -109,41 +110,9 @@ nav ul li a:hover { color: #ff4757; }
     font-size: 16px;
 }
 
-/* Stats */
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin-top: 80px;
-}
-
-.stat-box {
-    background: rgba(255,255,255,0.03);
-    padding: 35px;
-    text-align: center;
-    border-radius: 14px;
-}
-
-.stat-box h2 {
-    color: #ff4757;
-    font-size: 40px;
-}
-
-.stat-box p {
-    margin-top: 10px;
-    color: #ccc;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 40px;
-    color: #777;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
-    .education-page {
+    .education-wrapper {
         padding: 80px 25px;
     }
 
@@ -164,13 +133,11 @@ footer {
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="education.html">Education</a></li>
-            <li><a href="index.html#about">Publications</a></li>
-            <li><a href="index.html#portfolio">Gallery</a></li>
         </ul>
     </nav>
 </header>
 
-<section class="education-page">
+<section class="education-wrapper">
 
     <h1 class="education-title">
         Education & <span>Qualifications</span>
@@ -184,8 +151,8 @@ footer {
             Mississippi State University, USA (2025 – Present)
         </p>
         <ul>
-            <li>Honey bee viral dynamics and resistance breeding</li>
-            <li>qPCR, NanoLuc luciferase assays, viral cloning</li>
+            <li>Honey bee viral dynamics & resistance breeding</li>
+            <li>qPCR, NanoLuc luciferase assays, virus cloning</li>
             <li>Host genetics × virus strain interactions</li>
             <li>Advisor: Dr. Esmaeil Amiri</li>
         </ul>
@@ -196,12 +163,12 @@ footer {
         <span class="badge">Completed</span>
         <h2 class="degree">M.Sc. (Ag) in Entomology</h2>
         <p class="university">
-            Uttar Banga Krishi Vishwavidyalaya, India (2020 – 2022) | CGPA: 8.36
+            Uttar Banga Krishi Vishwavidyalaya, India (2020 – 2022) | CGPA: 8.36/10
         </p>
         <ul>
             <li>Thesis: Morpho-taxonomy & bioecology of <i>Micraspis</i> spp.</li>
             <li>Insect taxonomy, ecology, IPM, biostatistics</li>
-            <li>Field ecology & biodiversity assessment</li>
+            <li>Field ecology & biodiversity studies</li>
         </ul>
     </div>
 
@@ -213,33 +180,13 @@ footer {
             Centurion University of Technology & Management, India (2016 – 2020) | CGPA: 8.91
         </p>
         <ul>
-            <li>Specialization in Entomology & Crop Protection</li>
-            <li>Agronomy, Plant Pathology, Extension Education</li>
-            <li>Beekeeping (Agricultural Experiential Learning Programme)</li>
+            <li>Entomology & crop protection</li>
+            <li>Agronomy, plant pathology, extension education</li>
+            <li>Beekeeping (AELP)</li>
         </ul>
     </div>
 
-    <!-- Stats -->
-    <div class="stats">
-        <div class="stat-box">
-            <h2>5+</h2>
-            <p>Years of Research Experience</p>
-        </div>
-        <div class="stat-box">
-            <h2>10+</h2>
-            <p>Research Publications</p>
-        </div>
-        <div class="stat-box">
-            <h2>20+</h2>
-            <p>Workshops & Trainings</p>
-        </div>
-    </div>
-
 </section>
-
-<footer>
-    © 2025 Gokul Krishna Dhanapati
-</footer>
 
 </body>
 </html>

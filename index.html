@@ -13,6 +13,116 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
+/* =========================
+   EDUCATION SECTION
+========================= */
+.education-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 50px;
+}
+
+.education-title {
+    font-size: 42px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.education-title span {
+    color: #ff4757;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 5px solid #ff4757;
+    padding: 35px 40px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.degree {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.university {
+    font-size: 18px;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.badge {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background-color: #ff4757;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.education-card ul {
+    margin-top: 15px;
+    padding-left: 20px;
+}
+
+.education-card ul li {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.highlight {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Stats */
+.education-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.stat-box {
+    background: rgba(255,255,255,0.03);
+    padding: 35px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.stat-box h2 {
+    font-size: 40px;
+    color: #ff4757;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .education-section {
+        padding: 80px 25px;
+    }
+
+    .badge {
+        position: static;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+}
 
 body {
     background-color: #121212;
@@ -229,6 +339,72 @@ nav ul li a:hover::after { width: 100%; }
             <a href="#portfolio" class="btn btn-primary">View My Work</a>
             <a href="#contact" class="btn btn-secondary">Contact Me</a>
         </div>
+        <section class="education-section" id="education">
+
+    <h2 class="education-title">
+        Education & <span>Qualifications</span>
+    </h2>
+
+    <!-- PhD -->
+    <div class="education-card">
+        <span class="badge">In Progress</span>
+        <h3 class="degree">Ph.D. in Entomology</h3>
+        <p class="university">
+            Mississippi State University, USA (2025 – Present)
+        </p>
+        <ul>
+            <li><span class="highlight">Research Focus:</span> Honey bee viral dynamics, host genetics & virus resistance</li>
+            <li><span class="highlight">Advisor:</span> Dr. Esmaeil Amiri</li>
+            <li><span class="highlight">Techniques:</span> qPCR, NanoLuc assays, viral cloning, bioassays</li>
+        </ul>
+    </div>
+
+    <!-- MSc -->
+    <div class="education-card">
+        <span class="badge">Completed</span>
+        <h3 class="degree">M.Sc. (Ag) in Entomology</h3>
+        <p class="university">
+            Uttar Banga Krishi Vishwavidyalaya, India (2020 – 2022) | CGPA: 8.36/10
+        </p>
+        <ul>
+            <li><span class="highlight">Thesis:</span> Morpho-taxonomy & bioecology of <i>Micraspis</i> spp.</li>
+            <li><span class="highlight">Courses:</span> Insect Ecology, Insect Taxonomy, IPM, Biostatistics</li>
+            <li><span class="highlight">Lab Skills:</span> Insect identification, genitalia analysis, field ecology</li>
+        </ul>
+    </div>
+
+    <!-- BSc -->
+    <div class="education-card">
+        <span class="badge">Completed</span>
+        <h3 class="degree">B.Sc. in Agriculture</h3>
+        <p class="university">
+            Centurion University of Technology & Management, India (2016 – 2020) | CGPA: 8.91
+        </p>
+        <ul>
+            <li><span class="highlight">Specialization:</span> Entomology & Crop Protection</li>
+            <li><span class="highlight">Courses:</span> Agronomy, Plant Pathology, Entomology, Extension</li>
+            <li><span class="highlight">Experiential Learning:</span> Beekeeping (AELP)</li>
+        </ul>
+    </div>
+
+    <!-- Stats -->
+    <div class="education-stats">
+        <div class="stat-box">
+            <h2>5+</h2>
+            <p>Years of Research Experience</p>
+        </div>
+        <div class="stat-box">
+            <h2>10+</h2>
+            <p>Research Publications</p>
+        </div>
+        <div class="stat-box">
+            <h2>20+</h2>
+            <p>Workshops & Trainings</p>
+        </div>
+    </div>
+
+</section>
+
     </div>
 
     <div class="image-content">

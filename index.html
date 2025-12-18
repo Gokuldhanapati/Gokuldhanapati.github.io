@@ -13,116 +13,6 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
-/* =========================
-   EDUCATION SECTION
-========================= */
-.education-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 50px;
-}
-
-.education-title {
-    font-size: 42px;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 70px;
-}
-
-.education-title span {
-    color: #ff4757;
-}
-
-.education-card {
-    background: rgba(255, 255, 255, 0.03);
-    border-left: 5px solid #ff4757;
-    padding: 35px 40px;
-    margin-bottom: 40px;
-    border-radius: 12px;
-    position: relative;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-.degree {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 8px;
-}
-
-.university {
-    font-size: 18px;
-    color: #bbb;
-    margin-bottom: 20px;
-}
-
-.badge {
-    position: absolute;
-    top: 30px;
-    right: 30px;
-    background-color: #ff4757;
-    padding: 6px 18px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #fff;
-}
-
-.education-card ul {
-    margin-top: 15px;
-    padding-left: 20px;
-}
-
-.education-card ul li {
-    font-size: 16px;
-    color: #ccc;
-    line-height: 1.7;
-    margin-bottom: 8px;
-}
-
-.highlight {
-    color: #fff;
-    font-weight: 600;
-}
-
-/* Stats */
-.education-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-    margin-top: 70px;
-}
-
-.stat-box {
-    background: rgba(255,255,255,0.03);
-    padding: 35px;
-    border-radius: 14px;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-}
-
-.stat-box h2 {
-    font-size: 40px;
-    color: #ff4757;
-    margin-bottom: 10px;
-}
-
-.stat-box p {
-    font-size: 16px;
-    color: #ccc;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .education-section {
-        padding: 80px 25px;
-    }
-
-    .badge {
-        position: static;
-        display: inline-block;
-        margin-bottom: 15px;
-    }
-}
 
 body {
     background-color: #121212;
@@ -132,7 +22,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Background overlay */
 body::before {
     content: '';
     position: absolute;
@@ -150,7 +39,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
     z-index: 10;
 }
 
@@ -175,27 +63,12 @@ nav ul li a {
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
-    transition: color 0.3s;
     position: relative;
-    padding: 5px 0;
 }
 
 nav ul li a:hover { color: #ff4757; }
 
-nav ul li a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #ff4757;
-    transition: width 0.3s;
-}
-
-nav ul li a:hover::after { width: 100%; }
-
-/* Main container */
+/* Hero */
 .container {
     display: flex;
     align-items: center;
@@ -210,57 +83,33 @@ nav ul li a:hover::after { width: 100%; }
 .name {
     font-size: 60px;
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 20px;
-    color: #f5f5f5;
 }
 
 .name span { color: #ff4757; }
 
-.hello-text { font-size: 35px; color: #f5f5f5; display: inline-block; margin-bottom: 5px; line-height: 1; }
+.hello-text { font-size: 35px; }
 
-.tagline { font-size: 28px; font-weight: 500; color: #ddd; margin-bottom: 40px; line-height: 1.3; }
+.tagline { font-size: 28px; margin-bottom: 30px; color: #ddd; }
 
-.description { font-size: 18px; color: #aaa; line-height: 1.6; max-width: 600px; margin-bottom: 50px; }
+.description { font-size: 18px; color: #aaa; max-width: 600px; }
 
-/* Buttons */
-.buttons { display: flex; gap: 20px; }
+.buttons { display: flex; gap: 20px; margin-top: 40px; }
 
 .btn {
     padding: 15px 35px;
     border-radius: 30px;
-    font-size: 16px;
-    font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    border: none;
+    font-weight: 600;
 }
 
 .btn-primary {
-    background-color: #ff4757;
+    background: #ff4757;
     color: white;
-    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.3);
-}
-
-.btn-primary:hover {
-    background-color: #ff3742;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
 }
 
 .btn-secondary {
-    background-color: transparent;
-    color: #f5f5f5;
     border: 2px solid #444;
-}
-
-.btn-secondary:hover {
-    border-color: #ff4757;
-    color: #ff4757;
+    color: white;
 }
 
 /* Image */
@@ -268,20 +117,75 @@ nav ul li a:hover::after { width: 100%; }
     flex: 1;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .profile-image-container {
-    width: 450px;
-    height: 450px;
-    position: relative;
+    width: 420px;
+    height: 420px;
     border-radius: 50%;
     overflow: hidden;
-    border: 10px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
-.profile-image { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================
+   EDUCATION SECTION
+========================= */
+.education-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 50px;
+}
+
+.education-title {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 70px;
+}
+
+.education-title span { color: #ff4757; }
+
+.education-card {
+    background: rgba(255,255,255,0.03);
+    border-left: 5px solid #ff4757;
+    padding: 35px 40px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.badge {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background: #ff4757;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.degree {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.university {
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.education-card ul {
+    padding-left: 20px;
+}
+
+.education-card ul li {
+    color: #ccc;
+    line-height: 1.7;
+}
 
 /* Social links */
 .social-links {
@@ -291,38 +195,20 @@ nav ul li a:hover::after { width: 100%; }
     display: flex;
     flex-direction: column;
     gap: 20px;
-    z-index: 10;
 }
 
-.social-links a {
-    color: #aaa;
-    font-size: 20px;
-    transition: color 0.3s, transform 0.3s;
-}
+.social-links a { color: #aaa; font-size: 20px; }
 
-.social-links a:hover { transform: translateY(-5px); }
-
-/* Hover colors for specific icons */
-.social-links a:hover .fa-graduation-cap { color: #4285F4; } /* Google Scholar */
-.social-links a:hover .fa-linkedin-in { color: #0A66C2; } /* LinkedIn */
-.social-links a:hover .fa-researchgate { color: #00CCBB; } /* ResearchGate */
-.social-links a:hover .fa-orcid { color: #A6CE39; } /* ORCID */
-
-/* Responsive */
-@media (max-width: 992px) {
-    .container { flex-direction: column; text-align: center; padding-top: 40px; }
-    .text-content { padding-right: 0; margin-bottom: 60px; }
-    .social-links { position: static; flex-direction: row; justify-content: center; margin-top: 40px; padding-bottom: 40px; }
-}
 </style>
 </head>
+
 <body>
 
 <header>
     <div class="logo">Gokul<span>.</span></div>
     <nav>
         <ul>
-            <li><a href="#home">Education</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#about">Publications</a></li>
             <li><a href="#service">Extension</a></li>
             <li><a href="#portfolio">Gallery</a></li>
@@ -330,122 +216,72 @@ nav ul li a:hover::after { width: 100%; }
     </nav>
 </header>
 
+<!-- HERO SECTION -->
 <main class="container" id="home">
     <div class="text-content">
-        <h1 class="name"><span class="hello-text">Hello!</span><br>I Am <span>Gokul Dhanapati</span></h1>
+        <h1 class="name">
+            <span class="hello-text">Hello!</span><br>
+            I Am <span>Gokul Dhanapati</span>
+        </h1>
         <p class="tagline">PhD Research Scholar</p>
         <p class="description">Learning, exploring, and growing through science.</p>
         <div class="buttons">
             <a href="#portfolio" class="btn btn-primary">View My Work</a>
             <a href="#contact" class="btn btn-secondary">Contact Me</a>
         </div>
-        <section class="education-section" id="education">
-
-    <h2 class="education-title">
-        Education & <span>Qualifications</span>
-    </h2>
-
-    <!-- PhD -->
-    <div class="education-card">
-        <span class="badge">In Progress</span>
-        <h3 class="degree">Ph.D. in Entomology</h3>
-        <p class="university">
-            Mississippi State University, USA (2025 – Present)
-        </p>
-        <ul>
-            <li><span class="highlight">Research Focus:</span> Honey bee viral dynamics, host genetics & virus resistance</li>
-            <li><span class="highlight">Advisor:</span> Dr. Esmaeil Amiri</li>
-            <li><span class="highlight">Techniques:</span> qPCR, NanoLuc assays, viral cloning, bioassays</li>
-        </ul>
-    </div>
-
-    <!-- MSc -->
-    <div class="education-card">
-        <span class="badge">Completed</span>
-        <h3 class="degree">M.Sc. (Ag) in Entomology</h3>
-        <p class="university">
-            Uttar Banga Krishi Vishwavidyalaya, India (2020 – 2022) | CGPA: 8.36/10
-        </p>
-        <ul>
-            <li><span class="highlight">Thesis:</span> Morpho-taxonomy & bioecology of <i>Micraspis</i> spp.</li>
-            <li><span class="highlight">Courses:</span> Insect Ecology, Insect Taxonomy, IPM, Biostatistics</li>
-            <li><span class="highlight">Lab Skills:</span> Insect identification, genitalia analysis, field ecology</li>
-        </ul>
-    </div>
-
-    <!-- BSc -->
-    <div class="education-card">
-        <span class="badge">Completed</span>
-        <h3 class="degree">B.Sc. in Agriculture</h3>
-        <p class="university">
-            Centurion University of Technology & Management, India (2016 – 2020) | CGPA: 8.91
-        </p>
-        <ul>
-            <li><span class="highlight">Specialization:</span> Entomology & Crop Protection</li>
-            <li><span class="highlight">Courses:</span> Agronomy, Plant Pathology, Entomology, Extension</li>
-            <li><span class="highlight">Experiential Learning:</span> Beekeeping (AELP)</li>
-        </ul>
-    </div>
-
-    <!-- Stats -->
-    <div class="education-stats">
-        <div class="stat-box">
-            <h2>5+</h2>
-            <p>Years of Research Experience</p>
-        </div>
-        <div class="stat-box">
-            <h2>10+</h2>
-            <p>Research Publications</p>
-        </div>
-        <div class="stat-box">
-            <h2>20+</h2>
-            <p>Workshops & Trainings</p>
-        </div>
-    </div>
-
-</section>
-
     </div>
 
     <div class="image-content">
         <div class="profile-image-container">
-            <img src="krishna.JPG" alt="Gokul Dhanapati" class="profile-image">
+            <img src="krishna.JPG" class="profile-image">
         </div>
     </div>
 </main>
 
-<!-- Updated Social media links -->
-<!-- Social media links -->
+<!-- EDUCATION (ONLY OPENS WHEN CLICKED) -->
+<section class="education-section" id="education">
+
+    <h2 class="education-title">Education & <span>Qualifications</span></h2>
+
+    <div class="education-card">
+        <span class="badge">In Progress</span>
+        <h3 class="degree">Ph.D. in Entomology</h3>
+        <p class="university">Mississippi State University, USA (2025 – Present)</p>
+        <ul>
+            <li>Honey bee viral dynamics & resistance breeding</li>
+            <li>qPCR, NanoLuc assays, virus cloning</li>
+            <li>Advisor: Dr. Esmaeil Amiri</li>
+        </ul>
+    </div>
+
+    <div class="education-card">
+        <span class="badge">Completed</span>
+        <h3 class="degree">M.Sc. (Ag) in Entomology</h3>
+        <p class="university">UBKV, India (2020 – 2022) | CGPA: 8.36</p>
+        <ul>
+            <li>Morpho-taxonomy of Micraspis spp.</li>
+            <li>Insect ecology, IPM, taxonomy</li>
+        </ul>
+    </div>
+
+    <div class="education-card">
+        <span class="badge">Completed</span>
+        <h3 class="degree">B.Sc. in Agriculture</h3>
+        <p class="university">CUTM, India (2016 – 2020) | CGPA: 8.91</p>
+        <ul>
+            <li>Entomology & crop protection</li>
+            <li>Beekeeping (AELP)</li>
+        </ul>
+    </div>
+
+</section>
+
+<!-- SOCIAL LINKS -->
 <div class="social-links">
-    <!-- Google Scholar -->
-    <a href="https://scholar.google.com/citations?user=lM6eYLYAAAAJ&hl=en" target="_blank" title="Google Scholar">
-        <i class="fas fa-graduation-cap"></i>
-    </a>
-
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/gokuldhanapati/" target="_blank" title="LinkedIn">
-        <i class="fab fa-linkedin-in"></i>
-    </a>
-
-    <!-- ResearchGate -->
-    <a href="https://www.researchgate.net/profile/Gokul-Dhanapati?ev=hdr_xprf" target="_blank" title="ResearchGate">
-        <i class="fab fa-researchgate"></i>
-    </a>
-
-    <!-- ORCID -->
-    <a href="https://orcid.org/my-orcid" target="_blank" title="ORCID">
-        <i class="fab fa-orcid"></i>
-    </a>
-
-    <!-- Facebook -->
-    <a href="https://www.facebook.com/gokul.danapati" target="_blank" title="Facebook">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/gokuldhanapati/?hl=en" target="_blank" title="Instagram">
-        <i class="fab fa-instagram"></i>
-    </a>
+    <a href="https://scholar.google.com/citations?user=lM6eYLYAAAAJ"><i class="fas fa-graduation-cap"></i></a>
+    <a href="https://www.linkedin.com/in/gokuldhanapati/"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.researchgate.net/profile/Gokul-Dhanapati"><i class="fab fa-researchgate"></i></a>
+    <a href="https://orcid.org/0009-0005-1170-194X"><i class="fab fa-orcid"></i></a>
 </div>
 
 </body>

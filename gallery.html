@@ -1,60 +1,263 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery - Gokul Dhanapati</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Arial', sans-serif; 
+        }
+        
         body {
             background-color: #121212;
             color: #fff;
-            font-family: Arial, sans-serif;
-            padding: 50px;
+            min-height: 100vh;
         }
 
-        h1 {
+        /* HEADER */
+        .gallery-header {
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .back-btn {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        
+        .back-btn:hover {
+            color: #ff4757;
+        }
+        
+        .gallery-title {
             text-align: center;
             margin-bottom: 50px;
             color: #ff4757;
+            font-size: 36px;
+            font-weight: 700;
         }
 
+        /* GALLERY CONTAINER */
         .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px 50px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .gallery-box {
+        /* GALLERY ITEMS */
+        .gallery-item {
             background-color: #1c1c1c;
-            border: 2px solid #444;
-            border-radius: 10px;
-            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            height: 250px;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            border-color: #ff4757;
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 24px;
             color: #aaa;
-            transition: 0.3s;
+            background: linear-gradient(45deg, #2c2c2c, #1c1c1c);
         }
 
-        .gallery-box:hover {
-            border-color: #ff4757;
-            color: #fff;
-            transform: translateY(-5px);
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .image-caption {
+            transform: translateY(0);
+        }
+
+        .image-caption h3 {
+            color: #ff4757;
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+
+        .image-caption p {
+            color: #ddd;
+            font-size: 14px;
+        }
+
+        /* EMPTY STATE */
+        .empty-gallery {
+            text-align: center;
+            padding: 100px 20px;
+            color: #aaa;
+        }
+
+        .empty-gallery i {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .gallery-header {
+                padding: 20px;
+            }
+            
+            .gallery-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+            
+            .gallery-container {
+                padding: 0 20px 30px;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .gallery-item {
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>My Gallery</h1>
+
+    <header class="gallery-header">
+        <a href="index.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+        <div></div> <!-- Spacer -->
+    </header>
+
+    <h1 class="gallery-title">My Gallery</h1>
 
     <div class="gallery-container">
-        <div class="gallery-box">Image 1</div>
-        <div class="gallery-box">Image 2</div>
-        <div class="gallery-box">Image 3</div>
-        <div class="gallery-box">Image 4</div>
-        <div class="gallery-box">Image 5</div>
-        <div class="gallery-box">Image 6</div>
+        <!-- Replace these with your actual images -->
+        <div class="gallery-item">
+            <div class="image-placeholder">
+                <i class="fas fa-image"></i>
+            </div>
+            <div class="image-caption">
+                <h3>Research Work</h3>
+                <p>Lab experiments and research activities</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-placeholder">
+                <i class="fas fa-microscope"></i>
+            </div>
+            <div class="image-caption">
+                <h3>Lab Setup</h3>
+                <p>Research laboratory environment</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-placeholder">
+                <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="image-caption">
+                <h3>Data Analysis</h3>
+                <p>Research findings and analysis</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-placeholder">
+                <i class="fas fa-users"></i>
+            </div>
+            <div class="image-caption">
+                <h3>Conference</h3>
+                <p>Academic conferences and seminars</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-placeholder">
+                <i class="fas fa-award"></i>
+            </div>
+            <div class="image-caption">
+                <h3>Achievements</h3>
+                <p>Awards and recognitions</p>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <div class="image-placeholder">
+                <i class="fas fa-book"></i>
+            </div>
+            <div class="image-caption">
+                <h3>Publications</h3>
+                <p>Published papers and articles</p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Add images dynamically (replace with your actual image paths)
+        document.addEventListener('DOMContentLoaded', function() {
+            // This is where you would add your actual images
+            // Example: const images = ['image1.jpg', 'image2.jpg', ...];
+            
+            // For now, we'll keep the placeholders
+            console.log('Gallery loaded. Add your images by replacing the image-placeholder divs with actual img tags.');
+            
+            // Example of how to add an actual image:
+            // <div class="gallery-item">
+            //     <img src="your-image.jpg" alt="Description">
+            //     <div class="image-caption">
+            //         <h3>Title</h3>
+            //         <p>Description</p>
+            //     </div>
+            // </div>
+        });
+    </script>
+
 </body>
 </html>

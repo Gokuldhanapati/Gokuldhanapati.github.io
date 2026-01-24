@@ -9,17 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        html { scroll-behavior: smooth; }
         body {
             background-color: #121212;
             color: #fff;
@@ -27,7 +18,6 @@
             position: relative;
             overflow-x: hidden;
         }
-
         body::before {
             content: '';
             position: absolute;
@@ -39,7 +29,7 @@
             z-index: -1;
         }
 
-        /* ================= HEADER ================= */
+        /* HEADER */
         header {
             padding: 25px 50px;
             display: flex;
@@ -47,93 +37,40 @@
             align-items: center;
             z-index: 10;
         }
+        .logo { font-size: 28px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .logo span { color: #ff4757; }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .logo span {
-            color: #ff4757;
-        }
-
-        /* ================= NAV ================= */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-
-        nav ul li {
-            position: relative;
-        }
-
+        /* NAV */
+        nav ul { display: flex; list-style: none; gap: 40px; }
+        nav ul li { position: relative; }
         nav ul li a {
-            color: #f5f5f5;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 8px 0;
-            position: relative;
-            transition: color 0.3s;
+            color: #f5f5f5; text-decoration: none; font-size: 18px;
+            font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+            padding: 8px 0; position: relative; transition: color 0.3s;
         }
-
         nav ul li a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: #ff4757;
+            content: ''; position: absolute; left: 0; bottom: 0;
+            width: 0; height: 2px; background-color: #ff4757;
             transition: width 0.3s;
         }
+        nav ul li a:hover { color: #ff4757; }
+        nav ul li a:hover::after { width: 100%; }
 
-        nav ul li a:hover {
-            color: #ff4757;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* ===== DROPDOWN ===== */
+        /* DROPDOWN */
         .dropdown-menu {
-            position: absolute;
-            top: 120%;
-            left: 0;
-            background: #1c1c1c;
-            border-radius: 10px;
-            min-width: 200px;
-            display: none;
-            flex-direction: column;
-            padding: 10px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            z-index: 1000;
+            position: absolute; top: 120%; left: 0;
+            background: #1c1c1c; border-radius: 10px; min-width: 200px;
+            display: none; flex-direction: column; padding: 10px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); z-index: 1000;
         }
-
         .dropdown-menu li a {
-            padding: 12px 20px;
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: none;
+            padding: 12px 20px; font-size: 16px; font-weight: 600; text-transform: none;
             color: #ddd;
         }
+        .dropdown-menu li a:hover { background-color: #ff4757; color: #fff; }
+        .dropdown:hover .dropdown-menu { display: flex; }
 
-        .dropdown-menu li a:hover {
-            background-color: #ff4757;
-            color: #fff;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: flex;
-        }
-
-        /* ================= MAIN ================= */
+        /* MAIN */
         .container {
             max-width: 1400px;
             margin: auto;
@@ -142,132 +79,49 @@
             align-items: center;
             justify-content: space-between;
         }
-
-        .text-content {
-            flex: 1;
-        }
-
-        .hello-text {
-            font-size: 35px;
-        }
-
-        .name {
-            font-size: 60px;
-            font-weight: 700;
-            line-height: 1.1;
-        }
-
-        .name span {
-            color: #ff4757;
-        }
-
-        .tagline {
-            font-size: 28px;
-            color: #ddd;
-            margin: 30px 0;
-        }
-
-        .description {
-            font-size: 18px;
-            color: #aaa;
-            max-width: 600px;
-            margin-bottom: 40px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 20px;
-        }
-
+        .text-content { flex: 1; }
+        .hello-text { font-size: 35px; }
+        .name { font-size: 60px; font-weight: 700; line-height: 1.1; }
+        .name span { color: #ff4757; }
+        .tagline { font-size: 28px; color: #ddd; margin: 30px 0; }
+        .description { font-size: 18px; color: #aaa; max-width: 600px; margin-bottom: 40px; }
+        .buttons { display: flex; gap: 20px; }
         .btn {
-            padding: 15px 35px;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: 0.3s;
+            padding: 15px 35px; border-radius: 30px; font-weight: 600;
+            text-decoration: none; transition: 0.3s;
         }
+        .btn-primary { background: #ff4757; color: #fff; }
+        .btn-primary:hover { background: #ff3742; transform: translateY(-3px); }
+        .btn-secondary { border: 2px solid #444; color: #fff; }
+        .btn-secondary:hover { border-color: #ff4757; color: #ff4757; }
 
-        .btn-primary {
-            background: #ff4757;
-            color: #fff;
-        }
-
-        .btn-primary:hover {
-            background: #ff3742;
-            transform: translateY(-3px);
-        }
-
-        .btn-secondary {
-            border: 2px solid #444;
-            color: #fff;
-        }
-
-        .btn-secondary:hover {
-            border-color: #ff4757;
-            color: #ff4757;
-        }
-
-        /* ================= IMAGE ================= */
-        .image-content {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-
+        /* IMAGE */
+        .image-content { flex: 1; display: flex; justify-content: center; }
         .profile-image-container {
-            width: 420px;
-            height: 420px;
-            border-radius: 50%;
-            overflow: hidden;
+            width: 420px; height: 420px;
+            border-radius: 50%; overflow: hidden;
             border: 10px solid rgba(255,255,255,0.05);
         }
+        .profile-image { width: 100%; height: 100%; object-fit: cover; }
 
-        .profile-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* ================= SOCIAL LINKS ================= */
+        /* SOCIAL LINKS */
         .social-links {
-            position: fixed;
-            left: 50px;
-            bottom: 50px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+            position: fixed; left: 50px; bottom: 50px;
+            display: flex; flex-direction: column; gap: 20px;
         }
-
         .social-links a {
-            color: #aaa;
-            font-size: 20px;
-            transition: 0.3s;
+            color: #aaa; font-size: 20px; transition: 0.3s;
         }
-
-        .social-links a:hover {
-            transform: translateY(-5px);
-        }
-
+        .social-links a:hover { transform: translateY(-5px); }
         .social-links a:hover .fa-graduation-cap { color: #4285F4; }
         .social-links a:hover .fa-linkedin-in { color: #0A66C2; }
         .social-links a:hover .fa-researchgate { color: #00CCBB; }
         .social-links a:hover .fa-orcid { color: #A6CE39; }
-        .social-links a:hover .fa-facebook-f { color: #1877F2; }
-        .social-links a:hover .fa-instagram { color: #E4405F; }
 
-        /* ================= RESPONSIVE ================= */
+        /* RESPONSIVE */
         @media (max-width: 992px) {
-            .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .social-links {
-                position: static;
-                flex-direction: row;
-                justify-content: center;
-                margin-top: 40px;
-            }
+            .container { flex-direction: column; text-align: center; }
+            .social-links { position: static; flex-direction: row; justify-content: center; margin-top: 40px; }
         }
     </style>
 </head>
@@ -289,7 +143,7 @@
             </li>
             <li><a href="#publications">Publications</a></li>
             <li><a href="#service">Conferences</a></li>
-            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
         </ul>
     </nav>
 </header>
@@ -305,7 +159,7 @@
             Learning, exploring, and growing through science
         </p>
         <div class="buttons">
-            <a href="#gallery" class="btn btn-primary">View My Work</a>
+            <a href="gallery.html" class="btn btn-primary">View My Work</a>
             <a href="#contact" class="btn btn-secondary">Contact Me</a>
         </div>
     </div>
@@ -323,7 +177,6 @@
     <a href="https://www.linkedin.com/in/gokuldhanapati/"><i class="fab fa-linkedin-in"></i></a>
     <a href="https://www.researchgate.net/profile/Gokul-Dhanapati?ev=hdr_xprf"><i class="fab fa-researchgate"></i></a>
     <a href="https://orcid.org/my-orcid?orcid=0009-0005-1170-194X"><i class="fab fa-orcid"></i></a>
-    
 </div>
 
 </body>

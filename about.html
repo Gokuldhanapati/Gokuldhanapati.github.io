@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About Gokul Dhanapati - PhD Research Scholar studying honey bee viral dynamics at Mississippi State University.">
+    <title>About Me | Gokul Dhanapati</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Gokul<span>.</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About</a></li>
+                <li class="dropdown">
+                    <a href="education.html" class="nav-link dropdown-toggle">Education</a>
+                    <div class="dropdown-menu">
+                        <a href="education.html#phd">PhD</a>
+                        <a href="education.html#masters">Masters</a>
+                        <a href="education.html#bachelors">Bachelors</a>
+                    </div>
+                </li>
+                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="publications.html" class="nav-link">Publications</a></li>
+                <li><a href="conferences.html" class="nav-link">Conferences</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="cv.html" class="nav-link">CV</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <p class="page-label">Get to Know Me</p>
+            <h1 class="page-title">About <span>Me</span></h1>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <!-- Bio -->
+                <div>
+                    <h2 style="margin-bottom: 24px;">My Journey</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.8;">
+                        I'm a PhD Research Scholar in Entomology at Mississippi State University, where I study the 
+                        genetic and environmental factors influencing viral dynamics in honey bee colonies. My journey 
+                        from India to Mississippi has been driven by a passion for understanding pollinator health 
+                        and developing strategies to protect these vital insects.
+                    </p>
+                    <p style="color: var(--text-muted); margin-bottom: 20px; line-height: 1.8;">
+                        Under the guidance of <span style="color: var(--accent-red); font-weight: 600;">Dr. Esmaeil Amiri</span>, 
+                        I'm investigating how we can select colonies that are resistant to viral infections, 
+                        contributing to sustainable apiculture practices.
+                    </p>
+                    <p style="display: flex; align-items: center; gap: 12px; color: var(--text-muted);">
+                        📍 Mississippi State University, USA
+                    </p>
+                </div>
+
+                <!-- Cards -->
+                <div>
+                    <div class="card" style="margin-bottom: 20px;">
+                        <div class="card-icon">🔬</div>
+                        <h3 class="card-title">Research Focus</h3>
+                        <p class="card-text">
+                            Honey Bee Viral Dynamics, Pollinator Health, Molecular Entomology, qPCR Analysis
+                        </p>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-icon">🎓</div>
+                        <h3 class="card-title">Academic Interests</h3>
+                        <p class="card-text">
+                            Biodiversity Studies, Integrated Pest Management, Coccinellid Taxonomy, 
+                            Bioecology, Statistical Modeling in R
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html" class="logo">Gokul<span>.</span></a>
+            <p class="footer-copy">© 2025 Gokul Dhanapati. Made with <span>♥</span></p>
+            <div class="footer-links">
+                <a href="research.html">Research</a>
+                <a href="publications.html">Publications</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

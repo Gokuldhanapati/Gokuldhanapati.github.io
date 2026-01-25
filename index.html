@@ -1,107 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Gokul Dhanapati - PhD Research Scholar in Entomology at Mississippi State University. Specializing in Honey Bee Health and Virus Dynamics.">
-    <title>Gokul Dhanapati | PhD Research Scholar</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" href="favicon.ico">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">Gokul<span>.</span></a>
-            
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html" class="nav-link active">Home</a></li>
-                <li><a href="about.html" class="nav-link">About</a></li>
-                <li class="dropdown">
-                    <a href="education.html" class="nav-link dropdown-toggle">Education</a>
-                    <div class="dropdown-menu">
-                        <a href="education.html#phd">PhD</a>
-                        <a href="education.html#masters">Masters</a>
-                        <a href="education.html#bachelors">Bachelors</a>
-                    </div>
-                </li>
-                <li><a href="research.html" class="nav-link">Research</a></li>
-                <li><a href="publications.html" class="nav-link">Publications</a></li>
-                <li><a href="conferences.html" class="nav-link">Conferences</a></li>
-                <li><a href="skills.html" class="nav-link">Skills</a></li>
-                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                <li><a href="cv.html" class="nav-link">CV</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- TODO: Set the document title to the name of your application -->
+    <title>Lovable App</title>
+    <meta name="description" content="Lovable Generated Project" />
+    <meta name="author" content="Lovable" />
 
-    <!-- Social Sidebar -->
-    <div class="social-sidebar">
-        <a href="https://scholar.google.com" target="_blank" class="social-link" title="Google Scholar">GS</a>
-        <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">in</a>
-        <a href="https://www.researchgate.net/profile/Gokul-Dhanapati" target="_blank" class="social-link" title="ResearchGate">RG</a>
-        <a href="https://orcid.org/0009-0005-1170-194X" target="_blank" class="social-link" title="ORCID">OR</a>
-        <a href="https://github.com" target="_blank" class="social-link" title="GitHub">GH</a>
-        <div class="social-line"></div>
-    </div>
+    <!-- TODO: Update og:title to match your application name -->
+    <meta property="og:title" content="Lovable App" />
+    <meta property="og:description" content="Lovable Generated Project" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p class="hero-subtitle">Welcome to my Portfolio</p>
-                    <h1 class="hero-title">Hello! I Am<br><span>Gokul Dhanapati</span></h1>
-                    <p class="hero-role">PhD Research Scholar</p>
-                    <p class="hero-focus">Entomology | Honey Bee Health & Virus Dynamics</p>
-                    <p class="hero-quote">"Learning, exploring, and growing through science"</p>
-                    <div class="hero-buttons">
-                        <a href="research.html" class="btn btn-primary">
-                            📄 View My Work
-                        </a>
-                        <a href="contact.html" class="btn btn-outline">
-                            ✉️ Contact Me
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="images/profile-placeholder.jpg" alt="Gokul Dhanapati" class="profile-image">
-                </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <span>Scroll</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 5v14M19 12l-7 7-7-7"/>
-            </svg>
-        </div>
-    </section>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Lovable" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+  </head>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <a href="index.html" class="logo">Gokul<span>.</span></a>
-            <p class="footer-copy">© 2025 Gokul Dhanapati. Made with <span>♥</span></p>
-            <div class="footer-links">
-                <a href="research.html">Research</a>
-                <a href="publications.html">Publications</a>
-                <a href="contact.html">Contact</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
-    </script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>

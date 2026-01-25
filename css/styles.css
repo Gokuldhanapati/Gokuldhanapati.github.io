@@ -691,6 +691,7 @@ h3 { font-size: 1.25rem; }
 @media (min-width: 1024px) {
   .hero-name {
     font-size: 3.75rem;
+     white-space: nowrap;
   }
 }
 

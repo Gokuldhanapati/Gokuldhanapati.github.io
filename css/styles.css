@@ -675,7 +675,8 @@ h3 { font-size: 1.25rem; }
 }
 
 .hero-greeting {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
+   font-weight: 700;
   color: var(--text-secondary);
   margin-bottom: var(--spacing-md);
 }

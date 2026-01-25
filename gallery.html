@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photo gallery of Gokul Dhanapati - Field work, lab, apiary, and conference photos.">
+    <title>Gallery | Gokul Dhanapati</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Gokul<span>.</span></a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li class="dropdown">
+                    <a href="education.html" class="nav-link dropdown-toggle">Education</a>
+                    <div class="dropdown-menu">
+                        <a href="education.html#phd">PhD</a>
+                        <a href="education.html#masters">Masters</a>
+                        <a href="education.html#bachelors">Bachelors</a>
+                    </div>
+                </li>
+                <li><a href="research.html" class="nav-link">Research</a></li>
+                <li><a href="publications.html" class="nav-link">Publications</a></li>
+                <li><a href="conferences.html" class="nav-link">Conferences</a></li>
+                <li><a href="skills.html" class="nav-link">Skills</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="cv.html" class="nav-link">CV</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="container">
+            <p class="page-label">Visual Journey</p>
+            <h1 class="page-title"><span>Gallery</span></h1>
+        </div>
+    </header>
+
+    <!-- Gallery Section -->
+    <section class="section">
+        <div class="container">
+            <!-- Filters -->
+            <div class="gallery-filters">
+                <button class="filter-btn glass-card active" data-filter="all">All</button>
+                <button class="filter-btn glass-card" data-filter="field">Field</button>
+                <button class="filter-btn glass-card" data-filter="lab">Lab</button>
+                <button class="filter-btn glass-card" data-filter="apiary">Apiary</button>
+                <button class="filter-btn glass-card" data-filter="conference">Conference</button>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="gallery-grid">
+                <div class="gallery-item glass-card" data-category="field">
+                    <div class="gallery-placeholder">
+                        <span class="gallery-emoji">📷</span>
+                        <span class="gallery-text">Field research with bee colonies</span>
+                    </div>
+                    <span class="gallery-category-badge">Field</span>
+                </div>
+                <div class="gallery-item glass-card" data-category="lab">
+                    <div class="gallery-placeholder">
+                        <span class="gallery-emoji">🔬</span>
+                        <span class="gallery-text">Laboratory molecular work</span>
+                    </div>
+                    <span class="gallery-category-badge">Lab</span>
+                </div>
+                <div class="gallery-item glass-card" data-category="apiary">
+                    <div class="gallery-placeholder">
+                        <span class="gallery-emoji">🐝</span>
+                        <span class="gallery-text">Apiary management</span>
+                    </div>
+                    <span class="gallery-category-badge">Apiary</span>
+                </div>
+                <div class="gallery-item glass-card" data-category="conference">
+                    <div class="gallery-placeholder">
+                        <span class="gallery-emoji">🎤</span>
+                        <span class="gallery-text">Conference presentation</span>
+                    </div>
+                    <span class="gallery-category-badge">Conference</span>
+                </div>
+                <div class="gallery-item glass-card" data-category="field">
+                    <div class="gallery-placeholder">
+                        <span class="gallery-emoji">🦗</span>
+                        <span class="gallery-text">Insect sampling in field</span>
+                    </div>
+                    <span class="gallery-category-badge">Field</span>
+                </div>
+                <div class="gallery-item glass-card" data-category="lab">
+                    <div class="gallery-placeholder">
+                        <span class="gallery-emoji">🔬</span>
+                        <span class="gallery-text">Microscopy work</span>
+                    </div>
+                    <span class="gallery-category-badge">Lab</span>
+                </div>
+            </div>
+
+            <!-- Note -->
+            <p class="gallery-note">
+                💡 Replace these placeholders with your actual research photos by adding images to the <code>images/</code> folder
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html" class="logo">Gokul<span>.</span></a>
+            <p class="footer-copy">© 2025 Gokul Dhanapati. Made with <span>♥</span></p>
+            <div class="footer-links">
+                <a href="research.html">Research</a>
+                <a href="publications.html">Publications</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Filter items
+                const filter = this.getAttribute('data-filter');
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

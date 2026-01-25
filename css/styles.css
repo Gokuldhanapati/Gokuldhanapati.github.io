@@ -219,7 +219,7 @@ h3 { font-size: 1.25rem; }
 }
 
 .nav-link {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--text-secondary);
   transition: color var(--transition-normal);
@@ -675,7 +675,7 @@ h3 { font-size: 1.25rem; }
 }
 
 .hero-greeting {
-  font-size: 1.125rem;
+  font-size: 1.4rem;
   color: var(--text-secondary);
   margin-bottom: var(--spacing-md);
 }

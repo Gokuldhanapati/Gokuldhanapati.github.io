@@ -215,6 +215,7 @@ h3 { font-size: 1.25rem; }
 @media (min-width: 1024px) {
   .navbar-menu {
     display: flex;
+     margin-left: auto;
   }
 }
 

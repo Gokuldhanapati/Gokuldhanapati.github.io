@@ -738,6 +738,7 @@ h3 { font-size: 1.25rem; }
   width: 280px;
   height: 280px;
   border-radius: 50%;
+   object-fit: cover;
   background-color: var(--bg-card);
   border: 1px solid var(--border-color);
   overflow: hidden;

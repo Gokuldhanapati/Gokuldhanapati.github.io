@@ -1,12 +1,14 @@
 /* Landing page styles */
 .landing-hero {
   display: flex;
-  align-items: center;
+  align-items: flex-start;   /* align top of image and text */
   gap: 3.5rem;
   padding: 2rem 0 3.5rem;
 }
 
-.landing-hero-left { flex-shrink: 0; }
+.landing-hero-left {
+  flex-shrink: 0;
+}
 
 .profile-image {
   width: 160px;
@@ -15,9 +17,12 @@
   object-fit: cover;
   filter: grayscale(10%);
   border: 3px solid var(--border);
+  transform: translateY(-96px); /* moves image ~1 inch up */
 }
 
-.landing-hero-right { max-width: 540px; }
+.landing-hero-right {
+  max-width: 600px;    /* constrain text width for readability */
+}
 
 .landing-greeting {
   font-size: 14px;
@@ -48,30 +53,23 @@
 
 .profile-bio {
   font-size: 15px;
-  line-height: 1.85;
+  line-height: 1.6;      /* spacing between lines */
   color: var(--muted-foreground);
+  margin-top: 0;
 }
 
-.dna-bee-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 2rem;
-  margin-top: -1in;
-}
-
-.dna-bee-container img {
-  max-width: 70%;
-  object-fit: contain;
-  pointer-events: none;
-}
-
+/* Responsive for mobile */
 @media (max-width: 768px) {
   .landing-hero {
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
   }
-  .profile-image { width: 120px; height: 120px; }
+  .profile-image { 
+    width: 120px; 
+    height: 120px; 
+    transform: translateY(0); /* no offset on mobile */
+  }
   .profile-name { font-size: 2rem; }
+  .landing-hero-right { max-width: 100%; }
 }

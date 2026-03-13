@@ -1,0 +1,22 @@
+/* Blog page styles (shared by all blog pages) */
+.blog-article {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.blog-article p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--muted-foreground);
+}
+
+.blog-article p em {
+  color: var(--foreground);
+}
+
+.blog-note {
+  color: var(--muted-foreground);
+  font-style: italic;
+  opacity: 0.7;
+}

@@ -1,0 +1,24 @@
+/* Contact page styles */
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover { color: var(--primary); }
+
+.contact-link svg {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
+.contact-link:hover svg { opacity: 1; }
+
+.contact-label {
+  font-size: 14px;
+  font-weight: 500;
+}

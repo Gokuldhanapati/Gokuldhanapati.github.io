@@ -1,0 +1,43 @@
+/* Skills page styles */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.skill-card {
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  background: var(--card);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.skill-card:hover {
+  border-color: rgba(33, 33, 33, 0.2);
+  box-shadow: 0 2px 12px rgba(33, 33, 33, 0.04);
+}
+
+.skill-card h3 { margin-bottom: 0.75rem; }
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+}
+
+.skills-list li {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  padding: 0.35rem 0 0.35rem 1rem;
+  position: relative;
+}
+
+.skills-list li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--border);
+}
+
+@media (max-width: 768px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,35 @@
+/* CV page styles */
+.cv-section {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cv-section:last-child { border-bottom: none; }
+
+.cv-entry { margin-bottom: 1.25rem; }
+.cv-entry:last-child { margin-bottom: 0; }
+
+.cv-entry-title {
+  font-weight: 600;
+  margin-bottom: 0;
+  color: var(--foreground);
+}
+
+.cv-meta {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  margin-bottom: 0.5rem;
+}
+
+.cv-description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.cv-award {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  margin-bottom: 0.5rem;
+}

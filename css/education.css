@@ -1,41 +1,102 @@
-/* Education page styles */
-.edu-entry {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border);
+/* Landing page styles */
+.landing-hero {
+  display: flex;
+  align-items: flex-start;   /* top-align image and text */
+  gap: 3.5rem;
+  padding: 2rem 0 3.5rem;
 }
-.edu-entry:last-child { border-bottom: none; }
 
-.edu-meta {
-  font-size: 13px;
-  font-weight: 400;
+.landing-hero-left {
+  flex-shrink: 0;
+}
+
+/* Profile image */
+.profile-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(10%);
+  border: 3px solid var(--border);
+  margin-top: 0; /* no translateY, keeps natural alignment */
+}
+
+/* Right-side content */
+.landing-hero-right {
+  max-width: 600px;  /* constrain text width for readability */
+}
+
+.landing-greeting {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   color: var(--muted-foreground);
+  margin-bottom: 0.25rem;
+}
+
+.profile-name {
+  font-family: var(--font-heading);
+  font-size: 2.75rem;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
   margin-bottom: 0.5rem;
-  letter-spacing: 0.01em;
+  color: var(--foreground);
 }
 
-.edu-focus {
+.landing-tagline {
   font-size: 14px;
-  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   color: var(--muted-foreground);
+  margin-bottom: 1.25rem;
 }
 
-.interests-section { padding-top: 2rem; }
-
-.interests-list {
-  list-style: none;
-  padding: 0;
-}
-
-.interests-list li {
-  font-size: 14px;
+.profile-bio {
+  font-size: 15px;
+  line-height: 1.6;          /* spacing between lines */
   color: var(--muted-foreground);
-  padding: 0.35rem 0 0.35rem 1rem;
-  position: relative;
+  margin-top: 0;
+  max-width: 600px;           /* constrain width like Word */
 }
 
-.interests-list li::before {
-  content: '—';
-  position: absolute;
-  left: 0;
-  color: var(--border);
+/* DNA + bee container under text */
+.dna-bee-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end; /* right-side positioning */
+  padding-right: 2rem;
+}
+
+.dna-bee-container img {
+  max-width: 70%;            /* original size */
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Responsive for mobile */
+@media (max-width: 768px) {
+  .landing-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-name {
+    font-size: 2rem;
+  }
+
+  .landing-hero-right {
+    max-width: 100%;          /* full width for small screens */
+  }
+
+  .dna-bee-container img {
+    max-width: 100%;          /* shrink on mobile */
+  }
 }

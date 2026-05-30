@@ -44,3 +44,64 @@
     align-self: flex-start;
   }
 }
+.edu-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* LEFT SIDE */
+.edu-left {
+  flex: 1;
+}
+
+/* RIGHT SIDE */
+.edu-sidebar {
+  flex: 0 0 340px;
+  position: sticky;
+  top: 90px;
+}
+
+/* BOX STYLE */
+.side-box {
+  background: rgba(245, 245, 245, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* dropdown title */
+.side-box summary {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* remove default arrow spacing */
+.side-box summary::-webkit-details-marker {
+  display: none;
+}
+
+/* list */
+.side-box ul {
+  margin-top: 0.75rem;
+  padding-left: 1rem;
+}
+
+.side-box li {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.4rem;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .edu-layout {
+    flex-direction: column;
+  }
+
+  .edu-sidebar {
+    position: static;
+    width: 100%;
+  }
+}

@@ -34,7 +34,7 @@
 
 /* RIGHT sidebar */
 .bio-sidebar {
-  width: 260px;
+  width: 340px;
   position: sticky;
   top: 90px;
 }
@@ -81,4 +81,7 @@
     width: 100%;
     position: static;
   }
+}
+.wide-box {
+  width: 320px;
 }

@@ -1,3 +1,4 @@
+/* MAIN LAYOUT */
 .edu-layout {
   display: flex;
   gap: 3rem;
@@ -8,14 +9,7 @@
 /* LEFT SIDE */
 .edu-left {
   flex: 1;
-  width: 100%;
-}
-
-/* RIGHT SIDE */
-.edu-sidebar {
-  flex: 0 0 340px;
-  position: sticky;
-  top: 90px;
+  min-width: 0;
 }
 
 /* TIMELINE */
@@ -23,9 +17,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  width: 100%;
 }
 
+/* CARD */
 .edu-card {
   display: flex;
   justify-content: space-between;
@@ -36,20 +30,21 @@
   border-radius: 10px;
 
   padding: 1.5rem 1.75rem;
-  width: 100%;
 }
 
+/* TEXT */
 .edu-card h2 {
   font-size: 1.25rem;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .edu-card p {
   color: var(--muted-foreground);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-.edu-right {
+/* YEAR RIGHT SIDE */
+.edu-year {
   font-size: 0.85rem;
   color: var(--muted-foreground);
   white-space: nowrap;
@@ -57,28 +52,34 @@
   text-transform: uppercase;
 }
 
-/* SIDEBAR BOX */
+/* RIGHT SIDEBAR */
+.edu-sidebar {
+  flex: 0 0 360px;
+  position: sticky;
+  top: 90px;
+}
+
+/* BOX */
 .side-box {
   background: rgba(245, 245, 245, 0.6);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1rem;
-  width: 100%;
 }
 
-/* dropdown title */
+/* DROPDOWN */
 .side-box summary {
   cursor: pointer;
   font-weight: 500;
+  font-size: 0.95rem;
 }
 
-/* remove default arrow */
 .side-box summary::-webkit-details-marker {
   display: none;
 }
 
-/* list */
+/* LIST */
 .side-box ul {
   margin-top: 0.75rem;
   padding-left: 1rem;
@@ -90,7 +91,7 @@
   margin-bottom: 0.4rem;
 }
 
-/* MOBILE */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .edu-layout {
     flex-direction: column;

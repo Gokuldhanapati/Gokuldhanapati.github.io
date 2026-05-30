@@ -4,43 +4,29 @@
   gap: 1.25rem;
 }
 
-/* Card style */
 .edu-card {
-  background: rgba(245, 245, 245, 0.6);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.5rem 1.75rem;
-  backdrop-filter: blur(4px);
-  transition: 0.2s ease;
-}
-
-.edu-card:hover {
-  background: rgba(235, 235, 235, 0.8);
-}
-
-/* Layout inside card */
-.edu-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 2rem;
+
+  background: rgba(245, 245, 245, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  padding: 1.5rem 1.75rem;
 }
 
-/* Left text */
-.edu-title h2 {
+.edu-left h2 {
   font-size: 1.25rem;
-  font-weight: 600;
   margin-bottom: 0.4rem;
 }
 
-.edu-sub {
+.edu-left p {
   color: var(--muted-foreground);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
-/* Right side date */
-.edu-date {
+.edu-right {
   font-size: 0.85rem;
   color: var(--muted-foreground);
   white-space: nowrap;
@@ -48,14 +34,13 @@
   text-transform: uppercase;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .edu-header {
+  .edu-card {
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .edu-date {
+  .edu-right {
     align-self: flex-start;
   }
 }

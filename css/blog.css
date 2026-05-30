@@ -20,3 +20,65 @@
   font-style: italic;
   opacity: 0.7;
 }
+.bio-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+/* LEFT content stays same width feel */
+.bio-left {
+  flex: 1;
+  max-width: 640px;
+}
+
+/* RIGHT sidebar */
+.bio-sidebar {
+  width: 260px;
+  position: sticky;
+  top: 90px;
+}
+
+/* Sidebar boxes */
+.side-box {
+  background: rgba(245, 245, 245, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.side-box h3 {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.side-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-box li {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  margin-bottom: 0.4rem;
+}
+
+.side-box a {
+  color: var(--foreground);
+  font-size: 0.9rem;
+}
+
+/* Mobile responsive */
+@media (max-width: 900px) {
+  .bio-layout {
+    flex-direction: column;
+  }
+
+  .bio-sidebar {
+    width: 100%;
+    position: static;
+  }
+}

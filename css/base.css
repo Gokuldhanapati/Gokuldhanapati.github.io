@@ -153,3 +153,10 @@ nav {
   .page-container { padding: 0 1.25rem; }
   .nav-separator { display: none; }
 }
+main {
+  min-height: calc(100vh - var(--nav-height));
+}
+
+.page-container {
+  width: 100%;
+}

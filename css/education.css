@@ -1,3 +1,4 @@
+
 /* MAIN LAYOUT */
 .edu-layout {
   display: flex;
@@ -79,16 +80,24 @@
   display: none;
 }
 
-/* LIST */
-.side-box ul {
+/* LIST (UL + OL FIX) */
+.side-box ul,
+.side-box ol {
   margin-top: 0.75rem;
-  padding-left: 1rem;
+  padding-left: 1.25rem;   /* FIX: keeps numbers inside grey box */
 }
 
+/* LIST ITEMS */
 .side-box li {
   font-size: 0.9rem;
   color: var(--muted-foreground);
   margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+
+/* OPTIONAL: cleaner number alignment (modern CV style) */
+.side-box ol {
+  list-style-position: outside;
 }
 
 /* RESPONSIVE */

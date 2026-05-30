@@ -2,7 +2,7 @@
 .landing-hero {
   display: flex;
   align-items: flex-start;   /* top-align image and text */
-  gap: 3.5rem;
+  gap: 4.5rem;
   padding: 2rem 0 3.5rem;
 }
 
@@ -12,8 +12,8 @@
 
 /* Profile image */
 .profile-image {
-  width: 160px;
-  height: 160px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   object-fit: cover;
   filter: grayscale(10%);

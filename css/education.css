@@ -1,10 +1,16 @@
-```css
+/* Layout spacing fix (matches homepage feel) */
+.page-content {
+  padding: 3.5rem 0 5rem;
+}
+
+/* Education layout */
 .education-section {
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
 }
 
+/* Card style */
 .education-card {
   padding: 1.75rem 0;
   border-bottom: 1px solid var(--border);
@@ -14,6 +20,7 @@
   border-bottom: none;
 }
 
+/* Year */
 .education-year {
   font-size: 0.85rem;
   letter-spacing: 0.08em;
@@ -22,20 +29,24 @@
   margin-bottom: 0.75rem;
 }
 
+/* Degree title */
 .education-card h2 {
   margin-bottom: 0.5rem;
   font-size: 1.35rem;
 }
 
+/* Institution text */
 .institution {
   color: var(--muted-foreground);
   line-height: 1.8;
 }
 
+/* Work section spacing */
 .work-title {
   margin-top: 5rem;
 }
 
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .education-card {
     padding: 1.25rem 0;
@@ -45,4 +56,3 @@
     font-size: 1.2rem;
   }
 }
-```

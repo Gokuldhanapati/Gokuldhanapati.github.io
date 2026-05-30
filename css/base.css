@@ -1,25 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=Inter:wght@300;400;500;600&display=swap');
 
+/* =========================
+   RESET
+========================= */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* =========================
+   ROOT VARIABLES
+========================= */
 :root {
   --background: #ffffff;
   --foreground: #212121;
-  --card: #fafafa;
   --border: #e5e5e5;
   --muted-foreground: #666666;
-  --primary: #212121;
-  --font-heading: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --font-heading: 'Source Serif 4', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
   --content-max-width: 1280px;
   --nav-height: 56px;
 }
 
+/* =========================
+   GLOBAL FIX (IMPORTANT)
+========================= */
 html {
+  overflow-y: scroll; /* prevents header shift */
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,37 +40,47 @@ body {
   color: var(--foreground);
   font-family: var(--font-body);
   font-size: 16px;
-  font-weight: 400;
   line-height: 1.8;
-  letter-spacing: -0.005em;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+/* =========================
+   TYPOGRAPHY
+========================= */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   color: var(--foreground);
-  letter-spacing: -0.025em;
 }
 
-h1 { font-size: 2.125rem; font-weight: 500; line-height: 1.2; }
-h2 { font-size: 1.4rem; font-weight: 500; line-height: 1.35; margin-bottom: 0.75rem; }
-h3 { font-size: 1.125rem; font-weight: 500; line-height: 1.4; margin-bottom: 0.25rem; }
+h1 { font-size: 2.125rem; font-weight: 500; }
+h2 { font-size: 1.4rem; font-weight: 500; }
 
-p { color: var(--muted-foreground); }
+p {
+  color: var(--muted-foreground);
+}
 
+/* =========================
+   LINKS
+========================= */
 a {
   color: var(--foreground);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: 0.2s ease;
 }
 
-::selection { background: rgba(33, 33, 33, 0.12); }
+/* =========================
+   LAYOUT
+========================= */
+main {
+  flex: 1;
+  min-height: calc(100vh - var(--nav-height));
+}
 
-/* Layout */
 .page-container {
   max-width: var(--content-max-width);
+  width: 100%;
   margin: 0 auto;
   padding: 0 2rem;
 }
@@ -73,22 +93,23 @@ a {
   max-width: 640px;
 }
 
-main { flex: 1; }
-
-/* Page title */
+/* =========================
+   PAGE TITLE
+========================= */
 .page-title {
   font-family: var(--font-heading);
   font-size: 2.125rem;
   font-weight: 500;
-  letter-spacing: -0.03em;
   margin-bottom: 2.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
-  color: var(--foreground);
 }
 
-/* Navigation */
+/* =========================
+   HEADER + NAV (FIXED)
+========================= */
 header {
+  width: 100%;
   border-bottom: 1px solid var(--border);
   background: var(--background);
 }
@@ -99,22 +120,21 @@ nav {
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
-  overflow-x: auto;
   white-space: nowrap;
+  overflow-x: auto;
 }
 
 .nav-link {
   font-size: 15px;
   font-weight: 500;
-  letter-spacing: 0.02em;
   text-transform: uppercase;
-  padding: 0.25rem 0;
-  border-bottom: 1.5px solid transparent;
-  transition: all 0.2s ease;
   color: var(--muted-foreground);
+  border-bottom: 1.5px solid transparent;
 }
 
-.nav-link:hover { color: var(--foreground); }
+.nav-link:hover {
+  color: var(--foreground);
+}
 
 .nav-link-active {
   color: var(--foreground);
@@ -123,18 +143,14 @@ nav {
 
 .nav-link-blog {
   font-size: 14px;
-  font-weight: 400;
-  letter-spacing: 0.015em;
   text-transform: none;
+  font-weight: 400;
 }
 
 .nav-divider {
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--border);
-  user-select: none;
 }
 
 .nav-separator {
@@ -142,21 +158,27 @@ nav {
 }
 
 .home-link {
-  text-transform: none;
   font-size: 16px;
   font-weight: 600;
-  letter-spacing: -0.01em;
-  margin-right: 0.5rem;
+  text-transform: none;
 }
 
+/* =========================
+   SELECTION
+========================= */
+::selection {
+  background: rgba(33, 33, 33, 0.12);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 640px) {
-  .page-container { padding: 0 1.25rem; }
-  .nav-separator { display: none; }
-}
-main {
-  min-height: calc(100vh - var(--nav-height));
-}
+  .page-container {
+    padding: 0 1.25rem;
+  }
 
-.page-container {
-  width: 100%;
+  .nav-separator {
+    display: none;
+  }
 }

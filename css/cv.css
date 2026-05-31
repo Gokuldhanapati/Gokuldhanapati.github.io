@@ -1,35 +1,50 @@
-/* CV page styles */
-.cv-section {
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--border);
+/* MAIN LAYOUT */
+.cv-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  width: 100%;
 }
 
-.cv-section:last-child { border-bottom: none; }
-
-.cv-entry { margin-bottom: 1.25rem; }
-.cv-entry:last-child { margin-bottom: 0; }
-
-.cv-entry-title {
-  font-weight: 600;
-  margin-bottom: 0;
-  color: var(--foreground);
+/* LEFT SIDE */
+.cv-left {
+  flex: 1;
+  min-width: 0;
 }
 
-.cv-meta {
-  font-size: 13px;
-  color: var(--muted-foreground);
+/* RIGHT SIDEBAR */
+.cv-sidebar {
+  flex: 0 0 360px;
+  position: sticky;
+  top: 90px;
+}
+
+/* CV CARD */
+.cv-card {
+  background: rgba(245, 245, 245, 0.55);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.cv-card h3 {
   margin-bottom: 0.5rem;
 }
 
-.cv-description {
-  font-size: 14px;
-  line-height: 1.7;
+.cv-card p {
   color: var(--muted-foreground);
+  line-height: 1.7;
 }
 
-.cv-award {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--muted-foreground);
-  margin-bottom: 0.5rem;
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .cv-layout {
+    flex-direction: column;
+  }
+
+  .cv-sidebar {
+    position: static;
+    width: 100%;
+  }
 }

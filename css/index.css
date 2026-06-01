@@ -17,7 +17,7 @@
   border-radius: 50%;
   object-fit: cover;
   filter: grayscale(10%);
-  border: 2px solid #6b7280;
+  border: 2px solid #9ca3af;
   margin-top: 0; /* no translateY, keeps natural alignment */
 }
 

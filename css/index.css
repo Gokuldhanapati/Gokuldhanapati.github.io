@@ -100,3 +100,11 @@
     max-width: 100%;          /* shrink on mobile */
   }
 }
+.landing-tagline a {
+  color: #2a6fdb;
+  text-decoration: none;
+}
+
+.landing-tagline a:hover {
+  text-decoration: underline;
+}

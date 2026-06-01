@@ -140,3 +140,32 @@
     align-items: flex-start;
   }
 }
+/* =========================
+   EXTRA RESEARCH DETAILS (PI / ADVISOR LINES)
+========================= */
+
+.research-text p strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* Make PI / Advisor lines slightly separated */
+.research-text p {
+  margin-bottom: 0.6rem;
+}
+
+/* Optional: highlight PI / Advisor lines slightly */
+.research-text p strong {
+  letter-spacing: 0.2px;
+}
+
+/* Improve spacing for lists */
+.research-text ul {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Optional subtle separation for each section */
+.research-item {
+  scroll-margin-top: 100px;
+}

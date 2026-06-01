@@ -94,3 +94,88 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ================= NEW RESEARCH STRUCTURE ================= */
+
+.research-item {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.research-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1rem;
+}
+
+.research-header h2 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.research-date {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+.research-body {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.research-text {
+  flex: 1;
+}
+
+.research-text p,
+.research-text li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted-foreground);
+}
+
+.research-text ul {
+  margin: 0.5rem 0 1rem 1.2rem;
+}
+
+.research-image {
+  flex: 0 0 220px;
+}
+
+.research-image img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+/* ================= PI CARD ================= */
+
+.pi-card {
+  border: 1px solid var(--border);
+  background: rgba(245, 245, 245, 0.6);
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.pi-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .research-body {
+    flex-direction: column;
+  }
+
+  .research-image {
+    width: 100%;
+  }
+}

@@ -1,5 +1,60 @@
 /* =========================
-   TEXT CONTENT
+   RESEARCH PAGE LAYOUT
+========================= */
+
+.research-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.research-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =========================
+   RESEARCH ITEMS (SECTION BOXES)
+========================= */
+
+.research-item {
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border); /* ✅ SECTION DIVIDER LINE RESTORED */
+}
+
+.research-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.research-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.research-date {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+/* =========================
+   BODY LAYOUT
+========================= */
+
+.research-body {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* =========================
+   TEXT AREA
 ========================= */
 
 .research-text {
@@ -29,17 +84,20 @@
 }
 
 /* =========================
-   RESEARCH BODY
+   INLINE IMAGE
 ========================= */
 
-.research-body {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
+.research-inline-image {
+  float: right;
+  width: 220px;
+  max-width: 40%;
+  margin: 0 0 0.8rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
 }
 
 /* =========================
-   SIDE BOX
+   SIDE BOX (PI / ADVISOR)
 ========================= */
 
 .research-sidebox {
@@ -55,12 +113,6 @@
   text-align: center;
 }
 
-.research-sidebox img {
-  width: 100%;
-  border-radius: 8px;
-  margin: 0.8rem 0;
-}
-
 .research-sidebox h4 {
   margin-bottom: 0.5rem;
   font-size: 14px;
@@ -73,23 +125,23 @@
 }
 
 /* =========================
-   INLINE IMAGE
+   RESPONSIVE
 ========================= */
 
-.research-inline-image {
-  float: right;
-  width: 220px;
-  max-width: 40%;
-  margin: 0 0 0.8rem 1.5rem;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-}
+@media (max-width: 900px) {
 
-/* =========================
-   MOBILE
-========================= */
+  .research-layout {
+    flex-direction: column;
+  }
 
-@media (max-width: 700px) {
+  .research-body {
+    flex-direction: column;
+  }
+
+  .research-sidebox {
+    width: 100%;
+    position: static;
+  }
 
   .research-inline-image {
     float: none;
@@ -97,5 +149,4 @@
     max-width: 100%;
     margin: 1rem 0;
   }
-
 }

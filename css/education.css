@@ -1,4 +1,3 @@
-
 /* MAIN LAYOUT */
 .edu-layout {
   display: flex;
@@ -20,7 +19,7 @@
   gap: 1.25rem;
 }
 
-/* CARD */
+/* CARD (UPDATED: LOGO SAFE) */
 .edu-card {
   display: flex;
   justify-content: space-between;
@@ -31,6 +30,34 @@
   border-radius: 10px;
 
   padding: 1.5rem 1.75rem;
+  gap: 1rem;
+
+  transition: all 0.2s ease;
+}
+
+.edu-card:hover {
+  transform: translateY(-2px);
+  background: rgba(245, 245, 245, 0.75);
+}
+
+/* LOGO AREA */
+.edu-logo {
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+}
+
+/* LOGO IMAGE */
+.edu-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+/* TEXT BLOCK */
+.edu-info {
+  flex: 1;
 }
 
 /* TEXT */
@@ -84,7 +111,7 @@
 .side-box ul,
 .side-box ol {
   margin-top: 0.75rem;
-  padding-left: 1.25rem;   /* FIX: keeps numbers inside grey box */
+  padding-left: 1.25rem;
 }
 
 /* LIST ITEMS */
@@ -95,7 +122,7 @@
   line-height: 1.4;
 }
 
-/* OPTIONAL: cleaner number alignment (modern CV style) */
+/* LIST STYLE */
 .side-box ol {
   list-style-position: outside;
 }
@@ -110,42 +137,4 @@
     position: static;
     width: 100%;
   }
-}
-
-/* NEW: CARD FLEX UPDATE */
-.edu-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 1rem;
-}
-
-/* LOGO AREA */
-.edu-logo {
-  flex: 0 0 60px;
-  width: 60px;
-  height: 60px;
-}
-
-/* LOGO IMAGE */
-.edu-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-/* TEXT BLOCK */
-.edu-info {
-  flex: 1;
-}
-
-.edu-card {
-  transition: all 0.2s ease;
-}
-
-.edu-card:hover {
-  transform: translateY(-2px);
-  background: rgba(245, 245, 245, 0.75);
 }

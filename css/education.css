@@ -1,6 +1,8 @@
+/* =========================
+   MAIN WRAPPER (ONLY ONE SYSTEM)
+========================= */
 
-/* MAIN LAYOUT */
-.edu-layout {
+.edu-wrapper {
   display: flex;
   gap: 3rem;
   align-items: flex-start;
@@ -20,7 +22,10 @@
   gap: 1.25rem;
 }
 
-/* CARD (ORIGINAL STYLE KEPT) */
+/* =========================
+   EDUCATION CARD
+========================= */
+
 .edu-card {
   display: flex;
   justify-content: space-between;
@@ -34,12 +39,10 @@
   gap: 1rem;
 }
 
-/* TEXT BLOCK (IMPORTANT - PREVENT BREAK) */
 .edu-card > div:nth-child(2) {
   flex: 1;
 }
 
-/* TEXT */
 .edu-card h2 {
   font-size: 1.25rem;
   margin-bottom: 0.3rem;
@@ -50,7 +53,7 @@
   line-height: 1.6;
 }
 
-/* YEAR RIGHT SIDE */
+/* YEAR */
 .edu-year {
   font-size: 0.85rem;
   color: var(--muted-foreground);
@@ -59,7 +62,27 @@
   text-transform: uppercase;
 }
 
-/* RIGHT SIDEBAR (CRITICAL FIX) */
+/* =========================
+   LOGO
+========================= */
+
+.edu-logo {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+
+.edu-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
 .edu-sidebar {
   flex: 0 0 360px;
   position: sticky;
@@ -76,7 +99,6 @@
   margin-bottom: 1rem;
 }
 
-/* DROPDOWN */
 .side-box summary {
   cursor: pointer;
   font-weight: 500;
@@ -87,8 +109,6 @@
   display: none;
 }
 
-/* LIST */
-.side-box ul,
 .side-box ol {
   margin-top: 0.75rem;
   padding-left: 1.25rem;
@@ -101,95 +121,32 @@
   line-height: 1.4;
 }
 
-/* LIST STYLE */
-.side-box ol {
-  list-style-position: outside;
-}
-
 /* =========================
-   LOGO (SAFE ADDITION ONLY)
+   RESPONSIVE FIX (FINAL)
 ========================= */
-
-.edu-logo {
-  width: 50px;
-  height: 50px;
-  flex-shrink: 0;
-  margin-right: 1rem;
-}
-
-.edu-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
-}
-
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .edu-layout {
-    flex-direction: column;
-  }
-
-  .edu-sidebar {
-    position: static;
-    width: 100%;
-  }
-}
-.edu-wrapper{
-  display:flex;
-  gap:40px;
-  align-items:flex-start;
-}
-
-.edu-left{
-  flex:2;
-}
-
-.edu-sidebar{
-  flex:1;
-  position:sticky;
-  top:100px;
-  height:fit-content;
-}
-
-.side-box{
-  margin-bottom:20px;
-  padding:15px;
-  border:1px solid #ddd;
-  border-radius:10px;
-  background:#fff;
-}
-/* ===== MOBILE FIX FOR EDUCATION LAYOUT ===== */
 
 @media (max-width: 900px) {
 
   .edu-wrapper {
     flex-direction: column;
-    gap: 25px;
+    gap: 1.5rem;
   }
 
-  .edu-left,
   .edu-sidebar {
-    width: 100%;
+    position: relative !important;
+    top: auto !important;
     flex: unset;
+    width: 100%;
   }
 
-  /* disable sticky on mobile (important) */
-  .edu-sidebar {
-    position: relative;
-    top: auto;
-  }
-
-  /* make cards stack nicely */
   .edu-card {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
   }
 
-  .edu-logo img {
-    width: 60px;
-    height: auto;
+  .edu-logo {
+    width: 45px;
+    height: 45px;
   }
 
   .edu-year {

@@ -155,13 +155,12 @@
 
 
 .research-text a {
-  color: #1a73e8;
-  font-style: italic;          /* always italic */
-  text-decoration: none;       /* no underline by default */
-  transition: all 0.2s ease;
+  color: inherit;          /* same color as normal text */
+  font-style: italic;     /* italic to show it's a link */
+  text-decoration: none;  /* no underline by default */
+  transition: text-decoration 0.2s ease;
 }
 
 .research-text a:hover {
-  text-decoration: underline;   /* only underline on hover */
-  color: #0b57d0;
+  text-decoration: underline;  /* only underline on hover */
 }

@@ -245,3 +245,11 @@
     position:sticky;
     top:2rem;
 }
+.research-inline-image {
+  float: right;
+  width: 220px;
+  max-width: 40%;
+  margin: 0 0 1rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}

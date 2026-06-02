@@ -165,18 +165,3 @@
   text-decoration: underline;  /* only underline on hover */
 }
 
-.research-body {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-.research-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.research-sidebox {
-  flex: 0 0 220px;
-}

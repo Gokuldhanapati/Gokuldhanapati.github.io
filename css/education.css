@@ -1,3 +1,4 @@
+
 /* MAIN LAYOUT */
 .edu-layout {
   display: flex;
@@ -19,7 +20,7 @@
   gap: 1.25rem;
 }
 
-/* CARD (UPDATED: LOGO SAFE) */
+/* CARD (ORIGINAL STYLE KEPT) */
 .edu-card {
   display: flex;
   justify-content: space-between;
@@ -31,32 +32,10 @@
 
   padding: 1.5rem 1.75rem;
   gap: 1rem;
-
-  transition: all 0.2s ease;
 }
 
-.edu-card:hover {
-  transform: translateY(-2px);
-  background: rgba(245, 245, 245, 0.75);
-}
-
-/* LOGO AREA */
-.edu-logo {
-  flex: 0 0 60px;
-  width: 60px;
-  height: 60px;
-}
-
-/* LOGO IMAGE */
-.edu-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-/* TEXT BLOCK */
-.edu-info {
+/* TEXT BLOCK (IMPORTANT - PREVENT BREAK) */
+.edu-card > div:nth-child(2) {
   flex: 1;
 }
 
@@ -80,11 +59,12 @@
   text-transform: uppercase;
 }
 
-/* RIGHT SIDEBAR */
+/* RIGHT SIDEBAR (CRITICAL FIX) */
 .edu-sidebar {
   flex: 0 0 360px;
   position: sticky;
   top: 90px;
+  align-self: flex-start;
 }
 
 /* BOX */
@@ -107,14 +87,13 @@
   display: none;
 }
 
-/* LIST (UL + OL FIX) */
+/* LIST */
 .side-box ul,
 .side-box ol {
   margin-top: 0.75rem;
   padding-left: 1.25rem;
 }
 
-/* LIST ITEMS */
 .side-box li {
   font-size: 0.9rem;
   color: var(--muted-foreground);
@@ -127,42 +106,8 @@
   list-style-position: outside;
 }
 
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  .edu-layout {
-    flex-direction: column;
-  }
-
-  .edu-sidebar {
-    position: static;
-    width: 100%;
-  }
-}
-
-/* === LOGO SUPPORT (SAFE ADDITION ONLY) === */
-
-.edu-card {
-  align-items: center; /* keeps logo + text aligned nicely */
-  gap: 1rem;
-}
-
-.edu-logo {
-  flex: 0 0 55px;
-  width: 55px;
-  height: 55px;
-}
-
-.edu-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 6px;
-}
-
-
 /* =========================
-   EDUCATION LOGO (SAFE ADD)
-   DOES NOT CHANGE LAYOUT
+   LOGO (SAFE ADDITION ONLY)
 ========================= */
 
 .edu-logo {
@@ -179,7 +124,14 @@
   display: block;
 }
 
-/* ensures text block stays same width behavior */
-.edu-card > div:nth-child(2) {
-  flex: 1;
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .edu-layout {
+    flex-direction: column;
+  }
+
+  .edu-sidebar {
+    position: static;
+    width: 100%;
+  }
 }

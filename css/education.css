@@ -138,3 +138,23 @@
     width: 100%;
   }
 }
+
+/* === LOGO SUPPORT (SAFE ADDITION ONLY) === */
+
+.edu-card {
+  align-items: center; /* keeps logo + text aligned nicely */
+  gap: 1rem;
+}
+
+.edu-logo {
+  flex: 0 0 55px;
+  width: 55px;
+  height: 55px;
+}
+
+.edu-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}

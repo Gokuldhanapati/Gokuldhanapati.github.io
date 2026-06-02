@@ -152,3 +152,15 @@
     align-items: flex-start;
   }
 }
+
+
+.research-text a {
+  color: #1a73e8;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.research-text a:hover {
+  font-style: italic;
+  color: #0b57d0;
+}

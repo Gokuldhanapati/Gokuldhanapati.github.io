@@ -159,3 +159,40 @@
   border-radius:10px;
   background:#fff;
 }
+/* ===== MOBILE FIX FOR EDUCATION LAYOUT ===== */
+
+@media (max-width: 900px) {
+
+  .edu-wrapper {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .edu-left,
+  .edu-sidebar {
+    width: 100%;
+    flex: unset;
+  }
+
+  /* disable sticky on mobile (important) */
+  .edu-sidebar {
+    position: relative;
+    top: auto;
+  }
+
+  /* make cards stack nicely */
+  .edu-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .edu-logo img {
+    width: 60px;
+    height: auto;
+  }
+
+  .edu-year {
+    align-self: flex-start;
+  }
+}

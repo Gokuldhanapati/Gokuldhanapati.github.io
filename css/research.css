@@ -227,3 +227,21 @@
 .research-inline-image {
   margin-bottom: 0.5rem;
 }
+
+.research-body{
+    display:flex;
+    align-items:flex-start;
+    gap:2rem;
+}
+
+.research-text{
+    flex:1;
+    min-width:0;
+}
+
+.research-sidebox{
+    width:220px;
+    flex-shrink:0;
+    position:sticky;
+    top:2rem;
+}

@@ -1,8 +1,61 @@
+/* =========================
+   RESEARCH PAGE LAYOUT
+========================= */
+
+.research-layout {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.research-left {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =========================
+   RESEARCH ITEMS
+========================= */
+
+.research-item {
+  padding-bottom: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border); /* ✅ restores full section line */
+}
+
+.research-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.research-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.research-date {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  white-space: nowrap;
+}
+
+/* =========================
+   BODY LAYOUT (IMPORTANT FIX)
+========================= */
+
 .research-body {
   display: flex;
   gap: 2rem;
   align-items: flex-start;
 }
+
+/* =========================
+   TEXT COLUMN
+========================= */
 
 .research-text {
   flex: 1;
@@ -22,7 +75,29 @@
   color: var(--muted-foreground);
 }
 
-/* SIDE BOX */
+/* heading label spacing */
+.research-text p strong {
+  color: var(--foreground);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+/* =========================
+   INLINE IMAGE (RIGHT OF TEXT)
+========================= */
+
+.research-inline-image {
+  float: right;
+  width: 220px;
+  margin: 0 0 1rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+/* =========================
+   SIDE BOX (PI / ADVISOR) — ORIGINAL BEHAVIOR
+========================= */
+
 .research-sidebox {
   width: 220px;
   flex-shrink: 0;
@@ -36,33 +111,26 @@
   text-align: center;
 }
 
-/* IMAGE + CAPTION BLOCK (IMPORTANT) */
-.img-block {
-  display: inline-block;
-  text-align: center;
-  margin: 1rem 0;
+.research-sidebox h4 {
+  margin-bottom: 0.5rem;
+  font-size: 14px;
 }
 
-.research-inline-image {
-  width: 300px;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  border-radius: 6px;
-  border: 1px solid var(--border);
-}
-
-.research-caption {
+.research-sidebox p {
   font-size: 13px;
+  margin: 0.2rem 0;
   color: var(--muted-foreground);
-  margin-top: 6px;
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media (max-width: 900px) {
+
+  .research-layout {
+    flex-direction: column;
+  }
 
   .research-body {
     flex-direction: column;
@@ -74,7 +142,13 @@
   }
 
   .research-inline-image {
+    float: none;
     width: 100%;
-    max-width: 100%;
+    margin: 1rem 0;
+  }
+
+  .research-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

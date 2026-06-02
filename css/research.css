@@ -156,11 +156,12 @@
 
 .research-text a {
   color: #1a73e8;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-style: italic;          /* always italic */
+  text-decoration: none;       /* no underline by default */
+  transition: all 0.2s ease;
 }
 
 .research-text a:hover {
-  font-style: italic;
+  text-decoration: underline;   /* only underline on hover */
   color: #0b57d0;
 }

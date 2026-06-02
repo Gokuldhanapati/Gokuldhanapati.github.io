@@ -191,6 +191,7 @@ nav {
     padding-left: 1rem;
     padding-right: 1rem;
     scrollbar-width: none;
+    scroll-behavior: smooth; 
   }
 
   nav::-webkit-scrollbar {

@@ -253,3 +253,14 @@
   border-radius: 10px;
   border: 1px solid var(--border);
 }
+.research-text p {
+  margin-bottom: 0.7rem;
+}
+
+.research-text ul {
+  margin: 0.3rem 0 0.8rem 1.25rem;
+}
+
+.research-text li {
+  margin-bottom: 0.2rem;
+}

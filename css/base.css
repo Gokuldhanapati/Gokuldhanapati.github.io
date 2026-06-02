@@ -112,7 +112,7 @@ main {
 header {
   width: 100%;
   border-bottom: 1px solid var(--border);
-  background: var(--background);
+  background: #1f2a44; /* NEW: dark professional color */
 }
 
 nav {
@@ -133,7 +133,7 @@ nav {
 }
 
 .nav-link:hover {
-  color: var(--foreground);
+  color: #d1d5db;
 }
 
 .nav-link-active {

@@ -13,10 +13,10 @@
    ROOT VARIABLES
 ========================= */
 :root {
-  --background: #f5f7fa;
-  --foreground: #212121;
+  --background: #f6f8f7;  /* soft light green-gray */
+  --foreground: #1f1f1f;
   --border: #e5e5e5;
-  --muted-foreground: #666666;
+  --muted-foreground: #5f6b66;
 
   --font-heading: 'Source Serif 4', Georgia, serif;
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -24,12 +24,13 @@
   --content-max-width: 1280px;
   --nav-height: 56px;
 
-  --primary: #1f2a44;
-  --accent: #2ecc71;
+  /* PROFESSIONAL GREEN THEME */
+  --primary: #0f2d24;   /* deep green-black */
+  --accent: #2ecc71;    /* modern green */
 }
 
 /* =========================
-   GLOBAL FIX
+   GLOBAL
 ========================= */
 html {
   overflow-y: scroll;
@@ -117,8 +118,8 @@ main {
 ========================= */
 header {
   width: 100%;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
   background: var(--primary);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 nav {
@@ -129,34 +130,43 @@ nav {
   padding: 1rem 0;
 }
 
-/* NAV LINKS */
+/* =========================
+   NAV LINKS (IMPORTANT FIX)
+========================= */
 .nav-link {
   font-size: 17px;
   font-weight: 500;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
+
+  /* WHITE TEXT (as you wanted) */
+  color: #ffffff;
+
   border-bottom: 1.5px solid transparent;
   transition: 0.2s ease;
+  opacity: 0.85;
 }
 
 .nav-link:hover {
+  opacity: 1;
   color: #ffffff;
 }
 
 /* ACTIVE LINK */
 .nav-link-active {
   color: #ffffff;
-  border-bottom-color: #ffffff;
+  border-bottom-color: var(--accent);
 }
 
-/* small blog link */
+/* BLOG LINK */
 .nav-link-blog {
   font-size: 14px;
   text-transform: none;
   font-weight: 400;
+  color: #ffffff;
+  opacity: 0.75;
 }
 
-/* divider */
+/* DIVIDERS */
 .nav-divider,
 .nav-separator {
   font-size: 11px;
@@ -164,7 +174,7 @@ nav {
   color: rgba(255,255,255,0.3);
 }
 
-/* home link */
+/* HOME LINK */
 .home-link {
   font-size: 16px;
   font-weight: 600;
@@ -176,11 +186,11 @@ nav {
    SELECTION
 ========================= */
 ::selection {
-  background: rgba(46, 204, 113, 0.2);
+  background: rgba(46, 204, 113, 0.25);
 }
 
 /* =========================
-   IMAGE FIX (IMPORTANT)
+   IMAGE FIX
 ========================= */
 .profile-image {
   background: white;

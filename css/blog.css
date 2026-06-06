@@ -126,3 +126,17 @@ html {
   }
 
 }
+@media (max-width: 900px) {
+
+  .bio-layout {
+    flex-direction: column;
+  }
+
+  .bio-sidebar {
+    width: 100%;
+    position: static;
+    margin-top: 1rem;   /* small gap after title */
+    margin-bottom: 1rem;
+  }
+
+}

@@ -112,20 +112,7 @@ html {
   font-size: 16px;
   line-height: 1.55;
 }
-@media (max-width: 900px) {
 
-  .bio-layout {
-    flex-direction: column;
-  }
-
-  .bio-sidebar {
-    order: -1;   /* THIS moves sidebar to top */
-    width: 100%;
-    position: static;
-    margin-bottom: 1rem;
-  }
-
-}
 @media (max-width: 900px) {
 
   .bio-layout {

@@ -1,90 +1,92 @@
 /* =========================
-   BLOG + LEARNING NOTES
+   BLOG ARTICLE CLEAN SPACING
    ========================= */
 
-/* Article content (shared blog style) */
 .blog-article {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0.8rem; /* reduced spacing */
 }
 
 .blog-article p {
   font-size: 15px;
-  line-height: 1.85;
+  line-height: 1.65;   /* tighter = more professional */
+  margin: 0.35rem 0;   /* reduced paragraph gap */
   color: var(--muted-foreground);
 }
 
-.blog-article p em {
-  color: var(--foreground);
-}
-
-.blog-note {
-  color: var(--muted-foreground);
-  font-style: italic;
-  opacity: 0.7;
+/* headings spacing */
+.blog-article h2 {
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
+  scroll-margin-top: 90px; /* important for sidebar click scroll */
 }
 
 /* =========================
-   BIOINFORMATICS 2-COLUMN LAYOUT
+   LAYOUT
    ========================= */
 
 .bio-layout {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   align-items: flex-start;
-  width: 100%;
 }
 
-/* LEFT CONTENT */
 .bio-left {
   flex: 1;
-  max-width: none; /* overrides base.css 640px limit */
+  min-width: 0;
+  max-width: none;
 }
 
-/* RIGHT SIDEBAR */
+/* =========================
+   SIDEBAR
+   ========================= */
+
 .bio-sidebar {
-  flex: 0 0 420px;
+  flex: 0 0 320px;
   position: sticky;
   top: 90px;
 }
 
-/* SIDEBAR BOX */
+/* box */
 .side-box {
-  background: rgba(245, 245, 245, 0.6);
+  background: rgba(245,245,245,0.7);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 1rem;
-  margin-bottom: 1rem;
-  width: 100%;
 }
 
-/* SIDEBAR TITLE */
+/* title */
 .side-box h3 {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
+  margin-bottom: 0.8rem;
   letter-spacing: 0.08em;
 }
 
-/* LIST */
-.side-box ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* container */
+.side-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.side-box li {
-  font-size: 0.9rem;
-  color: var(--muted-foreground);
-  margin-bottom: 0.4rem;
-}
-
-/* LINKS */
-.side-box a {
+/* each clickable box */
+.side-card {
+  display: block;
+  padding: 0.6rem 0.7rem;
+  border-radius: 8px;
+  background: white;
+  border: 1px solid var(--border);
+  text-decoration: none;
   color: var(--foreground);
   font-size: 0.9rem;
-  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.side-card:hover {
+  transform: translateX(3px);
+  background: #f3f3f3;
 }
 
 /* =========================
@@ -97,47 +99,12 @@
   }
 
   .bio-sidebar {
-    width: 100%;
     position: static;
+    width: 100%;
   }
 }
 
+/* smooth scroll */
 html {
   scroll-behavior: smooth;
-}
-
-.bio-layout .bio-left {
-  max-width: none;
-  width: 100%;
-}
-.bio-layout {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-}
-.bio-layout .article-layout {
-  max-width: none;
-}
-
-.bio-layout .article-layout {
-  max-width: none;
-}
-.bio-layout .bio-left {
-  width: 100%;
-  flex: 1;
-  min-width: 0;
-}
-.bio-layout {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-}
-.blog-article {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-.blog-article p {
-  margin: 0.4rem 0;
-  line-height: 1.6;
 }

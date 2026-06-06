@@ -105,3 +105,16 @@
 html {
   scroll-behavior: smooth;
 }
+
+.bio-layout .bio-left {
+  max-width: none;
+  width: 100%;
+}
+.bio-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.bio-layout .article-layout {
+  max-width: none;
+}

@@ -127,3 +127,15 @@ html {
   }
 
 }
+.blog-article a {
+  color: #1f7a3a;
+  background: #eaf7ef;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.blog-article a:hover {
+  background: #d6f5e0;
+}

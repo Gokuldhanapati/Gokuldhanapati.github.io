@@ -118,3 +118,26 @@ html {
 .bio-layout .article-layout {
   max-width: none;
 }
+
+.bio-layout .article-layout {
+  max-width: none;
+}
+.bio-layout .bio-left {
+  width: 100%;
+  flex: 1;
+  min-width: 0;
+}
+.bio-layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+.blog-article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.blog-article p {
+  margin: 0.4rem 0;
+  line-height: 1.6;
+}

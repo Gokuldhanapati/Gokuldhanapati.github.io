@@ -5,20 +5,20 @@
 .blog-article {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem; /* reduced spacing */
+  gap: 0.4rem; /* reduced spacing */
 }
 
 .blog-article p {
-  font-size: 15px;
-  line-height: 1.65;   /* tighter = more professional */
-  margin: 0.35rem 0;   /* reduced paragraph gap */
+  font-size: 16px;
+  line-height: 1.55;   /* tighter = more professional */
+  margin: 0.25rem 0;   /* reduced paragraph gap */
   color: var(--muted-foreground);
 }
 
 /* headings spacing */
 .blog-article h2 {
-  margin-top: 1.4rem;
-  margin-bottom: 0.6rem;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
   scroll-margin-top: 90px; /* important for sidebar click scroll */
 }
 
@@ -107,4 +107,8 @@
 /* smooth scroll */
 html {
   scroll-behavior: smooth;
+}
+.bio-left {
+  font-size: 16px;
+  line-height: 1.55;
 }

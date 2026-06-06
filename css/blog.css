@@ -101,3 +101,7 @@
     position: static;
   }
 }
+
+html {
+  scroll-behavior: smooth;
+}

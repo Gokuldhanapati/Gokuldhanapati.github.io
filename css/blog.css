@@ -136,3 +136,30 @@ html {
 .blog-article a:hover {
   color: #2ecc71;   /* brighter green on hover */
 }
+.next-lesson-card {
+    display: block;
+    margin: 25px 0;
+    padding: 18px 22px;
+    background: #f8f9fa;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+}
+
+.next-lesson-card:hover {
+    background: #eef3f8;
+    transform: translateY(-2px);
+}
+
+.next-lesson-card h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+}
+
+.next-lesson-card p {
+    margin: 0;
+    color: #555;
+    font-size: 0.95rem;
+}

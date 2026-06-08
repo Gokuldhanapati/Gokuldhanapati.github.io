@@ -228,7 +228,11 @@ Now we have the FASTQ files, which contain raw sequencing reads, and we are work
 </p>
 
 <p>
-Next question naturally comes: what are we going to do with this data? The FASTQ data we get directly from sequencing — is it already good enough for downstream analysis?
+Next question naturally comes: what are we going to do with this data?
+</p>
+
+<p>
+The FASTQ data we get directly from sequencing — is it already good enough for downstream analysis?
 </p>
 
 <p>
@@ -236,43 +240,53 @@ In most cases, the answer is no. Before using it, we first need to check its qua
 </p>
 
 <p>
-To understand why, it helps to know what actually happens during sequencing. Before sequencing, DNA goes through a step called library preparation, where DNA is broken into small fragments. Then, two short artificial DNA sequences called adapters are attached to both ends of each fragment — one at the 5′ end and one at the 3′ end. These adapters are important because they allow the fragments to bind to the sequencing flow cell and provide priming sites for the sequencing reaction.
+To understand why, it helps to know what actually happens during sequencing.
 </p>
 
 <p>
-During sequencing, machines such as Illumina systems read these fragments in short stretches called reads, usually around 100–150 nucleotides in length. Each read is stored in a FASTQ file along with a quality score for every base, which represents how confident the machine is about each nucleotide call.
+Before sequencing, DNA goes through a step called <b>library preparation</b>, where the DNA is broken into small fragments. Then, two short artificial DNA sequences called <b>adapters</b> are attached — one at the 5′ end and another at the 3′ end of each fragment. These adapters are important because they serve as binding and recognition sites for the sequencing machine.
 </p>
 
 <p>
-Now, depending on the sequencing strategy, there are two common types: single-end sequencing and paired-end sequencing.
-In single-end sequencing, the machine reads the DNA fragment from only one side, so we get one read per fragment (Read 1).
-In paired-end sequencing, the same fragment is read from both ends, producing two reads — Read 1 and Read 2 — which come from opposite sides of the same DNA fragment. This gives better mapping accuracy and more information about the original DNA.
+They also define the direction of sequencing. Since the adapters are known sequences, they allow the fragment to attach to the sequencing flow cell and initiate the sequencing reaction in a controlled orientation, depending on the library type.
 </p>
 
 <p>
-However, sequencing is not perfect. The accuracy is not constant across the entire read. At the beginning, the quality is usually high, but as sequencing progresses toward the end, the signal becomes weaker and the error rate increases, making the last part of the read more error-prone.
+During sequencing, machines such as Illumina systems read these fragments in short stretches called <b>reads</b>, usually around 100–150 nucleotides in length. Each read is stored in a FASTQ file along with a quality score for every base, which represents how confident the machine is about each nucleotide call.
 </p>
 
 <p>
-Another common issue is adapter contamination. Although adapters are necessary during library preparation, they are not part of the real biological DNA. If the DNA fragment is shorter than the read length, the sequencing machine reads into the adapter region, which then appears in the FASTQ file.
+However, sequencing is not perfect. The accuracy is not constant across the entire read. At the beginning of the read, the quality is usually high, but as sequencing progresses toward the end, the signal becomes weaker and the error rate increases. So the later part of the read is more likely to contain incorrect bases.
 </p>
 
 <p>
-So in simple terms, raw FASTQ files can contain low-quality bases and adapter contamination, both of which can affect downstream analysis if not removed.
+Another common issue is <b>adapter contamination</b>. Although adapters are necessary during library preparation to attach fragments to the sequencing system, they are not part of the real biological DNA. If the original DNA fragment is shorter than the read length, the sequencing machine continues reading beyond the actual DNA insert and enters the adapter region. Because these adapter sequences are artificial, they can appear in our FASTQ files and must be removed.
 </p>
 
 <p>
-Because of this, the first step after receiving FASTQ files is quality control (QC), which helps us understand the overall quality of the sequencing data.
+So in simple terms, raw FASTQ files can contain:
+</p>
+
+<ul>
+  <li>sequencing errors (mainly low-quality bases toward the end of reads)</li>
+  <li>adapter contamination (non-biological sequences from library preparation)</li>
+</ul>
+
+<p>
+Because of these issues, raw data cannot be directly trusted for analysis. If we use it without processing, it can lead to incorrect alignments and misleading biological results.
 </p>
 
 <p>
-Based on the QC results, we perform trimming, where low-quality bases and adapter sequences are removed.
+That is why the first step after receiving FASTQ files is <b>quality control (QC)</b>, which means checking how good the sequencing data is. This gives us a clear idea of whether the data is usable or needs cleaning.
 </p>
 
 <p>
-After this cleaning step, we obtain high-quality sequencing data that is ready for further analysis.
+Based on this QC report, we perform a step called <b>trimming</b>, where we remove low-quality bases and adapter sequences from the reads.
 </p>
-  
+
+<p>
+After this cleaning step, we obtain high-quality sequencing data that is reliable and ready for downstream analysis.
+</p>
   </div>
   </article> 
   

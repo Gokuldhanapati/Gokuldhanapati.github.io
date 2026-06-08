@@ -272,6 +272,88 @@ So in simple terms, raw FASTQ files can contain:
   adapter contamination (non-biological sequences from library preparation)<br>
 </p>
 
+<h3>Phred Quality Score (ASCII Encoding Table)</h3>
+
+<p>
+In FASTQ files, quality scores are not written as numbers. Instead, they are encoded using ASCII characters. Each symbol represents a specific Phred quality score.
+</p>
+
+<p>
+In total, there are many ASCII symbols used in FASTQ quality encoding (depending on the encoding system, usually representing Phred scores from 0 up to around 40 in real Illumina data, and theoretically even higher). However, in practice, we only commonly see a limited range in real sequencing datasets.
+</p>
+
+<p>
+Below is a small example of commonly observed symbols and their corresponding Phred quality scores:
+</p>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <tr>
+    <th>ASCII Symbol</th>
+    <th>Phred Score (Q)</th>
+    <th>Interpretation</th>
+  </tr>
+  <tr>
+    <td>!</td>
+    <td>0</td>
+    <td>Very bad quality</td>
+  </tr>
+  <tr>
+    <td>"</td>
+    <td>1</td>
+    <td>Very bad quality</td>
+  </tr>
+  <tr>
+    <td>#</td>
+    <td>2</td>
+    <td>Very low quality</td>
+  </tr>
+  <tr>
+    <td>$</td>
+    <td>3</td>
+    <td>Very low quality</td>
+  </tr>
+  <tr>
+    <td>%</td>
+    <td>4</td>
+    <td>Poor quality</td>
+  </tr>
+  <tr>
+    <td>&amp;</td>
+    <td>5</td>
+    <td>Poor quality</td>
+  </tr>
+  <tr>
+    <td>'</td>
+    <td>10</td>
+    <td>Low quality (borderline usable)</td>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>20</td>
+    <td>Moderate quality (acceptable in many analyses)</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>30</td>
+    <td>High quality (good confidence)</td>
+  </tr>
+  <tr>
+    <td>I</td>
+    <td>40</td>
+    <td>Very high quality (excellent confidence)</td>
+  </tr>
+</table>
+
+<h3>What Quality is Good or Bad?</h3>
+
+<ul>
+  <li><b>Q ≥ 30</b> → High quality reads (generally considered very reliable)</li>
+  <li><b>Q ≥ 20</b> → Acceptable quality (used in many standard analyses)</li>
+  <li><b>Q &lt; 20</b> → Low quality (needs caution)</li>
+  <li><b>Q &lt; 10</b> → Very poor quality (should be trimmed or removed)</li>
+</ul>
+
+  
 <p>
 Because of these issues, raw data cannot be directly trusted for analysis. If we use it without processing, it can lead to incorrect alignments and misleading biological results.
 </p>

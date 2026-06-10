@@ -285,13 +285,113 @@ To assess the quality of sequencing data, we first perform <strong>quality contr
 </p>
 
 <p>
+FastQC is one of the most widely used tools for assessing the quality of sequencing reads.
+</p>
+
+<table>
+  <tr>
+    <th>Purpose</th>
+    <th>Command</th>
+    <th>Output</th>
+  </tr>
+
+  <tr>
+    <td>Install FastQC</td>
+    <td><code>sudo apt install fastqc</code></td>
+    <td>FastQC program installed.</td>
+  </tr>
+
+  <tr>
+    <td>Analyze a single FASTQ file</td>
+    <td><code>fastqc sample.fastq</code></td>
+    <td>
+      <code>sample_fastqc.html</code><br>
+      <code>sample_fastqc.zip</code>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Analyze paired-end reads</td>
+    <td><code>fastqc sample_R1.fastq sample_R2.fastq</code></td>
+    <td>
+      <code>sample_R1_fastqc.html</code><br>
+      <code>sample_R2_fastqc.html</code>
+    </td>
+  </tr>
+
+  <tr>
+    <td>View the quality report</td>
+    <td><code>firefox sample_fastqc.html</code></td>
+    <td>
+      Interactive report showing:
+      <ul>
+        <li>Per-base sequence quality</li>
+        <li>GC content</li>
+        <li>Sequence length distribution</li>
+        <li>Adapter contamination</li>
+        <li>Overrepresented sequences</li>
+      </ul>
+      <b>Main output:</b> <code>sample_fastqc.html</code>
+    </td>
+  </tr>
+</table>
+
+
+  
+<p>
 Based on the QC results, a process called <strong>trimming</strong> is performed. During trimming, low-quality regions and adapter sequences are removed from the reads.
 </p>
 
 <p>
 After trimming, we obtain cleaner and more reliable sequencing data that are suitable for downstream analyses such as read alignment, genome assembly, and variant detection.
 </p>
-```
+<p>
+Fastp removes low-quality bases and adapter sequences from sequencing reads.
+</p>
+
+<table>
+  <tr>
+    <th>Purpose</th>
+    <th>Command</th>
+    <th>Output</th>
+  </tr>
+
+  <tr>
+    <td>Install Fastp</td>
+    <td><code>sudo apt install fastp</code></td>
+    <td>Fastp program installed.</td>
+  </tr>
+
+  <tr>
+    <td>Remove adapters and low-quality bases from paired-end reads</td>
+    <td>
+      <code>
+      fastp -i sample_R1.fastq -I sample_R2.fastq -o clean_R1.fastq -O clean_R2.fastq
+      </code>
+    </td>
+    <td>
+      <code>clean_R1.fastq</code><br>
+      <code>clean_R2.fastq</code><br>
+      <code>fastp.html</code><br>
+      <code>fastp.json</code>
+    </td>
+  </tr>
+
+  <tr>
+    <td>View trimming summary report</td>
+    <td><code>firefox fastp.html</code></td>
+    <td>
+      Report showing read quality before and after trimming.<br><br>
+      <b>Main outputs:</b><br>
+      <code>clean_R1.fastq</code><br>
+      <code>clean_R2.fastq</code><br>
+      <code>fastp.html</code>
+    </td>
+  </tr>
+</table>
+  
+
+
 
  
   </div>

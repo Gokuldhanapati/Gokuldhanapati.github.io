@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Gokul Dhanapati</title>
+  <meta name="description" content="Get in touch with Gokul Dhanapati about honey bee research, collaboration or PhD applications.">
+  <meta property="og:title" content="Contact | Gokul Dhanapati">
+  <meta property="og:description" content="Get in touch with Gokul Dhanapati about honey bee research, collaboration or PhD applications.">
+  <meta property="og:image" content="assets/img/profile.jpg">
+  <meta name="theme-color" content="#5e1a2c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='8' width='84' height='84' rx='18' fill='%235e1a2c'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ HEADER (same on every page) ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"></span>Gokul Dhanapati</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span><span class="label">Home</span></button>
+    <nav id="site-nav" class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <span class="nav-group" aria-hidden="true">Notes</span>
+      <a href="research-methods.html">Research Methods</a>
+      <a href="bioinformatics.html">Bioinformatics</a>
+      <a href="phd-guide.html">PhD Guide</a>
+      <a href="contact.html" class="nav-cta" aria-current="page">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>Contact</h1>
+      <p>Questions about my research, a collaboration, or your own PhD plans? Send a message and I will reply by email.</p>
+    </header>
+
+    <div class="contact-grid">
+      <!-- ============ CONTACT FORM ============
+      Setup (free, 5 minutes):
+      1. Go to https://formspree.io, sign up, click "New form", and copy the form ID
+         (the part after /f/ in the endpoint, e.g. xyzabcd).
+      2. Paste it into FORMSPREE_ID at the bottom of this file.
+      Messages will then arrive in your email inbox.
+      ======================================= -->
+      <form class="form" id="contact-form" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name">Your name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email">Your email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-topic">What is it about?</label>
+          <select id="f-topic" name="topic">
+            <option>PhD application question</option>
+            <option>Research or collaboration</option>
+            <option>Bioinformatics notes</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-msg">Message</label>
+          <textarea id="f-msg" name="message" required></textarea>
+        </div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="btn-row"><button class="btn" type="submit">Send message</button></div>
+        <p class="form-status" id="form-status" role="status"></p>
+      </form>
+
+      <aside class="contact-side">
+        <h3>Other ways to reach me</h3>
+        <ul class="contact-list">
+          <!-- Replace with your real email -->
+          <li><span>Email</span><a href="mailto:YOUR_EMAIL@msstate.edu">YOUR_EMAIL@msstate.edu</a></li>
+          <li><span>ResearchGate</span><a href="https://www.researchgate.net/profile/Gokul-Dhanapati" target="_blank" rel="noopener">Gokul Dhanapati</a></li>
+          <!-- Uncomment and add your links:
+          <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/YOUR-ID" target="_blank" rel="noopener">LinkedIn profile</a></li>
+          <li><span>Instagram</span><a href="https://www.instagram.com/YOUR-ID" target="_blank" rel="noopener">@YOUR-ID</a></li>
+          -->
+          <li><span>Lab</span><a href="https://beehealthlab.com/en/" target="_blank" rel="noopener">Center for Pollinator Health, Mississippi State University</a></li>
+        </ul>
+        <p class="muted" style="margin-top:1.2rem;font-size:.95rem">For PhD questions others might also have, ask on the <a href="phd-guide.html#questions">PhD guide page</a> so everyone can see the answer.</p>
+      </aside>
+    </div>
+  </div>
+</main>
+
+<script>
+  // ===== CONTACT FORM SETTINGS =====
+  var FORMSPREE_ID = "";   // e.g. "xyzabcd"  (from formspree.io)
+  // =================================
+  (function () {
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('form-status');
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      status.className = 'form-status';
+      if (!form.checkValidity()) {
+        status.textContent = 'Please fill in your name, a valid email and a message.';
+        status.classList.add('err');
+        return;
+      }
+      if (!FORMSPREE_ID) {
+        status.textContent = 'The form is not connected yet. Please use the email link on this page.';
+        status.classList.add('err');
+        return;
+      }
+      status.textContent = 'Sending…';
+      fetch('https://formspree.io/f/' + FORMSPREE_ID, {
+        method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
+      }).then(function (r) {
+        if (r.ok) { form.reset(); status.textContent = 'Message sent. I will reply by email.'; status.classList.add('ok'); }
+        else { throw new Error(); }
+      }).catch(function () {
+        status.textContent = 'Message not sent. Check your connection and try again, or use the email link.';
+        status.classList.add('err');
+      });
+    });
+  })();
+</script>
+
+<!-- ============ FOOTER (same on every page) ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="year">2026</span> Gokul Dhanapati &middot; Mississippi State University</p>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="research-methods.html">Research Methods</a>
+      <a href="bioinformatics.html">Bioinformatics</a>
+      <a href="phd-guide.html">PhD Guide</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Methods | Gokul Dhanapati</title>
+  <meta name="description" content="Honey bee injection, RNA extraction (TRIzol and MagMAX), cDNA synthesis, qPCR, and virus load and immune gene expression calculations, with built-in calculators.">
+  <meta property="og:title" content="Research Methods | Gokul Dhanapati">
+  <meta property="og:description" content="Honey bee injection, RNA extraction (TRIzol and MagMAX), cDNA synthesis, qPCR, and virus load and immune gene expression calculations, with built-in calculators.">
+  <meta property="og:image" content="assets/img/profile.jpg">
+  <meta name="theme-color" content="#5e1a2c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='8' y='8' width='84' height='84' rx='18' fill='%235e1a2c'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <style>
+/* =========================================================
+   Gokul Dhanapati — site stylesheet (one file for every page)
+   ---------------------------------------------------------
+   To change colours or fonts, edit the variables in :root.
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+
+:root {
+  /* ===== COLOURS: change these to restyle the whole site ===== */
+  --bar: #5e1a2c;       /* top menu bar + headings: burgundy */
+  --paper: #fdfbf7;     /* page background: near-white cream */
+  --sky: #fdfbf7;
+  --wash: #f1e7d8;      /* cards and boxes: beige */
+  --honey-soft: #f1e7d8;
+  --ink: #111111;       /* body text: black */
+  --muted: #3b3b3b;     /* secondary text: dark grey */
+  --rule: #e6dacb;      /* lines and borders */
+  --pine: #8a2a3f;      /* links and buttons: burgundy */
+  --honey: #b98c5e;     /* thin accent line, link underline: tan */
+
+  --serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
+
+  --wrap: 1120px;
+  --read: 68ch;
+  --header-h: 64px;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: linear-gradient(var(--sky) 0, var(--paper) 520px) no-repeat, var(--paper);
+  -webkit-font-smoothing: antialiased;
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+main { flex: 1; }
+img { max-width: 100%; height: auto; display: block; }
+ul, ol { padding-left: 1.25rem; }
+li + li { margin-top: .35rem; }
+
+a { color: var(--pine); text-decoration-color: var(--honey); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--ink); text-decoration-color: var(--honey); }
+:focus-visible { outline: 2px solid var(--honey); outline-offset: 3px; border-radius: 3px; }
+
+h1, h2, h3, h4 { font-family: var(--serif); font-weight: 500; line-height: 1.2; color: var(--ink); }
+h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); letter-spacing: -.015em; }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.1rem); }
+h3 { font-size: 1.3rem; }
+h4 { font-size: 1.05rem; font-family: var(--sans); font-weight: 600; }
+p + p { margin-top: .9rem; }
+strong { font-weight: 600; }
+
+code { font-family: var(--mono); font-size: .86em; background: var(--wash); border: 1px solid var(--rule); padding: .1em .35em; border-radius: 4px; }
+pre { font-family: var(--mono); font-size: .88rem; background: var(--wash); border: 1px solid var(--rule); border-radius: 8px; padding: 1rem; overflow-x: auto; line-height: 1.5; margin: 1rem 0; }
+
+.wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 1.5rem; }
+.muted { color: var(--muted); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Header / navigation ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(243,248,252,.94);
+  backdrop-filter: saturate(150%) blur(8px);
+  -webkit-backdrop-filter: saturate(150%) blur(8px);
+  border-bottom: 1px solid var(--rule);
+}
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); gap: 1rem; }
+.brand { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: .55rem; white-space: nowrap; }
+.brand-mark { width: 13px; height: 13px; background: var(--pine); border-radius: 3px; flex: none; }
+
+.nav { display: flex; align-items: center; gap: .25rem; }
+.nav a { white-space: nowrap; font-size: .94rem; color: #222; text-decoration: none; padding: .45rem .7rem; border-radius: 6px; }
+.nav a:hover { color: var(--ink); background: var(--wash); }
+.nav a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--honey); border-radius: 0; }
+.nav .nav-group { font-size: .78rem; color: var(--muted); opacity: .7; padding: 0 .3rem 0 .6rem; border-left: 1px solid var(--rule); margin-left: .3rem; }
+.nav .nav-cta { color: #fff; background: var(--pine); margin-left: .4rem; }
+.nav .nav-cta:hover { background: #1f4466; color: #fff; }
+.nav .nav-cta[aria-current="page"] { box-shadow: none; border-radius: 6px; background: #1f4466; color: #fff; }
+
+.menu-btn { display: none; background: none; border: 1px solid var(--rule); border-radius: 8px; padding: .45rem .75rem; font: inherit; font-size: .92rem; color: var(--ink); cursor: pointer; align-items: center; gap: .5rem; }
+.menu-btn .bars { width: 16px; height: 10px; position: relative; border-top: 2px solid currentColor; border-bottom: 2px solid currentColor; }
+.menu-btn .bars::after { content: ""; position: absolute; left: 0; right: 0; top: 2px; border-top: 2px solid currentColor; }
+
+@media (max-width: 1080px) {
+  .menu-btn { display: inline-flex; }
+  .nav {
+    display: none;
+    position: absolute; top: var(--header-h); left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: var(--paper); border-bottom: 1px solid var(--rule);
+    padding: .5rem 1.5rem 1.25rem;
+    box-shadow: 0 12px 24px rgba(23,37,31,.08);
+  }
+  .nav.open { display: flex; }
+  .nav a { padding: .8rem .25rem; font-size: 1.05rem; border-bottom: 1px solid var(--rule); border-radius: 0; }
+  .nav a:hover { background: none; }
+  .nav a[aria-current="page"] { box-shadow: inset 3px 0 0 var(--honey); padding-left: .8rem; }
+  .nav .nav-group { border: 0; margin: .9rem 0 0; padding: 0 .25rem; font-size: .82rem; }
+  .nav .nav-cta { margin: 1rem 0 0; text-align: center; border-radius: 8px; border: 0; padding: .85rem; }
+  .nav .nav-cta[aria-current="page"] { padding-left: .85rem; }
+}
+
+/* ---------- Footer ---------- */
+.site-footer { border-top: 1px solid var(--rule); margin-top: 5rem; padding: 2rem 0 2.5rem; font-size: .92rem; color: var(--muted); }
+.site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.site-footer nav { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; }
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--ink); }
+
+/* ---------- Buttons ---------- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .75rem 1.2rem; border-radius: 8px; font-size: .97rem; font-weight: 500; text-decoration: none; border: 1px solid var(--pine); background: var(--pine); color: var(--paper); cursor: pointer; font-family: var(--sans); }
+.btn:hover { background: #1f4466; border-color: #1f4466; color: #fff; }
+.btn-ghost { background: transparent; color: var(--pine); border-color: var(--rule); }
+.btn-ghost:hover { background: var(--wash); color: var(--ink); border-color: var(--rule); }
+.btn-row { display: flex; flex-wrap: wrap; gap: .75rem; }
+
+/* ---------- Page heading (inner pages) ---------- */
+.page-head { padding: 3.5rem 0 2rem; border-bottom: 1px solid var(--rule); margin-bottom: 2.5rem; }
+.page-head p { color: var(--muted); max-width: 60ch; margin-top: .75rem; font-size: 1.08rem; }
+.crumb { font-size: .9rem; color: var(--muted); margin-bottom: .75rem; }
+.crumb a { color: var(--muted); }
+
+/* ---------- Home: hero ---------- */
+.hero { display: grid; grid-template-columns: 1fr 300px; gap: 4rem; align-items: center; padding: 4.5rem 0 4rem; }
+.hero .role { color: var(--muted); font-size: 1.05rem; margin: .6rem 0 1.4rem; }
+.hero .bio { max-width: 58ch; font-size: 1.06rem; }
+.hero .btn-row { margin-top: 1.8rem; }
+/* Profile photo: clean square, like a profile picture */
+.profile-photo { width: 300px; aspect-ratio: 1 / 1; }
+.profile-photo img { width: 100%; height: 100%; object-fit: cover; border-radius: 12px; border: 1px solid var(--rule); box-shadow: 0 1px 2px rgba(17,17,17,.06), 0 12px 32px rgba(47,93,138,.14); }
+
+.guide-callout { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; background: var(--honey-soft); border: 1px solid #cfe0f0; border-radius: 12px; padding: 1.4rem 1.6rem; }
+.guide-callout h3 { font-size: 1.25rem; }
+.guide-callout p { color: var(--muted); margin-top: .2rem; font-size: .98rem; }
+
+@media (max-width: 820px) {
+  .hero { grid-template-columns: 1fr; gap: 2.2rem; padding: 2.5rem 0 3rem; }
+  .hero-photo { order: -1; }
+  .profile-photo { width: 200px; }
+  .hero .btn-row .btn { flex: 1 1 auto; }
+}
+
+/* ---------- Home: sections ---------- */
+.section { padding-top: 4.5rem; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--rule); margin-bottom: 2rem; }
+.section-head p { color: var(--muted); font-size: .95rem; }
+
+/* Education */
+.edu-list { list-style: none; padding: 0; display: grid; gap: 0; }
+.edu-item { display: grid; grid-template-columns: 64px 1fr auto; gap: 1.25rem; align-items: center; padding: 1.15rem 0; border-bottom: 1px solid var(--rule); }
+.edu-item + .edu-item { margin-top: 0; }
+.edu-logo { width: 64px; height: 64px; border-radius: 10px; border: 1px solid var(--rule); display: grid; place-items: center; overflow: hidden; background: #fff; }
+.edu-logo img { max-width: 52px; max-height: 52px; object-fit: contain; }
+.edu-item h3 { font-size: 1.2rem; }
+.edu-item p { color: var(--muted); font-size: .95rem; }
+.edu-year { font-size: .92rem; color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.coursework { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
+details.fold { border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); }
+details.fold summary { cursor: pointer; padding: .9rem 1.1rem; font-weight: 500; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+details.fold summary::-webkit-details-marker { display: none; }
+details.fold summary::after { content: "+"; font-size: 1.3rem; line-height: 1; color: var(--muted); }
+details.fold[open] summary::after { content: "−"; }
+details.fold .fold-body { padding: 0 1.1rem 1.1rem 2.3rem; color: var(--muted); font-size: .95rem; }
+@media (max-width: 700px) {
+  .edu-item { grid-template-columns: 48px 1fr; gap: .9rem; align-items: start; }
+  .edu-logo { width: 48px; height: 48px; }
+  .edu-logo img { max-width: 40px; max-height: 40px; }
+  .edu-year { grid-column: 2; margin-top: -.6rem; }
+  .coursework { grid-template-columns: 1fr; }
+}
+
+/* Research entries */
+.research-entry { display: grid; grid-template-columns: 260px 1fr; gap: 2.5rem; padding: 2.5rem 0; border-bottom: 1px solid var(--rule); }
+.research-entry:first-of-type { padding-top: .5rem; }
+.research-entry figure img { border-radius: 10px; aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+.research-entry figure + figure { margin-top: 1rem; }
+.research-entry figcaption { font-size: .85rem; color: var(--muted); margin-top: .4rem; }
+.research-entry .date { font-size: .92rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.research-entry h3 { font-size: 1.5rem; margin: .2rem 0 .9rem; }
+.research-entry .body > p, .research-entry .body > ul { max-width: var(--read); }
+.research-entry h4 { margin: 1.4rem 0 .5rem; }
+.research-entry ul { color: var(--ink); }
+.mentor { margin-top: 1.4rem; padding: .9rem 1.1rem; background: var(--wash); border-radius: 10px; font-size: .93rem; color: var(--muted); max-width: var(--read); }
+.mentor strong { color: var(--ink); }
+.pubs li { font-size: .97rem; }
+@media (max-width: 820px) {
+  .research-entry { grid-template-columns: 1fr; gap: 1.25rem; }
+  .research-entry figure img { aspect-ratio: 16 / 10; }
+}
+
+/* ---------- Article layout with side contents (notes + guide) ---------- */
+.doc { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 3.5rem; align-items: start; }
+.toc { position: sticky; top: calc(var(--header-h) + 1.5rem); font-size: .92rem; }
+.toc-title { font-weight: 600; margin-bottom: .6rem; font-size: .9rem; }
+.toc ol, .toc ul { list-style: none; padding: 0; border-left: 1px solid var(--rule); }
+.toc li { margin: 0; }
+.toc a { display: block; padding: .35rem 0 .35rem 1rem; color: var(--muted); text-decoration: none; margin-left: -1px; border-left: 2px solid transparent; line-height: 1.4; }
+.toc a:hover { color: var(--ink); }
+.toc a.active { color: var(--ink); border-left-color: var(--honey); }
+.toc-mobile { display: none; margin-bottom: 2rem; }
+
+.prose { max-width: var(--read); }
+.prose h2 { margin: 3rem 0 1rem; padding-top: .5rem; }
+.prose h2:first-child { margin-top: 0; }
+.prose h3 { margin: 2rem 0 .6rem; }
+.prose h4 { margin: 1.5rem 0 .4rem; }
+.prose ul, .prose ol { margin: .9rem 0; }
+.prose p + ul, .prose p + ol { margin-top: .6rem; }
+.prose .note { background: var(--wash); border-left: 3px solid var(--honey); padding: 1rem 1.2rem; border-radius: 0 8px 8px 0; margin: 1.4rem 0; font-size: .97rem; }
+.prose .next-link { display: inline-block; margin: 1rem 0; padding: .75rem 1.1rem; border: 1px solid var(--rule); border-radius: 8px; text-decoration: none; font-weight: 500; background: var(--paper); }
+.prose .next-link:hover { background: var(--wash); }
+.dl-row { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+
+.table-scroll { overflow-x: auto; margin: 1.2rem 0; border: 1px solid var(--rule); border-radius: 10px; -webkit-overflow-scrolling: touch; }
+.table-scroll table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: .9rem; }
+.table-scroll th, .table-scroll td { text-align: left; vertical-align: top; padding: .75rem .9rem; border-bottom: 1px solid var(--rule); }
+.table-scroll th { background: var(--wash); font-weight: 600; }
+.table-scroll tr:last-child td { border-bottom: 0; }
+.table-scroll code { white-space: nowrap; }
+
+@media (max-width: 900px) {
+  .doc { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .toc { display: none; }
+  .toc-mobile { display: block; }
+  .toc-mobile ol, .toc-mobile ul { list-style: none; padding: 0; }
+  .toc-mobile a { display: block; padding: .55rem 0; border-top: 1px solid var(--rule); text-decoration: none; }
+}
+
+/* ---------- PhD guide ---------- */
+.author-strip { display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem; }
+.author-strip img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; object-position: 55% 30%; }
+.author-strip p { margin: 0; font-size: .95rem; max-width: none; }
+.steps { list-style: none; padding: 0; counter-reset: step; }
+.step { counter-increment: step; position: relative; padding-left: 3.4rem; margin-top: 2.8rem; }
+.step::before {
+  content: counter(step);
+  position: absolute; left: 0; top: .1rem;
+  width: 2.3rem; height: 2.3rem;
+  display: grid; place-items: center;
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
+  color: #fff; background: var(--pine);
+  border-radius: 50%;
+}
+.step h2 { margin: 0 0 .7rem !important; font-size: 1.55rem; padding-top: 0 !important; }
+@media (max-width: 560px) { .step { padding-left: 0; padding-top: 3rem; } }
+
+/* Q&A / comments */
+.qa { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+.qa-setup { border: 1px dashed var(--honey); background: var(--honey-soft); border-radius: 10px; padding: 1.2rem 1.4rem; font-size: .95rem; }
+#cusdis_thread { margin-top: 1.5rem; }
+
+/* ---------- Opportunities ---------- */
+.opps { display: grid; gap: 1.2rem; max-width: 820px; }
+.opp { border: 1px solid var(--rule); border-radius: 12px; padding: 1.4rem 1.5rem; }
+.opp h3 { font-size: 1.3rem; }
+.opp .meta { color: var(--muted); font-size: .95rem; margin: .35rem 0 1rem; }
+.opp .links { display: flex; flex-wrap: wrap; gap: .5rem; }
+.opp .links a { font-size: .9rem; padding: .4rem .8rem; border: 1px solid var(--rule); border-radius: 999px; text-decoration: none; }
+.opp .links a:hover { background: var(--wash); }
+
+/* ---------- Contact ---------- */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 3.5rem; align-items: start; }
+.form { display: grid; gap: 1.1rem; }
+.field label { display: block; font-size: .92rem; font-weight: 500; margin-bottom: .35rem; }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
+  padding: .75rem .9rem; border: 1px solid #cfd8d2; border-radius: 8px; background: var(--paper);
+}
+.field textarea { min-height: 160px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: 2px solid var(--honey); outline-offset: 0; border-color: transparent; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-status { font-size: .95rem; min-height: 1.4em; }
+.form-status.ok { color: var(--pine); }
+.form-status.err { color: #a3361f; }
+.contact-side h3 { font-size: 1.2rem; margin-bottom: .8rem; }
+.contact-list { list-style: none; padding: 0; }
+.contact-list li { padding: .8rem 0; border-bottom: 1px solid var(--rule); margin: 0; }
+.contact-list span { display: block; font-size: .85rem; color: var(--muted); }
+@media (max-width: 820px) {
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .field-row { grid-template-columns: 1fr; }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 560px) {
+  body { font-size: 16.5px; }
+  .wrap { padding: 0 1.15rem; }
+  .page-head { padding: 2.2rem 0 1.5rem; margin-bottom: 2rem; }
+  .section { padding-top: 3.2rem; }
+  .section-head { flex-direction: column; gap: .2rem; }
+  .brand { font-size: 1.15rem; }
+}
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* Keep research photos in view while reading (desktop only) */
+@media (min-width: 821px) {
+  .research-entry > div:first-child { position: sticky; top: calc(var(--header-h) + 1.5rem); align-self: start; }
+}
+@media (max-width: 820px) {
+  .research-entry figure img { object-position: center 65%; }
+}
+.step ul { list-style: disc; }
+
+
+/* =========================================================
+   BURGUNDY THEME: dark top bar with white text,
+   near-white cream background, beige cards
+   ========================================================= */
+body { background: var(--paper); }
+h1, h2, h3, .edu-item h3, .research-entry h3, .page-head h1, .hero h1 { color: var(--bar); }
+
+.site-header { background: var(--bar); border-bottom: 3px solid var(--honey); backdrop-filter: none; -webkit-backdrop-filter: none; }
+.brand { color: #fff; }
+.brand-mark { background: #e9d3b4; }
+.nav a { color: #f3e6e9; }
+.nav a:hover { color: #fff; background: rgba(255,255,255,.08); }
+.nav a[aria-current="page"] { color: #fff; box-shadow: inset 0 -2px 0 #e9d3b4; }
+.nav .nav-group { color: #d8b9c0; border-color: rgba(255,255,255,.2); }
+.nav .nav-cta { background: var(--wash); color: var(--bar); }
+.nav .nav-cta:hover, .nav .nav-cta[aria-current="page"] { background: #fff; color: var(--bar); }
+.menu-btn { color: #fff; border-color: rgba(255,255,255,.35); }
+@media (max-width: 1080px) {
+  .nav { background: var(--bar); border-color: var(--bar); box-shadow: 0 12px 24px rgba(0,0,0,.18); }
+  .nav a { border-color: rgba(255,255,255,.14); }
+  .nav a[aria-current="page"] { box-shadow: inset 3px 0 0 #e9d3b4; }
+}
+
+a { color: var(--pine); text-decoration-color: rgba(185,140,94,.7); }
+a:hover { color: var(--bar); text-decoration-color: var(--pine); }
+.btn { background: var(--pine); border-color: var(--pine); color: #fff; }
+.btn:hover { background: var(--bar); border-color: var(--bar); color: #fff; }
+.btn-ghost { background: var(--paper); color: var(--pine); border-color: var(--rule); }
+.btn-ghost:hover { background: var(--wash); color: var(--bar); }
+
+.guide-callout, .mentor, details.fold, .opp, .prose .note { background: var(--wash); border-color: var(--rule); }
+.prose .note { border-left-color: var(--pine); }
+.step::before { background: var(--bar); color: #fff; }
+.toc a.active { border-left-color: var(--pine); color: var(--bar); }
+.profile-photo img { border-color: var(--rule); box-shadow: 0 12px 32px rgba(94,26,44,.16); }
+.field input, .field select, .field textarea { background: #fff; border-color: #dccbb3; }
+.table-scroll th { background: var(--wash); }
+.edu-logo { background: #fff; }
+
+.research-entry:first-of-type { padding-top: 0; }
+.hero { align-items: start; }
+.hero-photo { padding-top: .5rem; }
+
+/* ---------- Home: DNA-to-bee line drawing ---------- */
+.dna-art { max-width: 460px; margin: -.5rem auto 3rem; opacity: .9; }
+.dna-art img { width: 100%; height: auto; }
+@media (max-width: 820px) { .dna-art { max-width: 300px; margin: 0 auto 2.2rem; } }
+
+/* =========================================================
+   PhD guide components
+   ========================================================= */
+.prose section + section, .prose section + .steps, .prose .steps + section { margin-top: 3.2rem; }
+.prose section h2 { margin-top: 0; }
+
+/* stats */
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 1.4rem 0 1.6rem; }
+.stats > div { background: var(--wash); border: 1px solid var(--rule); border-radius: 10px; padding: 1rem; }
+.stat-big { display: block; font-family: var(--serif); font-size: 2rem; line-height: 1.1; color: var(--bar); font-weight: 600; }
+.stats span:last-child { font-size: .88rem; color: var(--muted); }
+
+/* topic bars */
+.prose ul.bars { list-style: none; padding: 0; margin: .6rem 0 1.4rem; }
+.bars li { display: grid; grid-template-columns: minmax(0, 15rem) 1fr 2.2rem; gap: .8rem; align-items: center; margin: 0; padding: .28rem 0; font-size: .92rem; }
+.bar-track { height: 10px; background: var(--wash); border-radius: 99px; overflow: hidden; }
+.bar-fill { display: block; height: 100%; background: var(--pine); border-radius: 99px; }
+.bar-num { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ways to apply */
+.ways { display: grid; grid-template-columns: 1fr; gap: .7rem; margin: 1.2rem 0 1.4rem; }
+.way { display: grid; grid-template-columns: 2.4rem 1fr; column-gap: .9rem; border: 1px solid var(--rule); border-radius: 12px; padding: 1rem 1.1rem; background: #fff; }
+.way > *:not(.way-num) { grid-column: 2; }
+.way-num { grid-row: 1 / span 2; }
+.way h3 { margin: .15rem 0 .3rem !important; font-size: 1.1rem; }
+.way p { font-size: .93rem; color: var(--muted); }
+.way-num { display: inline-grid; place-items: center; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--wash); color: var(--bar); font-weight: 700; font-size: .9rem; }
+
+/* tip box */
+.tip { background: var(--wash); border-radius: 10px; padding: 1rem 1.2rem; margin: 1.2rem 0; font-size: .97rem; }
+
+/* professor replies */
+.reply-list { display: grid; gap: .8rem; margin: 1.2rem 0; }
+.reply { border: 1px solid var(--rule); border-left: 4px solid var(--pine); border-radius: 0 10px 10px 0; padding: .9rem 1.1rem; background: #fff; }
+.reply p { font-size: .96rem; }
+.reply .reply-q { font-family: var(--serif); font-size: 1.12rem; color: var(--bar); margin-bottom: .35rem; }
+
+/* funding facts */
+.facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 1.2rem 0 1.4rem; }
+.fact { background: var(--wash); border-radius: 10px; padding: 1rem; font-size: .9rem; color: var(--muted); }
+.fact-big { display: block; font-family: var(--serif); font-size: 1.6rem; color: var(--bar); font-weight: 600; margin-bottom: .2rem; }
+
+/* timeline */
+.prose ol.timeline { list-style: none; padding: 0; margin: 1.2rem 0; border-left: 2px solid var(--rule); }
+.timeline li { position: relative; display: grid; grid-template-columns: 6rem 1fr; gap: .8rem; padding: .5rem 0 .5rem 1.2rem; margin: 0; }
+.timeline li::before { content: ""; position: absolute; left: -7px; top: .95rem; width: 12px; height: 12px; border-radius: 50%; background: var(--pine); border: 2px solid var(--paper); }
+.tl-when { font-weight: 600; color: var(--bar); font-size: .92rem; }
+
+@media (max-width: 640px) {
+  .stats, .facts { grid-template-columns: 1fr 1fr; }
+  .stats > div:last-child { grid-column: span 2; }
+  .facts .fact:last-child { grid-column: span 2; }
+  .ways { grid-template-columns: 1fr; }
+  .bars li { grid-template-columns: 1fr 2.2rem; row-gap: .25rem; }
+  .bars .bar-label { grid-column: 1 / -1; }
+  .timeline li { grid-template-columns: 1fr; gap: .1rem; }
+}
+
+/* intro + "What I did" boxes */
+.prose .lead { font-size: 1.08rem; line-height: 1.7; }
+.tip { border-left: 4px solid var(--honey); border-radius: 0 10px 10px 0; }
+.tip p + p { margin-top: .6rem; }
+.tip-label { font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--bar); margin-bottom: .35rem; }
+
+/* ---------- Broader side contents (laptop) ---------- */
+.doc { grid-template-columns: 300px minmax(0, 1fr); gap: 3.5rem; }
+.toc { top: calc(var(--header-h) + 1.2rem); max-height: calc(100vh - var(--header-h) - 2.4rem); overflow-y: auto; background: var(--wash); border: 1px solid var(--rule); border-radius: 14px; padding: 1.1rem .9rem 1rem; font-size: .98rem; scrollbar-width: thin; }
+.toc-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; color: var(--bar); margin: 0 .4rem .4rem; }
+.toc ol, .toc ul { border-left: 0; }
+.toc li.toc-group { font-size: .74rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: .9rem .5rem .3rem; }
+.toc a { display: flex; align-items: center; gap: .6rem; padding: .45rem .55rem; margin: 1px 0; border-left: 0; border-radius: 8px; color: var(--ink); line-height: 1.35; }
+.toc a:hover { background: rgba(255,255,255,.75); color: var(--bar); }
+.toc a.active { background: #fff; color: var(--bar); font-weight: 600; box-shadow: inset 3px 0 0 var(--pine); }
+.toc-num { flex: none; display: inline-grid; place-items: center; width: 1.55rem; height: 1.55rem; border-radius: 50%; background: #fff; border: 1px solid var(--rule); font-size: .8rem; font-weight: 700; color: var(--bar); }
+.toc a.active .toc-num { background: var(--pine); border-color: var(--pine); color: #fff; }
+.toc-mobile li.toc-group { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: .9rem 0 .2rem; }
+.toc-mobile a { display: flex; gap: .6rem; align-items: center; }
+@media (max-width: 1100px) and (min-width: 901px) { .doc { grid-template-columns: 250px minmax(0, 1fr); gap: 2.5rem; } }
+
+/* reply cards: labels */
+.reply .reply-label { font-size: .74rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin: .7rem 0 .15rem; }
+.reply .reply-label + p { margin-top: 0; }
+
+/* "How this guide was made" flow */
+.prose ol.flow { list-style: none; padding: 0; margin: 1.2rem 0 1.4rem; display: flex; flex-wrap: wrap; gap: .5rem; counter-reset: flow; }
+.flow li { counter-increment: flow; margin: 0; display: flex; align-items: center; gap: .5rem; background: #fff; border: 1px solid var(--rule); border-radius: 999px; padding: .45rem .9rem .45rem .45rem; font-size: .93rem; font-weight: 600; color: var(--bar); }
+.flow li::before { content: counter(flow); display: inline-grid; place-items: center; width: 1.55rem; height: 1.55rem; border-radius: 50%; background: var(--pine); color: #fff; font-size: .8rem; }
+.flow li:not(:last-child)::after { content: "→"; color: var(--muted); font-weight: 400; margin-left: .35rem; }
+@media (max-width: 640px) { .flow li:not(:last-child)::after { content: ""; margin: 0; } }
+.page-head p.intro-lead { max-width: 72ch; }
+
+/* LinkedIn page cards */
+.li-list { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; margin: 1rem 0 1.4rem; }
+.li-card { display: flex; align-items: center; gap: .8rem; padding: .8rem 1rem; background: #fff; border: 1px solid var(--rule); border-radius: 12px; text-decoration: none; color: var(--ink); transition: border-color .15s, box-shadow .15s; }
+.li-card:hover { border-color: var(--pine); box-shadow: 0 4px 14px rgba(0,0,0,.06); color: var(--ink); }
+.li-avatar { flex: none; width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--bar); color: #fff; font-weight: 700; font-size: .9rem; object-fit: cover; }
+.li-text { flex: 1; min-width: 0; display: flex; flex-direction: column; line-height: 1.3; }
+.li-text strong { font-size: .98rem; color: var(--bar); }
+.li-text span { font-size: .85rem; color: var(--muted); }
+.li-go { flex: none; font-size: .8rem; font-weight: 600; color: #0a66c2; }
+@media (max-width: 640px) { .li-list { grid-template-columns: 1fr; } }
+
+/* ---------- Methods page ---------- */
+.prose ul.cols { columns: 2; column-gap: 2rem; }
+.prose ul.cols li { break-inside: avoid; }
+@media (max-width: 640px) { .prose ul.cols { columns: 1; } }
+.prose ol ol { margin: .4rem 0 .2rem; }
+.calc { display: flex; flex-wrap: wrap; gap: .8rem 1.2rem; align-items: flex-end; background: var(--wash); border: 1px solid var(--rule); border-radius: 12px; padding: .9rem 1.1rem; margin: 1rem 0 .6rem; }
+.calc label { display: flex; flex-direction: column; gap: .25rem; font-size: .85rem; font-weight: 600; color: var(--bar); }
+.calc input { width: 9rem; font: inherit; font-size: 1rem; padding: .45rem .6rem; border: 1px solid #dccbb3; border-radius: 8px; background: #fff; color: var(--ink); }
+.calc input:focus, .prose textarea:focus { outline: 2px solid var(--pine); outline-offset: 0; }
+.calc-note { font-size: .82rem; color: var(--muted); font-weight: 400; }
+.calc-sub { font-weight: 600; color: var(--bar); margin: 1.2rem 0 -.4rem; }
+.calc-hint { font-size: .9rem; color: var(--muted); margin: .6rem 0 .4rem; }
+.prose textarea { width: 100%; font-family: var(--mono); font-size: .92rem; padding: .7rem .8rem; border: 1px solid #dccbb3; border-radius: 10px; background: #fff; color: var(--ink); resize: vertical; }
+.calc-table td:not(:first-child), .calc-table th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+.table-scroll .calc-table { min-width: 480px; }
+.warn { color: #9a5b12; font-size: .82rem; }
+.formula { background: #fff; border: 1px solid var(--rule); border-left: 4px solid var(--pine); border-radius: 0 12px 12px 0; padding: 1rem 1.2rem; margin: 1rem 0; }
+.formula p { margin: .25rem 0 0; font-family: var(--mono); font-size: .92rem; }
+.formula .formula-name { font-family: var(--sans); font-size: .75rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin: 0 0 .3rem; }
+.instrument { margin: 1.2rem 0; }
+.instrument img { width: 100%; max-width: 520px; border-radius: 12px; border: 1px solid var(--rule); background: #fff; }
+.instrument figcaption { font-size: .88rem; color: var(--muted); margin-top: .4rem; }
+.instrument .img-missing { display: none; }
+.instrument.missing img, .instrument.missing figcaption { display: none; }
+.instrument.missing .img-missing { display: block; max-width: 520px; border: 2px dashed var(--rule); border-radius: 12px; padding: 2rem 1.2rem; text-align: center; color: var(--muted); font-size: .92rem; background: #fff; }
+.result-cells { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: .4rem 0 .4rem; }
+.result-cells > div { background: #fff; border: 2px solid var(--pine); border-radius: 12px; padding: .9rem 1.1rem; display: flex; flex-direction: column; gap: .2rem; }
+.result-cells span { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.result-cells strong { font-size: 1.6rem; font-family: var(--serif); color: var(--bar); font-variant-numeric: tabular-nums; }
+.prose li > .table-scroll { margin: .6rem 0 .8rem; }
+.calc-btns { display: flex; gap: .5rem; }
+.calc-btns button { font: inherit; font-size: .88rem; font-weight: 600; padding: .5rem .8rem; border-radius: 8px; border: 1px solid var(--pine); background: #fff; color: var(--pine); cursor: pointer; }
+.calc-btns button:hover { background: var(--pine); color: #fff; }
+
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER (same on every page) ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"></span>Gokul Dhanapati</a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"></span><span class="label">Home</span></button>
+    <nav id="site-nav" class="nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <span class="nav-group" aria-hidden="true">Notes</span>
+      <a href="research-methods.html" aria-current="page">Research Methods</a>
+      <a href="bioinformatics.html">Bioinformatics</a>
+      <a href="phd-guide.html">PhD Guide</a>
+      <a href="contact.html" class="nav-cta">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="crumb">Learning notes</p>
+      <h1>Research Methods</h1>
+      <p class="intro-lead">The experimental protocols and molecular techniques I use in my honey bee research, written as practical notes you can follow in the lab. Some methods include calculators to help plan a run.</p>
+    </header>
+
+    <div class="doc">
+      <nav class="toc" aria-label="On this page">
+        <p class="toc-title">On this page</p>
+        <ol>
+          <li class="toc-group">Experiment</li>
+          <li><a href="#injection"><span class="toc-num">1</span><span>Honey bee injection</span></a></li>
+          <li><a href="#virus-prep"><span class="toc-num">2</span><span>Virus purification</span></a></li>
+          <li class="toc-group">Molecular workflow</li>
+          <li><a href="#rna-trizol"><span class="toc-num">3</span><span>RNA extraction: TRIzol</span></a></li>
+          <li><a href="#rna-magmax"><span class="toc-num">4</span><span>RNA extraction: MagMAX</span></a></li>
+          <li><a href="#equalize"><span class="toc-num">5</span><span>RNA equalization</span></a></li>
+          <li><a href="#cdna"><span class="toc-num">6</span><span>cDNA synthesis</span></a></li>
+          <li><a href="#qpcr"><span class="toc-num">7</span><span>qPCR</span></a></li>
+          <li class="toc-group">qPCR calculations</li>
+          <li><a href="#virus-load"><span class="toc-num">8</span><span>Virus load</span></a></li>
+          <li><a href="#immune"><span class="toc-num">9</span><span>Immune gene expression</span></a></li>
+        </ol>
+      </nav>
+
+      <article class="prose">
+        <details class="fold toc-mobile">
+          <summary>Jump to a section</summary>
+          <div class="fold-body" style="padding-left:1.1rem"><ol>
+          <li class="toc-group">Experiment</li>
+          <li><a href="#injection"><span class="toc-num">1</span><span>Honey bee injection</span></a></li>
+          <li><a href="#virus-prep"><span class="toc-num">2</span><span>Virus purification</span></a></li>
+          <li class="toc-group">Molecular workflow</li>
+          <li><a href="#rna-trizol"><span class="toc-num">3</span><span>RNA extraction: TRIzol</span></a></li>
+          <li><a href="#rna-magmax"><span class="toc-num">4</span><span>RNA extraction: MagMAX</span></a></li>
+          <li><a href="#equalize"><span class="toc-num">5</span><span>RNA equalization</span></a></li>
+          <li><a href="#cdna"><span class="toc-num">6</span><span>cDNA synthesis</span></a></li>
+          <li><a href="#qpcr"><span class="toc-num">7</span><span>qPCR</span></a></li>
+          <li class="toc-group">qPCR calculations</li>
+          <li><a href="#virus-load"><span class="toc-num">8</span><span>Virus load</span></a></li>
+          <li><a href="#immune"><span class="toc-num">9</span><span>Immune gene expression</span></a></li>
+          </ol></div>
+        </details>
+
+        <ol class="steps">
+
+          <!-- ============ 1. INJECTION ============ -->
+          <li class="step" id="injection">
+            <h2>Honey bee injection (adults, queens and pupae)</h2>
+            <p>A general protocol for injecting virus or a control solution (PBS) into newly emerged adult workers, queens and white-eyed pupae. Decide the number of colonies, individuals per colony and treatment groups for your own experimental design. Within each colony, assign individuals randomly to the virus and control groups.</p>
+
+            <h3>Materials</h3>
+            <ul class="cols">
+              <li>Bee housing cups (20 oz clear plastic cups with snap-on lids)</li>
+              <li>1.5 mL tubes (perforated for sugar syrup, half-cut for pollen patty)</li>
+              <li>15 mL tubes for sample collection and storage</li>
+              <li>Virus inoculum and PBS (control)</li>
+              <li>Ethanol, Kimwipes, gloves, labels and markers</li>
+              <li>Petri dishes and filter paper (70–90 mm)</li>
+              <li>Soft flat forceps and wax sheets</li>
+              <li>Sugar syrup and pollen patties</li>
+              <li>Ice or CO₂ for anesthesia</li>
+              <li>Microinjector (UMP3 or equivalent) with camera display</li>
+              <li>Hamilton syringe (25 µL); needles with 12° and 20° bevel</li>
+              <li>Incubator (34 °C, 50% relative humidity)</li>
+            </ul>
+
+            <h3>Before injection day</h3>
+            <ul>
+              <li>Calibrate the microinjector.</li>
+              <li>Prepare the housing cups, feeding tubes and wax sheets.</li>
+              <li>Label cups and Petri dishes by colony and treatment.</li>
+              <li>Set the incubator to 34 °C and 50% relative humidity.</li>
+              <li>Practise injections on a few adult bees and pupae.</li>
+              <li>For adult injections: the evening before, collect brood frames with bees expected to emerge overnight and keep them in the incubator.</li>
+            </ul>
+
+            <h3>Adult bee injection</h3>
+            <ol>
+              <li>Collect newly emerged adult bees from the incubated brood frames directly into labeled housing cups.</li>
+              <li>Randomly assign bees from each colony to the virus or PBS group.</li>
+              <li>Anesthetize the bees on ice or with CO₂.</li>
+              <li>Inject <strong>2 µL</strong> between the 1st–2nd or 2nd–3rd abdominal segments using the microinjector with a <strong>12° needle</strong>.</li>
+              <li>Return the bees to their labeled cups and give sugar syrup and pollen patty through the modified 1.5 mL tubes.</li>
+              <li>Keep the cups in the incubator at 34 °C and 50% RH.</li>
+              <li>Remove dead bees right after injection and throughout the experiment.</li>
+              <li>At <strong>72 hours</strong> post-injection, collect the surviving bees into 15 mL tubes and store at −80 °C.</li>
+            </ol>
+
+            <h3>Queen injection</h3>
+            <ol>
+              <li>Inject the queen in the <strong>thorax</strong>.</li>
+              <li>Put her in a cup with <strong>10 worker bees</strong> to take care of her.</li>
+            </ol>
+            <div class="note"><strong>Important:</strong> queens received from another source come with their own attendant workers. Use those same workers with the queen after injection. Workers from a different colony may attack and kill her.</div>
+
+            <h3>Pupal injection</h3>
+            <ol>
+              <li>Collect brood frames with white-eyed pupae.</li>
+              <li>Gently remove pupae from the cells with soft forceps, without damaging them.</li>
+              <li>Place them in labeled Petri dishes lined with filter paper (about 10 pupae per dish), by colony and treatment.</li>
+              <li>Keep the dishes in the incubator (34 °C, 50% RH) for at least <strong>2 hours</strong> before injection. Exclude any pupae that turn dark (melanization), as this suggests injury and immune activation.</li>
+              <li>Randomly assign pupae from each colony to the virus or PBS group.</li>
+              <li>Inject <strong>2 µL</strong> between the 1st–2nd or 2nd–3rd abdominal segments with a <strong>20° needle</strong>.</li>
+              <li>Return pupae to their dishes and keep them at 34 °C and 50% RH.</li>
+              <li>Remove pupae that show melanization or leakage during the experiment.</li>
+              <li>At <strong>72 hours</strong> post-injection, collect the surviving pupae into 15 mL tubes and store at −80 °C.</li>
+            </ol>
+          </li>
+
+          <!-- ============ VIRUS PREP ============ -->
+          <li class="step" id="virus-prep">
+            <h2>Virus purification</h2>
+            <p>The virus used for injections comes from infected bee material. How much preparation you need depends on the form you start with.</p>
+
+            <h3>Starting material</h3>
+            <ul>
+              <li><strong>Whole pupae:</strong> symptomatic, virus-infected pupae are collected and used as the virus source. You prepare the extract and quantify it yourself.</li>
+              <li><strong>Lysate:</strong> an extract that is already prepared and usually already quantified by the lab that sends it.</li>
+            </ul>
+
+            <h3>If you start with whole pupae</h3>
+            <ol>
+              <li>Homogenize the pupae.</li>
+              <li>Centrifuge at <strong>10,000 × g for 10 min at 4 °C</strong> to clarify.</li>
+              <li>Filter the supernatant.</li>
+              <li>Quantify the virus by qPCR (copies/µL), using the virus load calculation in step 8.</li>
+              <li>Dilute to the injection dose (calculator below) and filter again.</li>
+            </ol>
+
+            <h3>If you start with a lysate</h3>
+            <ol>
+              <li>Use the concentration from the sending lab, or confirm it by qPCR.</li>
+              <li>Dilute to the injection dose and filter.</li>
+            </ol>
+
+            <div class="note"><strong>Filtering after dilution:</strong> a second filtration after diluting is recommended. It is not needed if you dilute with high-quality, cell-culture-grade PBS and are confident in your sterile technique.</div>
+
+            <h3>Dose dilution calculator</h3>
+            <p class="calc-hint">Works out how much virus stock and PBS to mix so that each injection delivers the dose you want.</p>
+            <div class="calc">
+              <label>Stock (copies/µL) <input type="number" id="vd-stock" value="100000000" step="any"></label>
+              <label>Dose per bee (copies) <input type="number" id="vd-dose" value="10000" step="any"></label>
+              <label>Injection volume (µL) <input type="number" id="vd-inj" value="2" step="any"></label>
+              <label>Total to prepare (µL) <input type="number" id="vd-total" value="1000" step="any"></label>
+            </div>
+            <div class="result-cells">
+              <div><span>Virus stock</span><strong id="vd-v">–</strong></div>
+              <div><span>PBS</span><strong id="vd-p">–</strong></div>
+            </div>
+            <p class="calc-hint" id="vd-msg"></p>
+          </li>
+
+          <!-- ============ 2. TRIZOL ============ -->
+          <li class="step" id="rna-trizol">
+            <h2>RNA extraction with TRIzol</h2>
+            <ol>
+              <li>Grab a cold tube rack from the −20 °C freezer and put labelled 1.5 mL tubes for each sample in it, along with small metal beads (number of beads depends on type/size of sample).</li>
+              <li>Add 1 mL of TRIzol to each sample tube.</li>
+              <li>Put samples in the homogenizer with the following setting: 30 seconds, 1.5 mL tube, 4 m/s speed.</li>
+              <li>Remove from homogenizer and let samples sit at room temperature for 10 mins.</li>
+              <li>Add 200 µL of chloroform to each sample.</li>
+              <li>Shake samples vigorously for 10–30 seconds. Sample should be cloudy.</li>
+              <li>Sit samples at room temperature for 3 mins. Final result should separate into 3 layers.</li>
+              <li>Run samples in centrifuge at the following setting: 12,000 rcf, 15 mins.
+                <ol type="a">
+                  <li>Whilst centrifuge is running, label new set of 1.5 mL tubes and pipette 500 µL of isopropanol into each. Place rack of samples into freezer after.</li>
+                  <li>Set up a rack inside fume cupboard to hold 2 falcon tubes for waste, one for TRIzol and one for alcohol.</li>
+                </ol></li>
+              <li>Take tubes carefully out of the centrifuge and use P200 to take off the top layer and put into new test tube. Aim for 400–600 µL of sample. <strong>Do not touch other layers.</strong></li>
+              <li>Leave tubes in ice for 15 mins (or leave overnight if not enough time to complete protocol).
+                <ol type="a"><li>While waiting, grab the magnet and a beaker to remove the beads and wash them.</li></ol></li>
+              <li>Put samples in centrifuge at 12,000 rcf for 10 mins.
+                <ol type="a"><li>While waiting, grab a lid from a mini test tube rack and lay 4–6 Kimwipes on the bottom of the tray.</li></ol></li>
+              <li>Carefully remove tubes from centrifuge and pour off liquid into TRIzol waste falcon tube. Place sample tubes upside down on Kimwipes so no supernatant left.</li>
+              <li>Slowly pipette 1000 µL 80% ethanol into each sample tube. Try not to disturb pellet too much.</li>
+              <li>Centrifuge samples at 7,500 rcf for 5 mins. Replace Kimwipes in tray.</li>
+              <li>Gently remove tubes and pour off supernatant carefully into ethanol waste falcon tube. <strong>Do not disturb pellet.</strong></li>
+              <li>Repeat steps 13–15. Leave tubes upright at room temperature for at least 15 mins to air-dry (can leave for another 5 mins if liquid is still present). Remaining drops can be pipetted out with P10.</li>
+              <li>Place samples in cold tube rack from −20 °C freezer and pipette 100 µL of elution buffer into each. Pipette in and out multiple times to ensure good distribution. Further vortexing can be done too until complete dissolution.</li>
+            </ol>
+            <div class="tip"><p class="tip-label">You will need (8 samples)</p><p>8 mL TRIzol · 1.6 mL chloroform · 4 mL isopropanol · 16 mL 80% ethanol · 800 µL elution buffer</p></div>
+          </li>
+
+          <!-- ============ 3. MAGMAX ============ -->
+          <li class="step" id="rna-magmax">
+            <h2>RNA extraction with MagMAX mirVana on the KingFisher Duo</h2>
+            <p>An automated, magnetic-bead method using the MagMAX mirVana Total RNA Isolation Kit on the KingFisher Duo Prime, with program <strong>A27828_DUO_Tissue_cells</strong>.</p>
+            <figure class="instrument">
+              <img src="assets/img/kingfisher-duo.jpg" alt="KingFisher Duo Prime magnetic particle processor" onerror="this.parentNode.classList.add('missing')">
+              <figcaption>KingFisher Duo Prime magnetic particle processor</figcaption>
+              <p class="img-missing">Instrument photo: save your photo as <code>assets/img/kingfisher-duo.jpg</code> and it will appear here.</p>
+            </figure>
+
+            <h3>Lysis buffer and beads for homogenizing</h3>
+            <div class="table-scroll"><table>
+              <thead><tr><th>Sample</th><th>Lysis buffer</th><th>Beads</th></tr></thead>
+              <tbody>
+                <tr><td>50 adult bees (pooled)</td><td>7 mL</td><td>3 large + 5 small</td></tr>
+                <tr><td>20–40 eggs</td><td>320 µL</td><td>3 small</td></tr>
+                <tr><td>1 adult bee or 1 pupa</td><td>500 µL</td><td>4 small</td></tr>
+              </tbody>
+            </table></div>
+
+            <h3>Steps</h3>
+            <ol>
+              <li><strong>Prepare the wash solutions:</strong> add 10 mL isopropanol to Wash Solution 1 Concentrate, and 48 mL ethanol to Wash Solution 2 Concentrate.</li>
+              <li><strong>Prepare the TURBO DNase solution:</strong> 48 µL MagMAX TURBO DNase buffer + 2 µL TURBO DNase per sample. Mix for all samples together and keep it on ice.
+                <div class="calc">
+                  <label>Number of samples <input type="number" id="mm-n" value="12" min="1"></label>
+                  <span class="calc-note">includes 5% extra</span>
+                </div>
+                <div class="table-scroll"><table class="calc-table" id="mm-table"><thead></thead><tbody></tbody></table></div>
+              </li>
+              <li><strong>Homogenize</strong> the samples in lysis buffer with beads (table above).</li>
+              <li>Let the tubes sit at room temperature while you prepare the plate.</li>
+              <li><strong>Prepare the plate</strong> as below:
+                <div class="table-scroll"><table class="plate">
+                  <thead><tr><th>Row</th><th>Contents</th><th>Volume</th></tr></thead>
+                  <tbody>
+                    <tr><td>A</td><td>Elution buffer</td><td>50 µL</td></tr>
+                    <tr><td>B</td><td>Tip comb</td><td>–</td></tr>
+                    <tr><td>C</td><td>Wash Solution 2</td><td>150 µL</td></tr>
+                    <tr><td>D</td><td>Wash Solution 2</td><td>150 µL</td></tr>
+                    <tr><td>E</td><td>TURBO DNase solution</td><td>50 µL</td></tr>
+                    <tr><td>F</td><td>Wash Solution 2</td><td>150 µL</td></tr>
+                    <tr><td>G</td><td>Wash Solution 1</td><td>150 µL</td></tr>
+                    <tr><td>H</td><td>Sample (homogenate)</td><td>100–200 µL</td></tr>
+                  </tbody>
+                </table></div>
+              </li>
+              <li>Add 2 µL 2-mercaptoethanol to each sample in row H.</li>
+              <li>Add 10 µL chloroform to each sample in row H.</li>
+              <li>Load the plate into the KingFisher Duo and start program A27828_DUO_Tissue_cells (green button).</li>
+              <li><strong>First prompt:</strong> remove the plate and add 100 µL isopropanol to each sample in row H. Return the plate and click the green check.</li>
+              <li><strong>Second prompt:</strong> add 10 µL RNA binding beads and 10 µL lysis/binding enhancer to each sample in row H. Return the plate and continue.</li>
+              <li><strong>Third prompt:</strong> add 50 µL rebinding buffer and 100 µL isopropanol to each well in row E. Return the plate and continue.</li>
+              <li>Let the protocol finish and collect your RNA from row A into single tubes.</li>
+            </ol>
+            <p class="muted" style="font-size:.95rem">Keep the DNase solution, 2-mercaptoethanol and bead reagents on ice.</p>
+
+
+
+
+          </li>
+
+          <!-- ============ 4. EQUALIZE ============ -->
+          <li class="step" id="equalize">
+            <h2>RNA quantification and equalization</h2>
+            <p>Measure RNA concentration and purity on the NanoDrop. Good RNA usually has an A260/A280 around 2.0. Then dilute every sample to the same concentration, <strong>50 ng/µL</strong>, so each cDNA reaction starts with the same amount of RNA (10 µL × 50 ng/µL = 500 ng).</p>
+            <div class="formula">
+              <p class="formula-name">Dilution formula (C₁V₁ = C₂V₂)</p>
+              <p>RNA stock volume = (target concentration × final volume) ÷ stock concentration</p>
+              <p>Water volume = final volume − RNA stock volume</p>
+            </div>
+            <div class="calc">
+              <label>Final volume (µL) <input type="number" id="eq-final" value="20" step="any"></label>
+              <label>Final concentration (ng/µL) <input type="number" id="eq-target" value="50" step="any"></label>
+              <label>RNA concentration (ng/µL) <input type="number" id="eq-stock" value="" step="any" placeholder="from NanoDrop"></label>
+            </div>
+            <div class="result-cells">
+              <div><span>Stock RNA</span><strong id="eq-rna">–</strong></div>
+              <div><span>Water</span><strong id="eq-water">–</strong></div>
+            </div>
+            <p class="calc-hint" id="eq-msg"></p>
+          </li>
+
+          <!-- ============ 5. cDNA ============ -->
+          <li class="step" id="cdna">
+            <h2>cDNA synthesis (High Capacity cDNA Reverse Transcription Kit)</h2>
+            <p>20 µL reaction: 10 µL master mix + 10 µL RNA (equalized to 50 ng/µL).</p>
+            <div class="calc">
+              <label>Number of samples <input type="number" id="cd-n" value="88" min="1"></label>
+            </div>
+            <p class="calc-sub">Master mix <span class="calc-note">+12% extra</span></p>
+            <div class="table-scroll"><table class="calc-table" id="cd-table"><thead></thead><tbody></tbody></table></div>
+            <h3>Steps</h3>
+            <ol>
+              <li>Place reagents on ice and mix gently. <strong>Do not vortex.</strong></li>
+              <li>Distribute 10 µL master mix to tubes, strips or plates.</li>
+              <li>Add 10 µL RNA template to each and mix by pipetting.</li>
+              <li>Add 10 µL water to the non-template control.</li>
+              <li>Keep on ice until loading into the thermal cycler.</li>
+            </ol>
+            <h3>Thermal cycler program</h3>
+            <div class="table-scroll"><table>
+              <thead><tr><th>Step</th><th>Temperature</th><th>Time</th></tr></thead>
+              <tbody>
+                <tr><td>1</td><td>25 °C</td><td>10 min</td></tr>
+                <tr><td>2</td><td>37 °C</td><td>120 min (2 × 60 min)</td></tr>
+                <tr><td>3</td><td>85 °C</td><td>5 min</td></tr>
+                <tr><td>4</td><td>4 °C</td><td>hold</td></tr>
+              </tbody>
+            </table></div>
+            <h3>Dilute the cDNA for qPCR</h3>
+            <p>After the run, dilute the cDNA <strong>1:10</strong>: take <strong>10 µL cDNA</strong> (of the 20 µL reaction) and add <strong>90 µL RNase-free water</strong>. Use <strong>2 µL</strong> of this diluted cDNA per qPCR well.</p>
+          </li>
+
+          <!-- ============ 6. qPCR ============ -->
+          <li class="step" id="qpcr">
+            <h2>qPCR (SYBR Green Master Mix)</h2>
+            <p>12 µL reaction: 10 µL master mix + 2 µL diluted cDNA (1:10), primers at 0.4 µM, in a 384-well plate.</p>
+            <div class="calc">
+              <label>Number of samples <input type="number" id="q-n" value="96" min="1"></label>
+              <label>Replicates <input type="number" id="q-rep" value="2" min="1"></label>
+            </div>
+            <p class="calc-sub">Master mix per primer pair <span class="calc-note">+8% extra</span></p>
+            <div class="table-scroll"><table class="calc-table" id="q-table"><thead></thead><tbody></tbody></table></div>
+            <h3>Steps</h3>
+            <ol>
+              <li>Mix gently. <strong>Do not vortex.</strong></li>
+              <li>Distribute 10 µL master mix to each well of the 384-well plate.</li>
+              <li>Add 2 µL diluted cDNA to each well.</li>
+              <li>Add 2 µL water to the non-template control.</li>
+            </ol>
+            <h3>Cycling program</h3>
+            <div class="table-scroll"><table>
+              <thead><tr><th>Stage</th><th>Temperature</th><th>Time</th></tr></thead>
+              <tbody>
+                <tr><td>Hold</td><td>50 °C</td><td>2 min</td></tr>
+                <tr><td>Hold</td><td>95 °C</td><td>10 min</td></tr>
+                <tr><td rowspan="2">40 cycles</td><td>95 °C</td><td>15 s</td></tr>
+                <tr><td>56 °C</td><td>35 s</td></tr>
+                <tr><td rowspan="3">Melt curve</td><td>95 °C</td><td>15 s</td></tr>
+                <tr><td>60 °C</td><td>15 s</td></tr>
+                <tr><td>95 °C</td><td>15 s</td></tr>
+              </tbody>
+            </table></div>
+          </li>
+
+          <!-- ============ 7. VIRUS LOAD ============ -->
+          <li class="step" id="virus-load">
+            <h2>Virus load calculation</h2>
+            <p><strong>Method:</strong> absolute quantification with a standard curve. Each virus has its own standard curve (a dilution series of known copy numbers), which gives a slope and an intercept. These convert a sample’s Cq into copies.</p>
+            <div class="formula">
+              <p class="formula-name">Formulas</p>
+              <p>log₁₀ copies = (Cq − intercept) ÷ slope</p>
+              <p>copies/µL = 10<sup>log₁₀ copies</sup> (rounded; set to 0 if Cq &gt; 32, treated as not detected)</p>
+              <p>Final value for graphs and statistics = <strong>log₁₀(copies + 1)</strong></p>
+            </div>
+            <p class="muted" style="font-size:.95rem">The “+1” keeps samples with 0 copies in the analysis, because log₁₀(0) does not exist; log₁₀(0 + 1) = 0.</p>
+            <div class="calc">
+              <label>Slope <input type="number" id="v-slope" value="-3.4613" step="any"></label>
+              <label>Intercept <input type="number" id="v-int" value="41.271" step="any"></label>
+              <label>Cq cutoff <input type="number" id="v-cut" value="32" step="any"></label>
+            </div>
+            <p class="calc-hint">Example values are the DWV-B standard curve. Type Cq values, one per line (sample name optional).</p>
+            <textarea id="v-input" rows="4">sample-1 9.94
+sample-2 24.5
+sample-3 33.1</textarea>
+            <div class="table-scroll"><table class="calc-table" id="v-table"><thead></thead><tbody></tbody></table></div>
+          </li>
+
+          <!-- ============ 8. IMMUNE ============ -->
+          <li class="step" id="immune">
+            <h2>Immune gene expression</h2>
+            <p><strong>Method:</strong> relative quantification with the 2<sup>−ΔCq</sup> method, normalized to the geometric mean of the housekeeping (reference) genes. The number of housekeeping genes can differ between studies; use the mean of all the ones you ran.</p>
+            <div class="formula">
+              <p class="formula-name">Formulas</p>
+              <p>Reference Cq = geometric mean of the housekeeping gene Cqs = (Cq₁ × Cq₂ × … × Cqₙ)<sup>1/n</sup></p><p>(n = number of housekeeping genes)</p>
+              <p>ΔCq = Cq<sub>gene</sub> − reference Cq</p>
+              <p>Relative expression = <strong>2<sup>−ΔCq</sup></strong></p>
+            </div>
+            <p class="muted" style="font-size:.95rem">Unlike virus loads, this gives expression relative to the reference genes, not copy numbers. A smaller ΔCq means higher expression.</p>
+            <div class="calc">
+              <span id="hk-list" style="display:contents"></span>
+              <div class="calc-btns"><button type="button" id="hk-add">+ Add gene</button><button type="button" id="hk-del">− Remove</button></div>
+            </div>
+            <p class="calc-hint">Type the Cq of each immune gene for this sample, one per line (gene name optional).</p>
+            <textarea id="i-input" rows="4">Apidaecin 29.08
+Defensin-1 17.59
+Dicer 24.11</textarea>
+            <div class="table-scroll"><table class="calc-table" id="i-table"><thead></thead><tbody></tbody></table></div>
+          </li>
+        </ol>
+      </article>
+    </div>
+  </div>
+</main>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  const f=(x,d=2)=>Number.isFinite(x)?x.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}):'–';
+  function fill(id,head,rows){const t=$(id);t.tHead.innerHTML='<tr>'+head.map(h=>'<th>'+h+'</th>').join('')+'</tr>';t.tBodies[0].innerHTML=rows.map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('');}
+  function mix(id,n,extra,comps,unitPer,noTotal){
+    let tot=0,totX=0;const rows=comps.map(([name,v])=>{const a=v*n,b=a*(1+extra);tot+=a;totX+=b;return [name,f(v,2),f(a,1),f(b,1)];});
+    if(!noTotal) rows.push(['<strong>Total</strong>','<strong>'+f(comps.reduce((s,c)=>s+c[1],0),2)+'</strong>','<strong>'+f(tot,1)+'</strong>','<strong>'+f(totX,1)+'</strong>']);
+    fill(id,['Component',unitPer||'Per reaction (µL)','Total (µL)','With extra (µL)'],rows);
+  }
+  function lines(id){return $(id).value.split('\n').map(l=>l.trim()).filter(Boolean).map((l,i)=>{const m=l.match(/(-?\d*\.?\d+)\s*$/);const name=m?l.slice(0,m.index).trim():l;return [name||('Sample '+(i+1)),m?parseFloat(m[1]):NaN];});}
+  function magmax(){const n=+$('mm-n').value||0;mix('mm-table',n,0.05,[['MagMAX TURBO DNase buffer',48],['TURBO DNase',2]],'Per sample (µL)');}
+  function vdose(){const S=parseFloat($('vd-stock').value),D=+$('vd-dose').value,I=+$('vd-inj').value,T=+$('vd-total').value,V=$('vd-v'),P=$('vd-p'),M=$('vd-msg');M.textContent='';
+    if(!(S>0&&D>0&&I>0&&T>0)){V.textContent='–';P.textContent='–';return;}const c=D/I;if(c>S){V.textContent='–';P.textContent='–';M.textContent='The stock is too weak for this dose in this injection volume.';return;}
+    const v=c*T/S;V.textContent=(v<0.01?v.toExponential(2):f(v,2))+' µL';P.textContent=f(T-v,2)+' µL';M.textContent='Working concentration: '+c.toExponential(2)+' copies/µL. '+(v<1?'Less than 1 µL of stock is hard to pipette accurately; make an intermediate dilution first.':'');}
+  function eq(){const T=+$('eq-target').value,V=+$('eq-final').value,c=parseFloat($('eq-stock').value);const R=$('eq-rna'),W=$('eq-water'),M=$('eq-msg');M.textContent='';
+    if(!(c>0)||!(T>0)||!(V>0)){R.textContent='–';W.textContent='–';return;}
+    if(c<=T){R.textContent=f(V,2)+' µL';W.textContent='0.00 µL';M.textContent='RNA concentration is at or below the final concentration, so use it undiluted.';return;}
+    const r=T*V/c;R.textContent=f(r,2)+' µL';W.textContent=f(V-r,2)+' µL';}
+  function cdna(){const n=+$('cd-n').value||0;
+    mix('cd-table',n,0.12,[['10X RT Buffer',2],['25X dNTP Mix (100 mM)',0.8],['10X RT Random Primers',2],['MultiScribe Reverse Transcriptase',1],['RNase Inhibitor',0],['RNase-free water',4.2]]);}
+  function qpcr(){const n=(+$('q-n').value||0)*(+$('q-rep').value||0);mix('q-table',n,0.08,[['2X SYBR Green Master Mix',6],['Forward primer',0.48],['Reverse primer',0.48],['RNase-free water',3.04]]);}
+  function virus(){const m=+$('v-slope').value,b=+$('v-int').value,cut=+$('v-cut').value;
+    fill('v-table',['Sample','Cq','log₁₀ copies','copies/µL','log₁₀(copies+1)'],lines('v-input').map(([n,cq])=>{if(!Number.isFinite(cq))return [n,'–','–','–','–'];const lg=(cq-b)/m;const cp=cq>cut?0:Math.round(Math.pow(10,lg));return [n,f(cq,2),f(lg,2),cq>cut?'0 <span class="warn">(not detected)</span>':cp.toExponential(2),'<strong>'+f(Math.log10(cp+1),2)+'</strong>'];}));}
+  function hkInputs(n){const L=$('hk-list');while(L.children.length<n){const k=L.children.length+1;const lab=document.createElement('label');lab.innerHTML='Housekeeping gene '+k+' Cq <input type="number" step="any" class="hk">';lab.querySelector('input').value=[17.09,26.53,21.99][k-1]??'';lab.querySelector('input').addEventListener('input',immune);L.appendChild(lab);}while(L.children.length>n&&L.children.length>1)L.lastChild.remove();immune();}
+  function immune(){const r=[...document.querySelectorAll('.hk')].map(i=>parseFloat(i.value)).filter(v=>v>0);const g=r.length?Math.exp(r.reduce((s,v)=>s+Math.log(v),0)/r.length):NaN;
+    fill('i-table',['Gene','Cq','Reference Cq (geo. mean of '+r.length+')','ΔCq','2<sup>−ΔCq</sup>'],lines('i-input').map(([n,cq])=>{if(!Number.isFinite(cq)||!Number.isFinite(g))return [n,Number.isFinite(cq)?f(cq,2):'–','–','–','–'];const d=cq-g;return [n,f(cq,2),f(g,2),f(d,2),'<strong>'+Math.pow(2,-d).toPrecision(3)+'</strong>'];}));}
+  $('hk-add').addEventListener('click',()=>hkInputs(document.querySelectorAll('.hk').length+1));
+  $('hk-del').addEventListener('click',()=>hkInputs(document.querySelectorAll('.hk').length-1));
+  const map={'vd-stock':vdose,'vd-dose':vdose,'vd-inj':vdose,'vd-total':vdose,'mm-n':magmax,'eq-target':eq,'eq-final':eq,'eq-stock':eq,'cd-n':cdna,'q-n':qpcr,'q-rep':qpcr,'v-slope':virus,'v-int':virus,'v-cut':virus,'v-input':virus,'i-input':immune};
+  Object.entries(map).forEach(([id,fn])=>$(id).addEventListener('input',fn));
+  [vdose,magmax,eq,cdna,qpcr,virus].forEach(fn=>fn());hkInputs(3);
+})();
+</script>
+
+<!-- ============ FOOTER (same on every page) ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="year">2026</span> Gokul Dhanapati &middot; Mississippi State University</p>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="research-methods.html">Research Methods</a>
+      <a href="bioinformatics.html">Bioinformatics</a>
+      <a href="phd-guide.html">PhD Guide</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* Small script shared by every page: mobile menu, contents highlight, footer year. */
+(function () {
+  // Mobile menu
+  var btn = document.querySelector('.menu-btn');
+  var nav = document.getElementById('site-nav');
+  if (btn && nav) {
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open);
+      btn.querySelector('.label').textContent = open ? 'Close' : 'Home';
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') { nav.classList.remove('open'); btn.setAttribute('aria-expanded', false); btn.querySelector('.label').textContent = 'Home'; }
+    });
+  }
+
+  // Highlight the current section in the side contents list
+  var tocLinks = document.querySelectorAll('.toc a[href^="#"]');
+  if (tocLinks.length && 'IntersectionObserver' in window) {
+    var map = {};
+    tocLinks.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          tocLinks.forEach(function (a) { a.classList.remove('active'); });
+          var link = map[en.target.id];
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+    Object.keys(map).forEach(function (id) { var el = document.getElementById(id); if (el) obs.observe(el); });
+  }
+
+  // Footer year
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+})();
+
+</script>
+</body>
+</html>
